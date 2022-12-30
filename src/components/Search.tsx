@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 const Search = () => {
 
 const dispatch = useDispatch();
-const [inputState, setInputState] = useState(true);
+const [inputState, setInputState] = useState(false);
 const [inputVal, setInputVal] = useState('');
 const navigate = useNavigate()
 

@@ -30,7 +30,6 @@ const getMovieData = createAsyncThunk<getMovieDataType>(
             .then((res) => {return res.data})
             .catch((error)=>{console.log('last:',error)})
 
-
         const isComing = baseSet.get(`/3/movie/upcoming?api_key=${API_KEY}&language=kr-US&page=1`)
             .then((res) => {return res.data})
             .catch((error)=>{console.log('isComing:',error)})

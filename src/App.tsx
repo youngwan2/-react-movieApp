@@ -10,6 +10,7 @@ import Header from './components/Header';
 
 function App() {
 
+
   // 3개의 페이지가 필요, 홈페이지, 무비페이지, 세부페이지
   // 홈페이지에서 배너를 볼 수 있다.
   // 3가지 종류의 섹션 영화를 볼 수 있다. (인기, 순위, 올린순)

@@ -6,7 +6,6 @@ interface castType{
     apiData : any
 }
 const Cast:React.FC<castType> = ({apiData}) => {
-    console.log("cast",apiData.cast)
 
 
 
