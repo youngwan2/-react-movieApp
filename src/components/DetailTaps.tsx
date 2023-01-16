@@ -7,18 +7,18 @@ import { API_KEY } from "../slice/movieSlice";
 import { baseSet } from "../slice/movieSlice";
 import TopShift from "./topShift";
 
+
+
 interface TapsTypes {
   id: number;
 }
 
-interface getApiDataType {}
-
 const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
   const [getApiData, setGetApiData] = useState("");
   const [changeTapsData, setChangeTapsData] = useState("");
-  const [selectMenu, setSelectMenu] = useState(["Similar", "Cast", "Review"]);
-
+  const [selectMenu] = useState(["Similar", "Cast", "Review"]);
   const [menuCount, setMenuCount] = useState(0);
+
 
   //하단 탭스 클릭 시 해당 value를 api에 전달해주는 함수
   const RespondToTabsChanges = useCallback(() => {
@@ -43,7 +43,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
 
   //API 호출
   const getDetailTapsData = useCallback(
-    async (value: any) => {
+    async (value: string) => {
       if (value !== "")
         await baseSet
           .get(
@@ -74,8 +74,8 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
               className="tap_btn"
               key={i}
               onClick={() => {
-                let selectNum= [i]
-                let copy =[...selectNum]
+                let selectNum = [i]
+                let copy = [...selectNum]
                 return setMenuCount(copy[0]);
               }}
             >
@@ -96,8 +96,13 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
       ) : null}
 
       <TopShift />
+
+
+    
+        
+
+
     </div>
   );
 }
-
 export default DetailTaps;
