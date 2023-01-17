@@ -7,17 +7,14 @@ import { useNavigate } from "react-router-dom";
 const Pagination = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [totalPage, setTotalPage] = useState(120);
+  const [totalPage] = useState(120);
   const [pageRender, setPageRender] = useState<any>([]);
-  const [tempPageNum,setTempPageNum] = useState<number>();
+  const [,setTempPageNum] = useState<number>();
 
-  let realCurrentPage = useSelector((state: any) => {
+  let realCurrentPage = useSelector((state:any) => {
     return state.pageInfo;
   });
   console.log(realCurrentPage);
-
-
-
 
 
   //페이지네이션 그리는 함수
@@ -60,11 +57,10 @@ const Pagination = () => {
       for (let i = firstPage; i <= lastPage; i++) {
         pagination.push(
           <li  
-            className={`${ realCurrentPage === i ?'action' : 'pagination_list'}`}
+            className={`${ realCurrentPage === i ? 'action' : 'pagination_list'}`}
             onClick={(e) => {    
                 setTempPageNum(Number(e.currentTarget.innerHTML))
-      
-             
+                   
               if (Number(e.currentTarget.innerHTML) <= totalPage)
                 dispatch(
                   pageInfoCommunicator(Number(e.currentTarget.innerHTML))
@@ -103,8 +99,7 @@ const Pagination = () => {
         );
 
       setPageRender(pagination);
-    },
-    [dispatch, navigate]
+    }, [dispatch, navigate]
   );
 
   useEffect(() => {
@@ -113,7 +108,7 @@ const Pagination = () => {
 
   return (
     <ul className="pagination">
-      {pageRender.map((el: any, i: number) => {
+      {pageRender.map((el: JSX.Element, i: number) => {
         return (
           <span className="pagination_span" key={i}>
             {el}
