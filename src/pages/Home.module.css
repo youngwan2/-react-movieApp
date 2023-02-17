@@ -1,0 +1,13 @@
+.home {
+    height: 960px;
+  }
+  
+  .main_container .slide_title {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 5px 15px goldenrod;
+  }
+  

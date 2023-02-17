@@ -1,8 +1,8 @@
 import React from "react";
-import MoviesSide from "../components/sideTap";
-import MoviesCard from "../components/MoviesCard";
-import TopShift from "../components/topShift";
-import Pagination from "../components/pagination";
+import styles from './Movies.module.css'
+import MoviesSide from "../components/movies/MovieSide";
+import MoviesCard from "../components/movies/MoviesCard"
+import TopShift from "../components/movies/TopShift";
 import { useEffect, useState } from "react";
 
 const Movies = () => {
@@ -14,21 +14,20 @@ const Movies = () => {
     }, 6000);
   }, []);
   return (
-    <div className="movies">
+    <div className={styles.movies}>
       {display === true ? (
-        <div className="movies_disappear_box">
-          <div className="box_content">
+        <div className={styles.movies_disappear_box}>
+          <div className={styles.box_content}>
             {" "}
             방문해주셔서 감사합니다. 오늘도 좋은 하루 되세요.
           </div>
         </div>
       ) : null}
 
-      <div className="movies_container">
+      <div className={styles.movies_container}>
         <MoviesSide />
         <MoviesCard />
         <TopShift />
-        <Pagination />
       </div>
     </div>
   );

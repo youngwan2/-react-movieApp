@@ -1,0 +1,39 @@
+.movies_container {
+  display: flex;
+}
+.movies_disappear_box {
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  position: fixed;
+  animation: hide 2s ease;
+  opacity: 1;
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+}
+
+.box_content {
+  width: 100%;
+  padding: 30px;
+  border-left: none;
+  border-right: none;
+  font-size: 17px;
+  border-radius: 2px;
+  background-color: #6e0630;
+  opacity: 1;
+  color: #ffffff;
+  -webkit-box-shadow: 8px 0px 0px 0px #dcd0c0, 0px 8px 0px 0px #b1938b,
+    -8px 0px 0px 0px #4e4e56, 0px 0px 0px 8px #da635d,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 8px 0px 0px 0px #dcd0c0, 0px 8px 0px 0px #b1938b,
+    -8px 0px 0px 0px #4e4e56, 0px 0px 0px 8px #da635d,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}

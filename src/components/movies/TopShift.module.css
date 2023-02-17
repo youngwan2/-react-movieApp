@@ -1,0 +1,37 @@
+/* topShift.tsx */
+
+.top_move {
+  width: 40px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: rgb(16, 6, 118);
+  opacity: 0.7;
+  line-height: 45px;
+  position: fixed;
+  font-size: 23px;
+  color: white;
+  text-align: center;
+  right: 1.36rem;
+  bottom: 3.4rem;
+  padding: 0 1.7px 0 1.7px;
+  z-index: 20;
+  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.top_move:hover {
+  cursor: pointer;
+  background: goldenrod;
+  color: #1c34ab;
+  font-size: 26px;
+}
+
+/* 미디어 쿼리 */
+@media all and (max-width: 338px) {
+  .top_move {
+    bottom: 10px;
+    right: 10px;
+  }
+}

@@ -1,9 +1,11 @@
 import React, {useState}  from 'react';
+import styles from './Search.module.css' ;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { API_KEY,baseSet } from '../slice/movieSlice';
+import { API_KEY } from '../../pages/Home';
+import { baseSet } from '../../slice/MovieSlice';
 import { useNavigate } from 'react-router-dom';
-import { sortbySearchData } from '../slice/sortbySearchSlice';
+import { sortBySearchData } from '../../slice/SortBySearchSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -18,15 +20,15 @@ const navigate = useNavigate()
 const getSearchMovieDate = (inputVal:string) =>{
     return ( 
         baseSet.get(`/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputVal}`)
-            .then((response)=>{dispatch(sortbySearchData(response.data))})
+            .then((response)=>{dispatch(sortBySearchData(response.data))})
             .catch((error)=>{console.log("검색실패:",error)})
     )
 }
 
 
     return (
-        <section className='search_section'>
-            <div className='search_icon'> 
+        <section className={styles.search_section}>
+            <div className={styles.search_icon}> 
                <FontAwesomeIcon icon={faMagnifyingGlass}
                 onClick={()=>{
                   setInputState((result)=>{return result =!inputState})
@@ -34,9 +36,9 @@ const getSearchMovieDate = (inputVal:string) =>{
                
            </div>
             {inputState === true
-                ? <div className='input_container'>
+                ? <div className={styles.input_container}>
                     <input  
-                        className='user_input' 
+                        className={styles.user_input} 
                         type={"text"} 
                         name="user_input"
                         onChange={(event)=>{
@@ -44,7 +46,7 @@ const getSearchMovieDate = (inputVal:string) =>{
                         }}>
                     </input>
                     <div 
-                        className='search_btn'
+                        className={styles.search_btn}
                         onClick={()=>{
                                 if(inputVal !==''){
                                 getSearchMovieDate(inputVal)

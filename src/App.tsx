@@ -4,7 +4,7 @@ import Movies from './pages/Movies';
 import Detail from './pages/Detail';
 import {Routes,Route} from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import Header from './components/header/Header';
 
 
 

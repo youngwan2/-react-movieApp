@@ -1,16 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import movieSlice from "./slice/movieSlice";
-import { sortbySearchSlice } from "./slice/sortbySearchSlice";
-import { detailTapsSlice } from "./slice/detailTapsSlice";
-import { pageInfoSlice } from "./slice/pageInfoSlice";
-
+import movieSlice from "./slice/MovieSlice";
+import { sortBySearchSlice } from "./slice/SortBySearchSlice";
+import { detailTapsSlice } from "./slice/DetailTapsSlice";
 
 export default configureStore({
     reducer :{
         movies : movieSlice.reducer,
-        sortbySearch : sortbySearchSlice.reducer,
-        detailTaps: detailTapsSlice.reducer,
-        pageInfo : pageInfoSlice.reducer,
+        sortBySearch : sortBySearchSlice.reducer,
+        detailTaps: detailTapsSlice.reducer
      }
 });
 

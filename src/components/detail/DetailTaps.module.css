@@ -1,0 +1,43 @@
+/* DetailTaps */
+.detail_taps {
+  padding-top: 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* 탭 버튼 */
+.tap_btn {
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 10px 25px 10px 25px;
+  color: rgb(216, 164, 164);
+  width: 200px;
+  padding: auto;
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+  border-radius: 1px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.tap_btn:hover {
+  background-color: goldenrod;
+  color: #231f1f;
+  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+.tap_btn:focus {
+  background-color: rgb(229, 171, 12);
+  padding: 11px 25px 11px 25px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}

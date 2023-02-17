@@ -1,0 +1,259 @@
+.detail {
+    color: white;
+    display: flex;
+    justify-content: center;
+    height: 675px;
+    max-height: 1000px;
+    align-items: center;
+    align-content: center;
+    opacity: 100%;
+    z-index: 0;
+    -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1),
+      0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1),
+      0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1),
+      0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1),
+      0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1),
+      0px 30px 0px 20px rgba(0, 0, 0, 0.1), 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1),
+      0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1),
+      0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1),
+      0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1),
+      0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1),
+      0px 30px 0px 20px rgba(0, 0, 0, 0.1), 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+  .detail_title {
+    z-index: 2;
+    color: #e4cd86;
+    text-shadow: 0 -1px 4px rgb(168, 125, 125), 0 -2px 10px rgb(130, 98, 30),
+      0 -10px 20px #837203, 0 -18px 40px #f00;
+  }
+  
+  .detail_img {
+    transform: skew(1deg);
+    z-index: 30;
+    width: 100%;
+    height: 541.97px;
+    border-radius: 10px;
+    border: 1px solid black;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+  
+  .detail_img:hover {
+    animation: detailImg 1s ease-in-out;
+    cursor: pointer;
+    transform: skew(3deg);
+    box-shadow: inset #fff 3px -3px 50px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+      red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+  
+  @keyframes detailImg {
+    from {
+      transform: skew(1deg);
+    }
+    to {
+      transform: skew(3deg);
+    }
+  }
+  
+  .detail_contents {
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    opacity: 90%;
+    background: linear-gradient(rgb(156, 15, 60), black);
+    color: #f1e1e1;
+    font-weight: 600;
+    margin-left: 2.1rem;  margin-top: 33.7rem;
+    width: 800px;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+  
+    /* -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+      box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); */
+    margin-top: 0;
+    width: 500px;
+    height: 501.97px;
+    padding: 20px;
+    transform: translateY(-4px);
+    animation: updown 3s ease-in-out infinite;
+  }
+  
+  @keyframes updown {
+    50% {
+      transform: translateY(4px);
+    }
+  }
+  
+  .detail_contents:hover {
+    animation-iteration-count: none;
+    -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+      red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+      red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+  
+  .detail_genres {
+    display: inline-block;
+    text-align: center;
+    z-index: 2;
+    margin: 5px;
+    color: rgb(255, 192, 33);
+    background-color: rgba(10, 14, 94, 0.78);
+    border-radius: 5px;
+    padding: 3px 5px 3px 5px;
+  }
+  
+  .detail_overview {
+    color: rgb(0, 0, 0);
+    transform: scale(1.05);
+    z-index: 2;
+    padding: 15px 0 25px 10px;
+    border-radius: 5px;
+    line-height: 30px;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+      5px 5px 15px 5px rgba(0, 0, 0, 0);
+    background: rgb(255, 255, 255);
+  }
+  
+  .detail_vote_average {
+    z-index: 2;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+  }
+  
+  .detail_contents div {
+    z-index: 2;
+    margin: 15px 5px 15px 5px;
+  }
+
+
+
+  /*--------------------- media query 영역 -------------*/
+
+@media all and (max-width: 700px) and (hover: hover) {
+  .detail {
+    flex-direction: column;
+    min-height: 1200px;
+    padding-top: 2rem;
+  }
+
+  .detail_img {
+    width: 100%;
+    height: 400px;
+    margin-top: -10rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media all and (max-width: 590px) {
+  .detail {
+    padding-top: 10rem;
+    flex-direction: column;
+  }
+
+  .detail_contents {
+    width: 400px;
+    height: 700px;
+    margin-right: 8%;
+    margin-top: 2rem;
+  }
+}
+
+@media all and (max-width: 466px) {
+  .preview_videos {
+    max-width: 380px;
+  }
+}
+@media all and (max-width: 450px) {
+  .banner_title {
+    text-align: left;
+  }
+  .banner_overview {
+    margin-top: 2.5rem;
+  }
+  .slide_title {
+    padding-bottom: 3px;
+  }
+  .overlay {
+    line-height: 34px;
+    opacity: 1;
+    padding: 5px;
+    background: linear-gradient(
+      90deg,
+      rgba(14, 48, 216, 0.39),
+      rgba(227, 20, 106, 0.312)
+    );
+  }
+  .overlay:hover {
+    opacity: 0;
+    animation: none;
+    transform: none;
+  }
+  .similar_content:hover {
+    opacity: 0;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .detail {
+    padding-top: 8rem;
+    height: 1000px;
+  }
+  .detail_img {
+    width: 200px;
+    height: 330px;
+    margin-top: -5rem;
+  }
+  .detail_contents {
+    width: 330px;
+    height: 800px;
+    margin-right: 8%;
+  }
+  .detail_title,
+  .detail_genres {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .movies_card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .detail_img {
+    height: 340px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .detail {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+  }
+  .detail_img {
+    width: 200px;
+  }
+  .detail_contents {
+    width: 300px;
+  }
+}
+
+@media all and (max-width: 338px) {
+  .detail_contents {
+    width: 230px;
+    margin-left: 20px;
+  }
+  .detail_img {
+    height: 350px;
+  }
+}
+
+  

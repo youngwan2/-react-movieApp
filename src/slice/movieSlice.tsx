@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { API_KEY } from "../pages/Home";
 
-export const API_KEY = process.env.REACT_APP_API_KEY;
 
 //axios 기본 설정
 export const baseSet = axios.create({

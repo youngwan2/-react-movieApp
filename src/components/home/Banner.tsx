@@ -1,17 +1,19 @@
 import React from "react";
+import styles from './Banner.module.css'
 import { useSelector } from "react-redux";
 
 const Banner = () => {
   const { popularMovie } = useSelector((state: any) => {
+    
     return state.movies.data;
   });
 
   return (
-    <div className="Banner">
+    <div className={styles.banner}>
       {popularMovie && (
-        <div className="img_parent">
+        <div className={styles.img_con}>
           <div
-            className="banner_img"
+            className={styles.banner_img}
             style={{
               transform: "scale(0.97)",
               backgroundSize: "cover",
@@ -23,9 +25,9 @@ const Banner = () => {
             }}
           ></div>
 
-        <div className="img_parent">
+          <div className={styles.img_con}>
             <div
-              className="banner_img"
+              className={styles.banner_img}
               style={{
                 transform: "scale(1.0)",
                 backgroundSize: "cover",
@@ -38,9 +40,9 @@ const Banner = () => {
             ></div>
           </div>
 
-          <div className="img_parent">
+          <div className={styles.img_con}>
             <div
-              className="banner_img"
+              className={styles.banner_img}
               style={{
                 transform: "scale(1.01)",
                 backgroundSize: "cover",
@@ -53,15 +55,14 @@ const Banner = () => {
                   ")",
               }}
             ></div>
-            <h1 className="banner_title">{popularMovie.results[0].title}</h1>
-            <p className="banner_overview">
+            <h1 className={styles.banner_title}>{popularMovie.results[0].title}</h1>
+            <p className={styles.banner_overview}>
               {popularMovie.results[0].overview}
             </p>
           </div>
-
-          <div className="img_parent">
+          <div className={styles.img_con}>
             <div
-              className="banner_img"
+              className={styles.banner_img}
               style={{
                 transform: "scale(1.0)",
                 backgroundSize: "cover",
@@ -74,9 +75,9 @@ const Banner = () => {
             ></div>
           </div>
 
-          <div className="img_parent">
+          <div className={styles.img_con}>
             <div
-              className="banner_img"
+              className={styles.banner_img}
               style={{
                 transform: "scale(0.97)",
                 backgroundSize: "cover",

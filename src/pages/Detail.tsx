@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback, SyntheticEvent } from "react";
-import { API_KEY } from "../slice/movieSlice";
-import DetailTaps from "../components/DetailTaps";
+import styles from './Detail.module.css'
+import { API_KEY } from "./Home";
+import DetailTaps from "../components/detail/DetailTaps";
 import { useParams } from "react-router-dom";
-import { baseSet } from "../slice/movieSlice";
+import { baseSet } from "../slice/MovieSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faP } from "@fortawesome/free-solid-svg-icons";
-import Player from '../components/Player'
+import Player from '../components/detail/Player'
 
 
 const Detail = () => {
@@ -33,8 +34,6 @@ const Detail = () => {
   }, [id]);
 
 
-
-
   useEffect(() => {
     idSearchGetMoviesData();
   }, [idSearchGetMoviesData]);
@@ -44,17 +43,17 @@ const Detail = () => {
       <div>
         {detailInfo === 404?
         <h1>자료가 존재하지 않습니다.</h1>
-      :<div className="detail"
+      :<div className={styles.detail}
           style={{
             backgroundPosition:"center",
             backgroundSize:'cover',
             backgroundImage:"url("+`https://image.tmdb.org/t/p/w500${detailInfo.backdrop_path}`+")"
           }}>
         
-      <div className ="detail_preview_video">
+      <div className ={styles.detail_preview_video}>
         
         <img
-          className="detail_img"
+          className={styles.detail_img}
           alt="영화이미지"
           width={400}
           height={500}
@@ -62,25 +61,25 @@ const Detail = () => {
           onError={imageOnErrorHandler}
       ></img>
       </div>
-          <section className="detail_contents">
-              <h1 className="detail_title">{detailInfo.original_title}</h1>
+          <section className={styles.detail_contents}>
+              <h1 className={styles.detail_title}>{detailInfo.original_title}</h1>
               <div><FontAwesomeIcon className="calendar" icon={faCalendar}/> {detailInfo.release_date}</div>
               
               {detailInfo.genres !== undefined
                 ? detailInfo.genres.map((data: any, i: number) => {
                     return (
-                      <span key={i} className="detail_genres">
+                      <span key={i} className={styles.detail_genres}>
                         {data.name}
                       </span>
                     );
                   })
                 : null}
-              <div className="detail_runtime"><FontAwesomeIcon  className={"person_running"}icon={faPersonRunning}/>{detailInfo.runtime} min</div>
-              <div className="detail_vote_average">
+              <div className={styles.detail_runtime}><FontAwesomeIcon  className={"person_running"}icon={faPersonRunning}/>{detailInfo.runtime} min</div>
+              <div className={styles.detail_vote_average}>
                 <FontAwesomeIcon className="point" icon={faP}></FontAwesomeIcon>
                 {Math.ceil(detailInfo.vote_average*10)} points
               </div>
-              <div className="detail_overview">{detailInfo.overview}</div>
+              <div className={styles.detail_overview}>{detailInfo.overview}</div>
           </section>
       </div>}
 

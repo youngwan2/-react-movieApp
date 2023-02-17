@@ -1,10 +1,14 @@
 import React from "react";
+import styles from './Home.module.css'
 import { useEffect, CSSProperties, useState } from "react";
-import { getMovieData } from "../slice/movieSlice";
+import { getMovieData } from "../slice/MovieSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Banner from "../components/Banner";
-import MovieSlide from "../components/MovieSlide";
+import Banner from "../components/home/Banner";
+import MovieSlide from "../components/home/MovieSlide";
 import ClipLoader from "react-spinners/ClipLoader";
+
+
+export const API_KEY = process.env.REACT_APP_API_KEY;
 
 const override: CSSProperties = {
   display: "block",
@@ -27,7 +31,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className="home">
+    <div className={styles.home}>
       {loading === true ? (
         <ClipLoader
           className="spinner"
@@ -37,13 +41,13 @@ const Home = () => {
           size={150}
         />
       ) : (
-        <div className="main_container">
+        <div className={styles.main_container}>
           <Banner />
-          <h1 className="slide_title">인기영화</h1>
+          <h1 className={styles.slide_title}>인기영화</h1>
           <MovieSlide movies={popularMovie} />
-          <h1 className="slide_title">평점높은 영화</h1>
+          <h1 className={styles.slide_title}>평점높은 영화</h1>
           <MovieSlide movies={topRateMovie} />
-          <h1 className="slide_title">최신 영화</h1>
+          <h1 className={styles.slide_title}>최신 영화</h1>
           <MovieSlide movies={isComingMovie} />
         </div>
       )}

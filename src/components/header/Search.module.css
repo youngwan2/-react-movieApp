@@ -1,0 +1,67 @@
+/* Search.tsx */
+
+.search_section {
+    display: flex;
+    margin-left: 10px;
+    position: absolute;
+    right: 1rem;
+  }
+  
+  .search_icon {
+    margin-right: 3px;
+    position: absolute;
+    font-size: 20px;
+    left: -1.8rem;
+    top: 0.3rem;
+  }
+  
+  .search_icon:hover {
+    cursor: pointer;
+    color: rgb(243, 196, 54);
+  }
+  
+  .user_input {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: none;
+    width: 300px;
+  }
+  
+  .user_input:focus {
+    outline: none;
+  }
+  
+  .search_btn {
+    position: absolute;
+    left: 13rem;
+    top: -1.5px;
+    display: inline-block;
+    padding: 8px 40px 9px 40px;
+    border: none;
+    background-color: rgba(247, 175, 21, 0.948);
+    font-weight: 700;
+    border-radius: 40px;
+    color: white;
+  }
+  
+  .search_btn:hover {
+    background-color: rgb(226, 160, 60);
+    cursor: pointer;
+  }
+  
+  .input_container {
+    opacity: 1;
+    animation-name: opacity;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes opacity {
+    from {
+      transform: translate(10rem);
+    }
+    to {
+      transform: translate(0);
+    }
+  }
