@@ -1,0 +1,56 @@
+.pagination {
+  width: 100vw;
+  transition: 1s;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(104, 10, 57, 0.763);
+}
+
+.pagination:hover{
+    box-shadow:  0 0 0 0, 1000px 1px 15px black inset,
+    -1000px 1px 15px black inset;
+}
+
+
+
+.pagination_nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_nav .pagination_ul {
+  padding-left: 10px;
+}
+
+.pagination_nav .pagination_ul li:first-child {
+  margin-left: 0;
+}
+
+.pagination_nav .pagination_ul li {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  margin-top: 0.25rem;
+  color: white;
+  list-style: none;
+  padding: 10px 15px 10px 15px;
+  border-radius: 50%;
+  background: linear-gradient(rgba(251, 245, 245, 0.374),transparent) ;
+    border: none;
+  box-shadow: -1px 1px 1px 1px rgb(254, 253, 255);
+}
+
+/* 이전/이후 페이지 이동 버튼 */
+.pagination button {
+  display: inline-block;
+  padding: 10px 15px 10px 15px;
+  border-radius: 50%;
+  background-color: rgb(176, 14, 76);
+  color: white;
+  text-align: center;
+  border: none;
+  margin: 0.25rem 10px 0 10px;
+  box-shadow: 1px 1px 5px 2px black;
+}

@@ -18,7 +18,7 @@ const Header = () => {
         src="/title2.png"
         alt="site_name"
       ></img>
-      <nav className={styles.header_logo}>
+      <nav className={styles.header_menu}>
         <Link className={styles.link} to={"/"}>
           Home
         </Link>

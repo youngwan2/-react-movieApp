@@ -21,19 +21,16 @@
 }
 
 .box_content {
+  font-family: 'Saira Semi Condensed', sans-serif;
   width: 100%;
+  letter-spacing: 2px;
   padding: 30px;
   border-left: none;
   border-right: none;
   font-size: 17px;
   border-radius: 2px;
-  background-color: #6e0630;
+  background-color: #6e0630cb;
   opacity: 1;
   color: #ffffff;
-  -webkit-box-shadow: 8px 0px 0px 0px #dcd0c0, 0px 8px 0px 0px #b1938b,
-    -8px 0px 0px 0px #4e4e56, 0px 0px 0px 8px #da635d,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 8px 0px 0px 0px #dcd0c0, 0px 8px 0px 0px #b1938b,
-    -8px 0px 0px 0px #4e4e56, 0px 0px 0px 8px #da635d,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 1px 1px 15px seashell ;
 }

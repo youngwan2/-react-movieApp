@@ -1,31 +1,40 @@
 /* slideCard.tsx */
 .genre {
   background-color: rgb(41, 105, 178);
-  border-radius: 10px;
+  border-radius: 5px;
+  width: 80px;
+  display: inline-block;
   z-index: 1;
-  margin: 2px;
-  padding: 3px 6px 3px 6px;
+  margin: 1.5px;
+  padding: 1px 1px 1px 1px;
 }
-.overlay {
+
+/* 영화 제목 */
+.title{
+  padding: 5px;
+}
+
+/* 영화 정보 */
+.slide_card_contents {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  transition: 1s;
+  transform: perspective(600px);
+  transform-style: preserve-3d;
+  position: relative;
   text-align: center;
   opacity: 0;
   z-index: 20;
   height: 100%;
 }
-.overlay:hover {
-  padding-top: 10px;
+.slide_card_contents:hover {
+  
+  transform: translateZ(100px) scale(1.1);
+  z-index: 100;
+  padding-top: 1.5em;
   opacity: 90%;
   line-height: 30px;
   background: radial-gradient(rgb(104, 103, 103), rgb(165, 76, 31));
-  transform: scale(1.13);
   border-radius: 5px;
-  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-    red 0 -18px 40px, 30px 50px 43px 6px rgba(255, 135, 37, 0.56),
-    -39px 35px 43px 6px rgba(255, 135, 37, 0.56),
-    21px 25px 43px 12px rgba(255, 75, 51, 0.56),
-    21px 25px 43px 12px rgba(255, 75, 51, 0.56),
-    42px -38px 43px 12px rgba(255, 75, 51, 0.56),
-    -31px -29px 43px 12px rgba(255, 75, 51, 0.56);
   box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
     red 0 -18px 40px, 30px 50px 43px 6px rgba(255, 135, 37, 0.56),
     -39px 35px 43px 6px rgba(255, 135, 37, 0.56),
@@ -33,21 +42,7 @@
     21px 25px 43px 12px rgba(255, 75, 51, 0.56),
     42px -38px 43px 12px rgba(255, 75, 51, 0.56),
     -31px -29px 43px 12px rgba(255, 75, 51, 0.56);
-  animation: scale 0.3s ease-in-out;
-
   cursor: pointer;
-}
-
-@keyframes scale {
-  from {
-    transform: scale(0.1);
-    opacity: 0;
-    transform: translate(-100px, 50px);
-  }
-  to {
-    transform: scale(1.13);
-    opacity: 90%;
-  }
 }
 
 /* 미디어 쿼리 */

@@ -37,11 +37,11 @@ const Similar: React.FC<similarType> = ({ apiData }) => {
                   <h2 className={styles.similar_title}>{movieList.title}</h2>
                   <div className={styles.similar_date}>{movieList.release_date}</div>
                   <div className={styles.similar_age}>
-                    {movieList.adult === false ? "청소년가능" : "성인이상"}
+                    {movieList.adult === false ? "Under 18" : "18+"}
                   </div>
                   <div className={styles.similar_grade}>
-                    <span>{movieList.vote_average}점</span>
-                    <span>({movieList.vote_count}명)</span>
+                    <span>{movieList.vote_average} P</span>
+                    <span> ({movieList.vote_count} people)</span>
                   </div>
                 </div>
               </div>

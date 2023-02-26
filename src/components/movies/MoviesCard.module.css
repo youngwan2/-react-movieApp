@@ -1,83 +1,100 @@
 /* MoviesCard */
 .movies_card {
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  .movies_card_title {
-    margin-bottom: 3px;
-  }
-  .movies_card_img {
-    width: 400px;
-    height: 200px;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin: 15px;
-    opacity: 99%;
-    -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-      5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-      5px 5px 15px 5px rgba(0, 0, 0, 0);
-  }
-  .movies_card_img:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
-  .movies_card_content {
-    color: rgb(255, 255, 255);
-    padding: 15px 15px 19px 11px;
-    margin: -1px -1px -10px -1px;
-    text-align: center;
-    flex-wrap: wrap;
-    opacity: 0;
-    background: linear-gradient(70deg, rgb(231, 97, 44), rgb(6, 6, 103));
-    height: 93%;
-    border-radius: 4px;
-  }
-  .movies_card_genre {
-    padding: 5px;
-    margin: 3px;
-    background-color: rgb(42, 100, 234);
-    border-radius: 10px;
-  }
-  .movies_card_content div,
-  .movies_card_genre {
-    line-height: 35px;
-  }
-  .movies_card_content:hover {
-    opacity: 90%;
-    transform: scale(1);
-    animation-name: transform;
-    border-radius: 10px;
-    padding: 5px 0 10px 0;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in-out;
-  }
-  
-  @keyframes transform {
-    from {
-      transform: scale(0.6);
-      opacity: 0;
-      transform: translate(-100px, 50px);
-    }
-    to {
-      transform: scale(1);
-      opacity: 90%;
-    }
-  }
-  
-  @media all and (max-width: 430px) {
+  transition: 1s all;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* 카드 영화 제목 */
+.movies_card_title {
+  padding-top: 7px;
+  margin-bottom: 3px;
+}
+
+/* 카드 이미지 */
+.movies_card_img {
+  transition: 0.5s;
+  perspective: 600px;
+  max-width: 400px;
+  width: 100%;
+  min-width: 300px;
+  height: 500px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 15px;
+  opacity: 99%;
+  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
 
 
+/* 카드 내용 */
+.movies_card_content {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  letter-spacing: 2px;
+  opacity: 0;
+  scale: 0.8;
+  perspective: 600px;
+  transition: 0.5s;
+  color: rgb(255, 255, 255);
+  padding: 15px 15px 19px 11px;
+  margin: -1px -1px -10px -1px;
+  text-align: center;
+  flex-wrap: wrap;
+  background-color: rgba(57, 57, 61, 0.665) ;
+  height: 97%;
+  border-radius: 4px;
+
+}
+
+.movies_card_img:hover .movies_card_content {
+  cursor: pointer;
+  opacity: 90%;
+  scale: 1.0;
+  transform: scale(1);
+  border-radius: 10px;
+  padding: 5px 0 10px 0;
+}
+
+
+
+/* 콘텐츠 박스 내부 컨테이너 */
+.card_content_inner_con {
+  margin-top: 16rem;
+  border-radius: 10px;
+  height: 241px;
+
+  box-shadow: 
+  1px 1px 10px 1px rgba(7, 34, 60, 0.191) inset,1px 1px 8px 9px rgba(21, 21, 21, 0.492) inset;
+  background: linear-gradient(70deg, rgb(231, 97, 44), rgb(6, 6, 103));
+}
+
+/* 장르정보 */
+.movies_card_content .movies_card_genre {
+  padding: 1px 5px 1px 5px; 
+  margin: 3px;
+  display: inline-block;
+  background-color: rgb(42, 100, 234);
+  border-radius: 10px;
+}
+.movies_card_content div,
+.movies_card_genre {
+  line-height: 35px;
+}
+
+/* 미디어 쿼리 */
+@media all and (max-width: 430px) {
   .movies_card {
     width: 100%;
   }
 }
 
 @media all and (max-width: 360px) {
-
   .movies_card {
     width: 100%;
   }

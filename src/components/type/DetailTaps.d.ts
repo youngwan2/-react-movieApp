@@ -12,3 +12,5 @@ export interface playerStateType {
     pageInfo: number;
     playState: boolean;
   }
+
+  // 리뷰 타입

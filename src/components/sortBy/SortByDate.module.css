@@ -1,37 +1,61 @@
 /* sortbyDate.tsx */
 .sortByDate {
-    margin-top: 2rem;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .range_input_label_con{
-    width: 100%;
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-  
-  .range_input_label_con .range_input_label {
-    padding: 5px;
-    margin-bottom: 2px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    font-size: 20px;
-    width: 100%;
-  }
-  
-  #sortByDate_range_input {
-    width: 90%;
-    text-align: center;
-  }
-  
-  .sortByDate_rangeVal {
-    color: tomato;
-    font-size: 20px;
-    font-weight: 600;
-  }
+  margin-top: 1rem;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* range  */
+.range_input_label_con {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.range_input_label_con .range_input_label {
+  padding: 5px;
+  margin-bottom: 1px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 24px;
+  width: 100%;
+  text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
+}
+
+#sortByDate_range_input {
+  width: 90%;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 1rem;
+}
+
+#sortByDate_range_input::-webkit-slider-runnable-track {
+  background-color: rgb(238, 203, 89);
+  border-radius: 5px;
+  box-shadow: 0 1px 5px yellow, 0 0 10px rgb(238, 61, 61);
+}
+
+#sortByDate_range_input::-webkit-slider-thumb {
+  transition: 0.5s;
+  padding: 11.5px;
+  border-radius: 50%;
+  box-shadow: 5px 50px 15px rgb(2, 26, 146) inset;
+}
+
+#sortByDate_range_input::-webkit-slider-thumb:hover {
+  box-shadow: 5px 50px 1px rgb(235, 31, 31) inset;
+  cursor: grabbing;
+}
+
+/* 범위의 연도 표시 */
+.sortByDate_rangeVal {
+  margin-top: 5px;
+  color: tomato;
+  font-size: 21px;
+  font-weight: 600;
+}

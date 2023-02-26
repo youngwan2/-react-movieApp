@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './Movies.module.css'
+import styles from "./Movies.module.css";
 import MoviesSide from "../components/movies/MovieSide";
-import MoviesCard from "../components/movies/MoviesCard"
+import MoviesCard from "../components/movies/MoviesCard";
 import TopShift from "../components/movies/TopShift";
 import { useEffect, useState } from "react";
 
@@ -19,7 +19,7 @@ const Movies = () => {
         <div className={styles.movies_disappear_box}>
           <div className={styles.box_content}>
             {" "}
-            방문해주셔서 감사합니다. 오늘도 좋은 하루 되세요.
+            Thank you for visiting. Hope you have a good time!.
           </div>
         </div>
       ) : null}
@@ -31,6 +31,6 @@ const Movies = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Movies;

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './DetailTaps.module.css'
+import styles from "./DetailTaps.module.css";
 import { useState, useEffect, useCallback } from "react";
 import Similar from "../detail/detailTaps/Similar";
 import Review from "../detail/detailTaps/Review";
@@ -13,7 +13,8 @@ interface TapsTypes {
 }
 
 const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
-  const [getApiData, setGetApiData] = useState("");
+  // 유사한 영화, 캐스트정보, 리뷰정보가 분기되어 getApiData에 할당됨.
+  const [getApiData, setGetApiData] = useState<any>("");
   const [changeTapsData, setChangeTapsData] = useState("");
   const [selectMenu] = useState(["Similar", "Cast", "Review"]);
   const [menuCount, setMenuCount] = useState(0);
@@ -23,13 +24,13 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
     let copy = changeTapsData;
     if (menuCount === 0) {
       copy = "similar";
-      setChangeTapsData(copy);
+      return setChangeTapsData(copy);
     } else if (menuCount === 1) {
       copy = "credits";
-      setChangeTapsData(copy);
+      return setChangeTapsData(copy);
     } else if (menuCount === 2) {
       copy = "reviews";
-      setChangeTapsData(copy);
+      return setChangeTapsData(copy);
     } else {
       return null;
     }
@@ -51,12 +52,13 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
             return setGetApiData(response.data);
           })
           .catch((error) => {
-            console.log("tapsError:", error);
+            console.error("tapsError:", error);
           });
     },
     [id]
   );
 
+  // 각  tap 에 해당하는 API 데이터를 가져온다.
   useEffect(() => {
     if (changeTapsData !== undefined) {
       getDetailTapsData(changeTapsData);
@@ -70,7 +72,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
           return (
             <button
               className={styles.tap_btn}
-              key={i}
+              key={Math.random() * 10000 * i}
               onClick={() => {
                 let selectNum = [i];
                 let copy = [...selectNum];
@@ -84,16 +86,10 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
       </div>
 
       {/* 디테일 페이지 화면 하단의 tap 영역 */}
-      {menuCount === 0 && changeTapsData === "similar" ? (
-        <Similar apiData={getApiData} />
-      ) : null}
-      {menuCount === 1 && changeTapsData === "credits" ? (
-        <Cast apiData={getApiData} />
-      ) : null}
-      {menuCount === 2 && changeTapsData === "reviews" ? (
-        <Review apiData={getApiData} />
-      ) : null}
-
+      {changeTapsData === "similar" ? <Similar apiData={getApiData} /> : null}
+      {changeTapsData === "credits" ? <Cast apiData={getApiData} /> : null}
+      {changeTapsData === "reviews" ? <Review apiData={getApiData} /> : null}
+      {/* 상단 이동 버튼 */}
       <TopShift />
     </div>
   );

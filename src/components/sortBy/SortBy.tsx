@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from "./SortBy.module.css";
 
 interface SortByType {
   setCurrentSort: Function;
@@ -11,25 +11,26 @@ const SortBy: React.FC<SortByType> = ({
   optionText,
   optionVal,
 }) => {
-
   return (
-    <div className="sort_by">
-      <label htmlFor="sort_by">sort by</label>
-      <select
-        onChange={(e) => {
-          setCurrentSort(e.target.value);
-        }}
-        className="select"
-        id="sort_by"
-      >
-        {optionText.map((text, i) => {
-          return (
-            <option key={Math.random()*10000} value={`${optionVal[i]}`}>
-              {text}
-            </option>
-          );
-        })}
-      </select>
+    <div className={styles.sort_by}>
+      <div className={styles.sort_by_inner_con}>
+        {" "}
+        <h3 className={styles.sort_by_title}>sort by</h3>
+        <select
+          onChange={(e) => {
+            setCurrentSort(e.target.value);
+          }}
+          className={styles.sort_by_select}
+        >
+          {optionText.map((text, i) => {
+            return (
+              <option key={Math.random() * 10000 * i} value={`${optionVal[i]}`}>
+                {text}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 };

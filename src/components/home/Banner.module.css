@@ -17,13 +17,10 @@
   height: 690px;
   /* filter: brightness(70%) opacity(90%); */
   border-radius: 4px;
-  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 1px 15px 15px 5px rgb(0, 0, 0);
 }
 .banner_img:hover {
-  animation-name: translate,trans;
+  animation-name: translate, trans;
   animation-duration: 0.7s;
   animation-timing-function: ease-in-out;
   opacity: 100%;
@@ -40,17 +37,46 @@
   }
 }
 
+/* 배너 영화 타이틀 */
 .banner_title {
   color: rgb(247, 239, 245);
   position: absolute;
   top: 11rem;
+  transition: 1s;
   left: 11%;
   z-index: 30;
 }
 .banner_title:hover {
   color: goldenrod;
+  text-shadow: 1px 1px 2px black;
+  font-family: "Saira Semi Condensed", sans-serif;
 }
+
+/* 배너 호버 시 밑줄 효과 */
+.banner_title:hover.banner_title::before {
+  border-style: dotted;
+  visibility: visible;
+  width: 100%;
+  border-bottom: 2px rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0;
+}
+
+.banner_title::before {
+  transition: 1s;
+  visibility: hidden;
+  content: "";
+  width: 0%;
+  border-style: dotted;
+  border-bottom: 2px rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0;
+}
+
 .banner_overview {
+  transition: 1s;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.678);
   position: absolute;
   z-index: 30;
@@ -62,10 +88,12 @@
   line-height: 34px;
 }
 .banner_overview:hover {
-  color: rgb(233, 175, 28);
+  padding: 10px;
+  box-shadow: 0 0 0 0, 0 500px rgba(115, 5, 40, 0.629) inset;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
 }
-
-
 
 @media all and (max-width: 450px) {
   .banner_title {

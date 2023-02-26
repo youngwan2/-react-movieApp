@@ -1,0 +1,37 @@
+.sort_by {
+  width: 100%;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.sort_by_inner_con {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.sort_by_title {
+  text-align: center;
+  color: white;
+  padding-bottom: 0.3rem;
+  font-size: 24px;
+  text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
+}
+
+.sort_by_select {
+  transition: 0.5s;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin: 0.5em;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  background-color: black;
+  padding: 8px 10px 8px 10px;
+}
+
+.sort_by_select:hover {
+  box-shadow: 0 0 0 0, 200px 0px 0px black inset;
+  color: rgb(255, 0, 64);
+}

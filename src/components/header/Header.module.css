@@ -1,41 +1,48 @@
 /* Header.tsx */
 
+/* 사이트 로고 */
+.header_logo{
+  z-index: 20;
+}
 .header_logo:hover {
-    cursor: pointer;
-  }
-  
-  .header {
-    display: flex;
-    color: rgb(255, 255, 255);
-    background: linear-gradient(#850514, rgb(41, 1, 1));
-    padding: 20px 20px 20px 20px;
-    left: 0;  right: 0;
-    z-index: 50;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000,
-      5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  }
-  
-  .header:hover {
-    z-index: 20;
-  }
-  
-  .header .header_menu {
-    text-align: center;
-    align-self: center;
-    padding-left: 1rem;
-  }
-  
-  .header .header_menu .link {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    list-style: none;
-    color: #ffffff;
-    text-shadow: #242222 3px 5px 2px;
-  }
-  
-  .header .header_menu .link:hover {
-    color: rgb(243, 196, 54);
-  }
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(#850514, rgb(41, 1, 1));
+  padding: 20px 20px 20px 20px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.header:hover {
+  z-index: 20;
+}
+
+/* 헤더 메뉴 */
+.header .header_menu {
+  text-align: center;
+  align-self: center;
+  padding-left: 1rem;
+  z-index: 10;
+}
+
+.header .header_menu .link {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  list-style: none;
+  color: #ffffff;
+  text-shadow: #242222 3px 5px 2px;
+}
+
+.header .header_menu .link:hover {
+  color: rgb(243, 196, 54);
+}
