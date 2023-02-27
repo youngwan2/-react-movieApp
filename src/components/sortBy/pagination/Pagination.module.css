@@ -7,13 +7,11 @@
   background-color: rgba(104, 10, 57, 0.763);
 }
 
-.pagination:hover{
-    box-shadow:  0 0 0 0, 1000px 1px 15px black inset,
-    -1000px 1px 15px black inset;
+.pagination:hover {
+  box-shadow: 0 0 0 0, 1000px 1px 15px black inset, -1000px 1px 15px black inset;
 }
 
-
-
+/* 페이지 이동 버튼 */
 .pagination_nav {
   position: relative;
   display: flex;
@@ -30,20 +28,29 @@
 }
 
 .pagination_nav .pagination_ul li {
+  cursor: pointer;
+  transition: 0.5s;
   display: inline-block;
-  margin: 0 10px 0 10px;
+  margin: 0 5px 0 5px;
   margin-top: 0.25rem;
   color: white;
   list-style: none;
   padding: 10px 15px 10px 15px;
   border-radius: 50%;
-  background: linear-gradient(rgba(251, 245, 245, 0.374),transparent) ;
-    border: none;
+  background: linear-gradient(rgba(251, 245, 245, 0.374), transparent);
+  border: none;
   box-shadow: -1px 1px 1px 1px rgb(254, 253, 255);
+}
+
+.pagination_nav .pagination_ul li:hover{
+  color:black;
+  box-shadow: 0 0 0 0, 25px 25px rgb(224, 171, 64) inset;
 }
 
 /* 이전/이후 페이지 이동 버튼 */
 .pagination button {
+  transition: 0.5s;
+  cursor: pointer;
   display: inline-block;
   padding: 10px 15px 10px 15px;
   border-radius: 50%;
@@ -51,6 +58,17 @@
   color: white;
   text-align: center;
   border: none;
-  margin: 0.25rem 10px 0 10px;
+  margin: 0.25rem 2px 0 2px;
   box-shadow: 1px 1px 5px 2px black;
+}
+
+.pagination button:hover {
+  color:black;
+  background-color: rgb(241, 211, 19);
+}
+
+@media screen and (max-width : 500px) {
+  .pagination {
+    width: 120vw;
+  }
 }

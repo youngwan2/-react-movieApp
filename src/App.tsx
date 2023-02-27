@@ -1,15 +1,20 @@
-import React from 'react';
-import Home from './pages/Home';
-import Movies from './pages/Movies';
-import Detail from './pages/Detail';
-import {Routes,Route} from 'react-router-dom';
-import './App.css';
-import Header from './components/header/Header';
-
-
+import React, { useEffect, useState } from "react";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
+import Detail from "./pages/Detail";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/header/Header";
 
 function App() {
-
+  const [scrollY, setScrollY] = useState(0);
+  const onScrollY = () => {
+    setScrollY(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollY);
+    // return window.removeEventListener('scroll',onScrollY)
+  });
 
   // 3개의 페이지가 필요, 홈페이지, 무비페이지, 세부페이지
   // 홈페이지에서 배너를 볼 수 있다.
@@ -23,16 +28,15 @@ function App() {
 
   return (
     <div className="App">
-      
-      <Header/>
+      {/* 스크롤 높이가 0보다 작은 경우만 상단 헤더가 보이도록 설정 */}
+      {scrollY > 0 ? null : <Header />}
 
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/movies' element={<Movies/>}></Route>
-        <Route path='/search' element={<Movies/>}></Route>
-        <Route path='/detail/:id' element={<Detail/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/search" element={<Movies />}></Route>
+        <Route path="/detail/:id" element={<Detail />}></Route>
       </Routes>
-
     </div>
   );
 }

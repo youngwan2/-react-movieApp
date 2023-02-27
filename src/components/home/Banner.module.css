@@ -29,10 +29,9 @@
 
 @keyframes trans {
   from {
-    transform: scale(1);
+    transform: scale(1.15);
   }
   to {
-    transform: scale(1.05) translateY(-25px);
     opacity: 100%;
   }
 }
@@ -45,6 +44,7 @@
   transition: 1s;
   left: 11%;
   z-index: 30;
+  font-size: 1.8rem;
 }
 .banner_title:hover {
   color: goldenrod;

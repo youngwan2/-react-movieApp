@@ -7,7 +7,11 @@ import { API_KEY } from "../../pages/Home";
 import { useDispatch } from "react-redux";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
 
-const SortByData = () => {
+interface SortByDataType {
+  setPage: Function;
+  pageAppear: Function;
+}
+const SortByData = ({ setPage, pageAppear }: SortByDataType) => {
   const dispatch = useDispatch();
 
   // 연도 데이터 저장
@@ -53,6 +57,10 @@ const SortByData = () => {
         min="2000"
         max={"2030"}
         step={"1"}
+        onClick={() => {
+          setPage(1);
+          pageAppear(false);
+        }}
         onChange={userRangeInput}
       ></input>
       <div className={styles.sortByDate_rangeVal}>

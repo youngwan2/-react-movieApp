@@ -7,7 +7,12 @@
   z-index: 20;
 }
 
+.movie_side:hover{
+  z-index: 100;
+}
+
 .movie_side_inner {
+  padding-top: 1rem;
   transition: 1s;
   translate: -300px;
   opacity: 0;
@@ -15,6 +20,7 @@
   top: 0;
   min-width: 290px;
   width: 230px;
+
   min-height: 700px;
   z-index: 2;
   background: rgb(17, 23, 72);
@@ -81,6 +87,7 @@
 .sidebar_hidden_btn {
   position: fixed;
   z-index: 1;
+  top: 6rem;
   border: 1px solid;
   padding: 5px;
   min-width: 40px;

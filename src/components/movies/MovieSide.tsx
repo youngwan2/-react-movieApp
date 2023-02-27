@@ -12,8 +12,14 @@ import Pagination from "../sortBy/pagination/Pagination";
 
 const MoviesSide = () => {
   const dispatch = useDispatch();
+
+  //  Movies 페이지 접속 시 기본은 sortBy의 인기순을 값으로 한다.
+  // 그 외 filter나 genre 별 검색 시에 페이지네이션 영역은 일반적으로 보이지 않도록 설정
+  // 즉, sortBy 를 제외하고, sortByDate, sortByGenre 때는 안보이게 설정함.
+  const [paginationAppear, setPaginationAppear] = useState(true);
   const [barHiddenState, setBarHiddenState] = useState(true);
   const [pageNumber, setPageNumber] = useState<number>(1);
+
   //sort by 의 select
   const [optionText] = useState([
     "Selection",
@@ -87,18 +93,23 @@ const MoviesSide = () => {
           setCurrentSort={setCurrentSort}
           optionText={optionText}
           optionVal={optionVal}
+          setPage={setPageNumber}
+          pageAppear={setPaginationAppear}
         />
         {/* 연도별 영화 정보 가져옴 */}
-        <SortByData />
+        <SortByData setPage={setPageNumber} pageAppear={setPaginationAppear} />
         {/* 장르별로 영화 정보 가져옴 */}
-        <SortByGenre />
+        <SortByGenre setPage={setPageNumber} pageAppear={setPaginationAppear} />
       </div>
 
       {/* 좌측의 sort tap 여는 버튼 */}
       <button className={styles.sidebar_hidden_btn} onClick={sidebarAppearFunc}>
         ▶
       </button>
-      <Pagination setPage={setPageNumber} currentPageNum={pageNumber} />
+
+      {paginationAppear ? (
+        <Pagination setPage={setPageNumber} currentPageNum={pageNumber} />
+      ) : null}
     </div>
   );
 };

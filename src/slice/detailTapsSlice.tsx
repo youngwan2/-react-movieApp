@@ -1,10 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit" ;
-
-
+import { createSlice } from "@reduxjs/toolkit";
 
 export const detailTapsSlice = createSlice({
-    name:"detailTapsData",
-    initialState : {data:''},
-    reducers : {  }
-})
-
+  name: "detailTapsData",
+  initialState: { data: "" },
+  reducers: {},
+});

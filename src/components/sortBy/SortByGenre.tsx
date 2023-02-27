@@ -12,7 +12,12 @@ type genreType = {
   name: string;
 };
 
-const SortByGenre = () => {
+interface SortByGenreType {
+  setPage: Function;
+  pageAppear: Function;
+}
+
+const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
   const dispatch = useDispatch();
   const [genre, setGenre] = useState<any>("");
 
@@ -55,6 +60,8 @@ const SortByGenre = () => {
               className={styles.sortbyGenre_keyword}
               key={i}
               onClick={() => {
+                setPage(1);
+                pageAppear(false);
                 getMovieSortByGenre(genreEl.id);
               }}
             >

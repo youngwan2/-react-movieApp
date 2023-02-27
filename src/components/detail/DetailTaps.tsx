@@ -21,20 +21,18 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
 
   //하단 탭스 클릭 시 해당 value를 api에 전달해주는 함수
   const RespondToTabsChanges = useCallback(() => {
-    let copy = changeTapsData;
-    if (menuCount === 0) {
-      copy = "similar";
-      return setChangeTapsData(copy);
-    } else if (menuCount === 1) {
-      copy = "credits";
-      return setChangeTapsData(copy);
-    } else if (menuCount === 2) {
-      copy = "reviews";
-      return setChangeTapsData(copy);
-    } else {
-      return null;
+    switch (menuCount) {
+      case 0:
+        setChangeTapsData("similar");
+        break;
+      case 1:
+        setChangeTapsData("credits");
+        break;
+      case 2:
+        setChangeTapsData("reviews");
+        break;
     }
-  }, [menuCount, changeTapsData]);
+  }, [menuCount]);
 
   useEffect(() => {
     RespondToTabsChanges();
@@ -71,6 +69,16 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
         {selectMenu.map((count, i) => {
           return (
             <button
+              style={
+                selectMenu[menuCount] === count
+                  ? {
+                      color: "white",
+                      backgroundColor: "rgb(229, 171, 12)",
+                      boxShadow:
+                        " #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0)",
+                    }
+                  : { backgroundColor: "transparent" }
+              }
               className={styles.tap_btn}
               key={Math.random() * 10000 * i}
               onClick={() => {

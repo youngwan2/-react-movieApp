@@ -18,6 +18,8 @@ const override: CSSProperties = {
 const Home = () => {
   const dispatch = useDispatch<any>();
   const [loading, setLoading] = useState(true);
+
+
   const { popularMovie, topRateMovie, isComingMovie } = useSelector(
     (state: any) => {
       return state.movies.data;
@@ -25,15 +27,18 @@ const Home = () => {
   );
 
   useEffect(() => {
+    // 영화 데이터를 요청한다.
     dispatch(getMovieData());
     setLoading(false);
   }, [dispatch]);
+
 
   return (
     <div className={styles.home}>
       {loading === true ? (
         <ClipLoader
           className="spinner"
+          id={styles.spinner}
           color={"purple"}
           loading={loading}
           cssOverride={override}

@@ -11,3 +11,10 @@
     text-shadow: 0 5px 15px goldenrod;
   }
   
+
+  #spinner{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+  }

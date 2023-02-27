@@ -2,21 +2,21 @@
 .genre {
   background-color: rgb(41, 105, 178);
   border-radius: 5px;
-  width: 80px;
+  width: 100px;
   display: inline-block;
   z-index: 1;
   margin: 1.5px;
-  padding: 1px 1px 1px 1px;
+  padding: 1px 3px 1px 3px;
 }
 
 /* 영화 제목 */
-.title{
+.title {
   padding: 5px;
 }
 
 /* 영화 정보 */
 .slide_card_contents {
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   transition: 1s;
   transform: perspective(600px);
   transform-style: preserve-3d;
@@ -27,7 +27,6 @@
   height: 100%;
 }
 .slide_card_contents:hover {
-  
   transform: translateZ(100px) scale(1.1);
   z-index: 100;
   padding-top: 1.5em;

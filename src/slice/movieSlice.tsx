@@ -14,7 +14,7 @@ export const baseSet = axios.create({
 // }
 
 const getMovieData = createAsyncThunk("GET/movieData", async () => {
-//  인기영화
+  //  인기영화
   const popular = baseSet
     .get(
       `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
@@ -26,7 +26,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       console.log("popular:", error);
     });
 
-    // 평점 높은 영화
+  // 평점 높은 영화
   const topRate = baseSet
     .get(`/3/movie/top_rated?api_key=${API_KEY}&language=kr-US&page=1`)
     .then((res) => {
@@ -36,7 +36,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       console.log("topRate:", error);
     });
 
-    // 최신 영화
+  // 최신 영화
   const latest = baseSet
     .get(`/3/movie/latest?api_key=${API_KEY}&language=kr-US&page=1`)
     .then((res) => {
@@ -46,7 +46,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       console.log("last:", error);
     });
 
-    // 개봉 예정 영화
+  // 개봉 예정 영화
   const isComing = baseSet
     .get(`/3/movie/upcoming?api_key=${API_KEY}&language=kr-US&page=1`)
     .then((res) => {
@@ -56,7 +56,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       console.log("isComing:", error);
     });
 
-    // 장르 리스트 정보 
+  // 장르 리스트 정보
   const genreData = baseSet
     .get(`/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
     .then((res) => {
@@ -71,6 +71,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
   return { popularMovie, topRateMovie, isComingMovie, genreInfo, latestMovie };
 });
 
+// 영화 정보를 저장한다. 
 const movieSlice = createSlice({
   name: "movieData",
   initialState: {

@@ -1,46 +1,42 @@
 /* Player.tsx */
 
-#play_movie_layout {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-position: center;
-  background: linear-gradient(rgba(37, 7, 23, 0.295), rgba(5, 1, 2, 0.419));
-  transition: all 2s ease-in-out;
-  cursor: crosshair;
-}
-
 .Player {
   z-index: 50;
-  position: fixed;
-  right: 1.3rem;
+  top: 0;
+  right: 1em;
+  position: absolute;
   bottom: 7rem;
+  width: 50px;
+  height: 50px;
+}
+
+.player_inner_con {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
 .play_btn {
+  transition: 1s;
+  width: 30px;
+  height: 30px;
+  bottom: 0;
   color: rgb(255, 255, 255);
   font-size: 21px;
-  background-color: rgba(11, 11, 120, 0.675);
   opacity: 0.7;
   padding: 9px 11px 9px 11px;
   text-align: center;
   border-radius: 30px;
-  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .play_btn:hover {
   cursor: pointer;
   color: #1c34ab;
-  background-color: rgb(159, 117, 10);
+  box-shadow: 0 0 0, -60px 0 0 goldenrod inset;
 }
 
 .preview_videos {
-  z-index: 100;
+  z-index: 150;
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -49,13 +45,17 @@
   right: 0;
 }
 
-/* 미디어 쿼리 */
-
-@media all and (max-width: 466px) {
-  .preview_videos {
-    max-width: 380px;
-  }
+/* 동영상 레이아웃 */
+.layout {
+  position: fixed;
+  z-index: 140;
+  width: 100%;
+  height: 100%;
+  left:0; top: 0;
+  background-color: rgba(0, 0, 0, 0.513);
 }
+
+/* 미디어 쿼리 */
 
 @media all and (max-width: 338px) {
   .Player {

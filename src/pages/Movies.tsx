@@ -7,12 +7,23 @@ import { useEffect, useState } from "react";
 
 const Movies = () => {
   const [display, setDisplay] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
       setDisplay(false);
     }, 6000);
   }, []);
+
+  const onScrollFunc = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollFunc);
+    // return window.removeEventListener('scroll',onScrollFunc)
+  }, []);
+  
   return (
     <div className={styles.movies}>
       {display === true ? (
@@ -27,7 +38,7 @@ const Movies = () => {
       <div className={styles.movies_container}>
         <MoviesSide />
         <MoviesCard />
-        <TopShift />
+        {scrollY > 50 ? <TopShift /> : null}
       </div>
     </div>
   );

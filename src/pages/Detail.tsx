@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faP } from "@fortawesome/free-solid-svg-icons";
+import { faVideoCamera } from "@fortawesome/free-solid-svg-icons";
 import Player from "../components/detail/Player";
 
 const Detail = () => {
@@ -19,6 +20,7 @@ const Detail = () => {
 
   //api movie 데이터 state 저장
   const [detailInfo, setDetailInfo] = useState<any>("");
+  const [videoAppear, setVideoAppear] = useState(false);
 
   // movie api 호출
   const idSearchGetMoviesData = useCallback(() => {
@@ -38,6 +40,7 @@ const Detail = () => {
       {detailInfo === 404 ? (
         <h1>자료가 존재하지 않습니다.</h1>
       ) : (
+        // 영화 커버 이미지
         <div
           className={styles.detail}
           style={{
@@ -46,6 +49,7 @@ const Detail = () => {
             backgroundImage: `url(https://image.tmdb.org/t/p/w500${detailInfo.backdrop_path})`,
           }}
         >
+          {/*영화 포스터(이미지) */}
           <div className={styles.detail_preview_video}>
             <img
               className={styles.detail_img}
@@ -56,8 +60,17 @@ const Detail = () => {
               onError={imageOnErrorHandler}
             ></img>
           </div>
+          {/* ------영화 관련 정보 섹션------ */}
           <section className={styles.detail_contents}>
             <h1 className={styles.detail_title}>{detailInfo.original_title}</h1>
+            <span
+              onClick={() => {
+                setVideoAppear(true);
+              }}
+              className={styles.video_icon}
+            >
+              <FontAwesomeIcon icon={faVideoCamera}></FontAwesomeIcon>
+            </span>
             <div>
               <FontAwesomeIcon className="calendar" icon={faCalendar} />{" "}
               {detailInfo.release_date}
@@ -66,12 +79,16 @@ const Detail = () => {
             {detailInfo.genres !== undefined
               ? detailInfo.genres.map((data: any, i: number) => {
                   return (
-                    <span key={Math.random()*10000*i} className={styles.detail_genres}>
+                    <span
+                      key={Math.random() * 10000 * i}
+                      className={styles.detail_genres}
+                    >
                       {data.name}
                     </span>
                   );
                 })
               : null}
+            {/* 런타임 */}
             <div className={styles.detail_runtime}>
               <FontAwesomeIcon
                 className={"person_running"}
@@ -79,16 +96,18 @@ const Detail = () => {
               />
               {detailInfo.runtime} min
             </div>
+            {/* 평점 */}
             <div className={styles.detail_vote_average}>
               <FontAwesomeIcon className="point" icon={faP}></FontAwesomeIcon>
               {Math.ceil(detailInfo.vote_average * 10)} points
+              {/* 중거리 */}
             </div>
             <div className={styles.detail_overview}>{detailInfo.overview}</div>
           </section>
+          {videoAppear ? <Player id={id} setAppear ={setVideoAppear} appear={videoAppear}> </Player> : null}
         </div>
       )}
 
-      <Player id={id}> </Player>
       <DetailTaps id={id} />
     </div>
   );
