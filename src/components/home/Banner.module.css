@@ -1,5 +1,6 @@
 .banner {
-  margin-top: 2rem;
+  margin-top: 6.1rem;
+  z-index: 100;
   display: inline-block;
   justify-items: center;
   justify-content: center;

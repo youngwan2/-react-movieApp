@@ -33,21 +33,23 @@ interface MovieSlideType {
     total_results: number;
   };
 }
-const MovieSlide: React.FC<MovieSlideType> = ({ movies }) => {
+
+// MovieSlide
+const MovieSlide = ({ movies }: MovieSlideType) => {
   return (
-    <div className={styles.movieSlide}>
+    <article className={styles.movieSlide}>
       <Carousel responsive={responsive} className={styles.carousel}>
         {movies && movies.results !== undefined ? (
           movies.results.map((movieEl, i: number) => {
             return (
-              <SlideCard key={Math.random() * 10000 * i} movieList={movieEl} />
+              <SlideCard key={i} movieList={movieEl} />
             );
           })
         ) : (
-          <div />
+          <div/>
         )}
       </Carousel>
-    </div>
+    </article>
   );
 };
 

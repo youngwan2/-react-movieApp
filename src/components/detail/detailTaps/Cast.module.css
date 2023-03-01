@@ -7,7 +7,7 @@
     margin-bottom: 2rem;
     border-radius: 5px;
   }
-  
+  /* 가로 스크롤바 */
   .cast::-webkit-scrollbar {
     margin-top: 20px;
     height: 15px;
@@ -17,18 +17,17 @@
     box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
       5px 5px 15px 5px rgba(0, 0, 0, 0);
   }
-  
   .cast::-webkit-scrollbar-thumb {
     background: linear-gradient(rgb(43, 4, 15), rgb(197, 103, 161));
     border-radius: 150px;
     width: -20px;
     background-clip: padding-box;
   }
-  
   .cast::-webkit-scrollbar-track {
     background-color: #310416;
   }
   
+  /* 배우 이미지 */
   .cast_img {
     width: 250px;
     height: 300px;
@@ -40,6 +39,7 @@
     border-bottom: 1px solid black;
   }
   
+  /* 배우정보 */
   .cast_info {
     padding-bottom: 10px;
     padding-top: 2px;
@@ -52,11 +52,10 @@
     box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
       5px 5px 15px 5px rgba(0, 0, 0, 0);
   }
-  
   .cast_name {
+    margin-top: 1rem;
     color: #ffffff;
   }
-  
   .cast_info:hover {
     padding-top: 5px;
     z-index: 20;

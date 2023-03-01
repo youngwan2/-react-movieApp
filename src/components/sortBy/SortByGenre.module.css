@@ -1,10 +1,10 @@
 /* sortbyGenre */
 
-.sortbyGenre {
+.sortByGenre {
   text-align: center;
 }
 
-.sortbyGenre_title {
+.sortByGenre_title {
   font-size: 24px;
   text-align: center;
   text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
@@ -13,7 +13,7 @@
   margin-bottom: 1rem;
 }
 
-.sortbyGenre_keyword {
+.sortByGenre_keyword {
   transition: 1s;
   width: 100%;
   border: none;
@@ -29,7 +29,7 @@
   margin: 8px 6px 8px 6px;
 }
 
-.sortbyGenre_keyword:hover {
+.sortByGenre_keyword:hover {
   cursor: pointer;
   color: rgb(230, 255, 5);
   box-shadow: 0 0 0 0, 1px 1px 15px rgb(255, 255, 255), 0 -50px rgb(166, 10, 62) inset;

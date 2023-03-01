@@ -1,0 +1,18 @@
+.loading_spinner {
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    top: 50%;
+    border: 1px dashed rgba(218, 165, 32, 0.666);
+    width: 100px;
+    height: 100px;
+    animation: spinner 30s linear infinite reverse;
+    box-shadow: 0px 0px 3px rgb(218, 75, 32) inset;
+  }
+  
+  @keyframes spinner {
+    from {
+      scale: 1;
+      rotate: 10000deg;
+    }
+  }

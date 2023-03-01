@@ -1,82 +1,74 @@
-/* Search.tsx */
-
-.search_section {
-  z-index: 0;
-  display: flex;
-  margin-left: 10px;
+/* 검색창 컨테이너 (외부) */
+.search {
   position: absolute;
-  right: 1rem;
+  top: 3rem;
+  width: 100vw;
+  height: 55px;
+  left: 0;
+  background-color: rgba(160, 24, 44, 0.445);
 }
 
-/* 검색창 돋보기 아이콘 */
-.search_icon {
-  margin-right: 3px;
-  position: absolute;
-  font-size: 20px;
-  left: -1.8rem;
-  top: 0.3rem;
+
+
+/* 검색창 컨테이너(내부) */
+.search_input_container {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  z-index: 150;
+  min-width: 150px;
+  margin-top: 0.5rem;
 }
 
-.search_icon:hover {
-  cursor: pointer;
-  color: rgb(243, 196, 54);
-}
-
-#search_icon {
-  text-align: right;
-  position: absolute;
-  margin-left: 18rem;
-  width: 50px;
-
-}
-
-.user_input {
-  padding: 13px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
+/* 유저 input */
+.search_user_input {
   border: none;
-  width: 300px;
-  box-shadow: 1px 1px 5px 1px black;
+  padding: 11px;
+  width: 100%;
+  max-width: 300px ;
+  min-width: 150px;
+  margin: 0 3px 0 8px;
+  border-radius: 3px;
 }
 
-.user_input:focus {
-  outline: none;
-}
-
-.search_btn {
-  position: absolute;
-  left: 13rem;
-  top: -1.5px;
+/* 검색 버튼 */
+.search_btn_container {
   display: inline-block;
-  padding: 8px 45px 14px 40px;
-  box-shadow: 1px 1px 5px 1px black;
-  border: none;
-  background-color: rgba(247, 175, 21, 0.948);
-  font-weight: 700;
-  border-radius: 40px;
-  color: white;
+  width: 100px;
+  height: 40px;
 }
-
-.search_btn:hover {
-  background-color: rgb(226, 160, 60);
-  cursor: pointer;
-}
-
-/* 유저 검색창 */
-.input_container {
+.search_btn{
   transition: 1s;
-  opacity: 0;
-  visibility: hidden;
-  translate: 400px;
+  background-color: rgba(0, 0, 0, 0.616);
+  box-shadow:0 0 0 0, 1px 1px 3px 1px rgb(5, 30, 50) inset;
+  margin: 0 3px 0 2px;
+  font-size: 16px;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  border: none;
 }
 
-.input_container.appear {
-  visibility: visible;
-  opacity: 1;
-  position: static;
-  translate: 0;
+.search_btn:nth-of-type(1){
+  margin:0;
+  padding:6px 10.3px 10px 10.3px;
 }
 
-.input_container.appear#search_icon {
-  visibility: visible;
+.search_btn:nth-of-type(2){
+  margin-left:5px;
+  color:red;
+  padding:9px 13.5px 10px 13.5px;
+}
+
+.search_btn:hover{
+  color:blue;
+  box-shadow:1px 1px 5px  black, 1px 50px 3px 1px rgb(238, 209, 93) inset;
+}
+
+@media screen and (max-width:469px) {
+  .search_user_input {
+    width: 150px;
+    min-width:150px;
+  }
+  
 }

@@ -32,10 +32,9 @@
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
-
 /* 카드 내용 */
 .movies_card_content {
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   letter-spacing: 2px;
   opacity: 0;
   scale: 0.8;
@@ -46,37 +45,34 @@
   margin: -1px -1px -10px -1px;
   text-align: center;
   flex-wrap: wrap;
-  background-color: rgba(57, 57, 61, 0.665) ;
+  background-color: rgba(57, 57, 61, 0.665);
   height: 97%;
   border-radius: 4px;
-
 }
 
 .movies_card_img:hover .movies_card_content {
   cursor: pointer;
   opacity: 90%;
-  scale: 1.0;
+  scale: 1;
   transform: scale(1);
   border-radius: 10px;
   padding: 5px 0 10px 0;
 }
 
-
-
 /* 콘텐츠 박스 내부 컨테이너 */
-.card_content_inner_con {
+.movies_card_content_inner {
   margin-top: 16rem;
   border-radius: 10px;
   height: 241px;
 
-  box-shadow: 
-  1px 1px 10px 1px rgba(7, 34, 60, 0.191) inset,1px 1px 8px 9px rgba(21, 21, 21, 0.492) inset;
+  box-shadow: 1px 1px 10px 1px rgba(7, 34, 60, 0.191) inset,
+    1px 1px 8px 9px rgba(21, 21, 21, 0.492) inset;
   background: linear-gradient(70deg, rgb(231, 97, 44), rgb(6, 6, 103));
 }
 
 /* 장르정보 */
 .movies_card_content .movies_card_genre {
-  padding: 1px 5px 1px 5px; 
+  padding: 1px 5px 1px 5px;
   margin: 3px;
   display: inline-block;
   background-color: rgb(42, 100, 234);

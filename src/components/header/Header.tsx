@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Search from "./Search";
 import { useNavigate } from "react-router-dom";
 
@@ -26,6 +28,9 @@ const Header = () => {
           Movies
         </Link>
       </nav>
+      <label className={styles.search_icon_outer}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
+      </label>
 
       <Search />
     </header>

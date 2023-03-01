@@ -15,8 +15,8 @@ const Search = () => {
   const navigate = useNavigate();
 
   // 검색된 영화를 가져오는 API
-  const getSearchMovieDate = (inputVal: string) => {
-    return baseSet
+  const getSearchMovieDate = async (inputVal: string) => {
+    return await baseSet
       .get(
         `/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputVal}`
       )
@@ -28,41 +28,54 @@ const Search = () => {
       });
   };
 
+  // 검색창을 나타나게하거나 사라지게 하는 함수
   const inputAppearFunc = () => {
     appear === "" ? setAppear(styles.appear) : setAppear("");
   };
 
   return (
-    <section className={styles.search_section}>
-      {/* 헤더 검색창 */}
-      <div className={styles.search_icon} id={styles.search_icon}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
-      </div>
+    <article className={`${styles.search} ${appear}`}>
 
-      <div className={`${styles.input_container} ${appear}`}>
-        <div className={styles.search_icon}>
+      <div className={styles.search_input_container}>
+        {/* 돋보기 이모티콘 */}
+        <label className={styles.search_icon_inner}>
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
-        </div>
+        </label>
+        {/* 검색창 */}
         <input
-          className={styles.user_input}
+          className={styles.search_user_input}
           type={"text"}
           onChange={(event) => {
             setInputVal(event.target.value);
           }}
         ></input>
-        <div
-          className={styles.search_btn}
-          onClick={() => {
-            if (inputVal !== "") {
-              getSearchMovieDate(inputVal);
-              navigate("/movies");
-            }
-          }}
-        >
-          검색
+        {/* 검색 버튼 */}
+        <div className={styles.search_btn_container}>
+          <button
+            className={styles.search_btn}
+            onClick={() => {
+              if (inputVal !== "") {
+                getSearchMovieDate(inputVal);
+                navigate("/movies");
+              }
+            }}
+          >
+            🔍︎
+          </button>
+          <button
+            className={styles.search_btn}
+            onClick={() => {
+              if (inputVal !== "") {
+                getSearchMovieDate(inputVal);
+                navigate("/movies");
+              }
+            }}
+          >
+            ●
+          </button>
         </div>
       </div>
-    </section>
+    </article>
   );
 };
 

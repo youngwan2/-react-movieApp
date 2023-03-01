@@ -1,8 +1,17 @@
 .movies_container {
   display: flex;
 }
+
+/* Movies 페이지 접속 시 상단에 나타났다 사라지는 메시지 박스 */
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+}
+
 .movies_disappear_box {
   z-index: 10;
+  margin-top: 5rem;
   width: 100%;
   display: flex;
   color: white;
@@ -13,13 +22,6 @@
   animation: hide 2s ease;
   opacity: 1;
 }
-
-@keyframes hide {
-  0% {
-    opacity: 0;
-  }
-}
-
 .box_content {
   font-family: 'Saira Semi Condensed', sans-serif;
   width: 100%;

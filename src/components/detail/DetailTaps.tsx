@@ -8,6 +8,9 @@ import { API_KEY } from "../../pages/Home";
 import { baseSet } from "../../slice/MovieSlice";
 import TopShift from "../movies/TopShift";
 
+/** getApiData 가 각 자식 컴포넌트로 전달될 때 스크롤 시 
+ * 반복적으로 호출되는 문제가 있음. 원인을 찾아서 해결해야 함.
+ */
 interface TapsTypes {
   id: number;
 }
@@ -47,7 +50,8 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
             `/3/movie/${id}/${value}?api_key=${API_KEY}&language=en-US&page=1`
           )
           .then((response) => {
-            return setGetApiData(response.data);
+            const getData = response.data
+            return setGetApiData(getData);
           })
           .catch((error) => {
             console.error("tapsError:", error);
@@ -64,10 +68,11 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
   }, [getDetailTapsData, changeTapsData]);
 
   return (
-    <div className={styles.detail_taps}>
+    <article className={styles.detail_taps}>
       <div className={styles.tap_menu}>
         {selectMenu.map((count, i) => {
           return (
+            // 각 tap 버튼
             <button
               style={
                 selectMenu[menuCount] === count
@@ -80,7 +85,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
                   : { backgroundColor: "transparent" }
               }
               className={styles.tap_btn}
-              key={Math.random() * 10000 * i}
+              key={i}
               onClick={() => {
                 let selectNum = [i];
                 let copy = [...selectNum];
@@ -99,7 +104,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
       {changeTapsData === "reviews" ? <Review apiData={getApiData} /> : null}
       {/* 상단 이동 버튼 */}
       <TopShift />
-    </div>
+    </article>
   );
 };
 export default DetailTaps;

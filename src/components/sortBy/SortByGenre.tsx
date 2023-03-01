@@ -51,13 +51,13 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
   //장르유형에 따른 영화정보를 가져온다.
 
   return (
-    <div className={styles.sortbyGenre}>
-      <h3 className={styles.sortbyGenre_title}>Genre</h3>
+    <div className={styles.sortByGenre}>
+      <h3 className={styles.sortByGenre_title}>Genre</h3>
       {genre !== "" ? (
         genre.map((genreEl: genreType, i: number) => {
           return (
             <button
-              className={styles.sortbyGenre_keyword}
+              className={styles.sortByGenre_keyword}
               key={i}
               onClick={() => {
                 setPage(1);

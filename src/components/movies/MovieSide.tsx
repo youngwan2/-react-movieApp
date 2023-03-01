@@ -44,12 +44,14 @@ const MoviesSide = () => {
     "vote_average.asc",
   ]);
 
+  // 분류별 영화 정보 저장
   const [currentSort, setCurrentSort] = useState("");
-  const [appear, setAppear] = useState("");
 
+  // 사이드바 나타나기/숨기기 함수
+  const [display, setDisplay] = useState("");
   const sidebarAppearFunc = () => {
     setBarHiddenState((barHiddenState) => !barHiddenState);
-    barHiddenState ? setAppear(styles.sidebar_appear) : setAppear("");
+    barHiddenState ? setDisplay(styles.sidebar_appear) : setDisplay("");
   };
 
   //분류 기준에 따라 다른 영화 리스트를 가져오는 API
@@ -79,7 +81,7 @@ const MoviesSide = () => {
 
   return (
     <div className={styles.movie_side}>
-      <div className={`${styles.movie_side_inner} ${appear}`}>
+      <div className={`${styles.movie_side_inner} ${display}`}>
         {/* side tap 닫는 버튼 */}
         <button
           className={styles.sidebar_hidden_btn_inner}

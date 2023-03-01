@@ -1,5 +1,6 @@
 .detail {
   width: 100%;
+  padding-top: 2rem;
   position: relative;
   color: white;
   display: flex;
@@ -81,18 +82,15 @@
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-
-  /* -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-      box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); */
   margin-top: 0;
   width: 500px;
   height: 501.97px;
   padding: 20px;
   transform: translateY(-4px);
-  animation: updown 3s ease-in-out infinite;
+  animation: upDown 3s ease-in-out infinite;
 }
 
-@keyframes updown {
+@keyframes upDown {
   50% {
     transform: translateY(4px);
   }
@@ -186,19 +184,20 @@
   .detail {
     flex-direction: column;
     padding-top: 2rem;
-    min-height:1000px;
+    min-height: 1000px;
   }
 
   .detail_img {
     max-width: 300px;
     max-height: 250px;
+    margin-bottom: 1rem;
   }
 }
 
 @media all and (max-width: 590px) {
   .detail {
     padding-top: 10rem;
-    min-height:1000px;
+    min-height: 1000px;
     flex-direction: column;
   }
 

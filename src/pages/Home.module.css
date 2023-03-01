@@ -1,7 +1,12 @@
 .home {
-    height: 960px;
+    min-height: 960px;
   }
   
+  .main_container .slide_title:nth-of-type(1){
+    margin-top: 5rem;
+  }
+
+   /* 타이틀 */
   .main_container .slide_title {
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -11,7 +16,7 @@
     text-shadow: 0 5px 15px goldenrod;
   }
   
-
+/* 스피너 */
   #spinner{
     position: fixed;
     left: 50%;

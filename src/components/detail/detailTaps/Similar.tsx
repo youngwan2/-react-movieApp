@@ -1,53 +1,73 @@
 import React from "react";
-import styles from './Similar.module.css'
+import styles from "./Similar.module.css";
+import NotFind from "./NotFind";
 import { useNavigate } from "react-router-dom";
+import {
+  SimilarContentType,
+  SimilarMovieListType,
+  SimilarType,
+} from "../../type/Similar";
 
-interface similarType {
-  apiData: any;
-}
-
-const Similar: React.FC<similarType> = ({ apiData }) => {
+// Similar 컴포넌트 
+const Similar = ({ apiData }: SimilarType) => {
   const navigate = useNavigate();
 
   return (
     <section className={styles.similar}>
-      {apiData.results !== undefined
-        ? apiData.results.map((movieList: any, i: number) => {
-            return (
-              <div
-                onClick={() => {
-                  navigate(`/detail/${movieList.id}`);
-                  window.scrollTo(0, 0);
-                }}
-                className={styles.similar_card}
-                key={i}
-                style={{
-                  backgroundColor: "white",
-                  width: "200px",
-                  height: "200px",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundImage:
-                    "url(" +
-                    `https://image.tmdb.org/t/p/w500${movieList.poster_path}` +
-                    ")",
-                }}
-              >
-                <div className={styles.similar_content}>
-                  <h2 className={styles.similar_title}>{movieList.title}</h2>
-                  <div className={styles.similar_date}>{movieList.release_date}</div>
-                  <div className={styles.similar_age}>
-                    {movieList.adult === false ? "Under 18" : "18+"}
-                  </div>
-                  <div className={styles.similar_grade}>
-                    <span>{movieList.vote_average} P</span>
-                    <span> ({movieList.vote_count} people)</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })
-        : null}
+      {apiData.results && apiData.results[0] !== undefined ? (
+        apiData.results.map((movieList: SimilarMovieListType, i) => {
+          const { title, release_date, adult, vote_average, vote_count } = movieList;
+
+          return (
+            <section
+              className={styles.similar_card}
+              key={i}
+              style={{
+                backgroundImage:
+                  "url(" +
+                  `https://image.tmdb.org/t/p/w500${movieList.poster_path}` +
+                  ")",
+              }}
+              onClick={() => {
+                navigate(`/detail/${movieList.id}`);
+              }}
+            >
+              <SimilarContent
+                title={title}
+                release_date={release_date}
+                adult={adult}
+                vote_average={vote_average}
+                vote_count={vote_count}
+              />
+            </section>
+          );
+        })
+      ) : (
+        <NotFind />
+      )}
+    </section>
+  );
+};
+
+// SimilarContent 컴포넌트
+const SimilarContent = ({
+  title,
+  release_date,
+  adult,
+  vote_average,
+  vote_count,
+}: SimilarContentType) => {
+  return (
+    <section className={styles.similar_content}>
+      <h2 className={styles.similar_title}>{title}</h2>
+      <div className={styles.similar_date}>{release_date}</div>
+      <div className={styles.similar_age}>
+        {adult === false ? "Under 18" : "18+"}
+      </div>
+      <div className={styles.similar_grade}>
+        <span>{vote_average} P</span>
+        <span> ({vote_count} people)</span>
+      </div>
     </section>
   );
 };
