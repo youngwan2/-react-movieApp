@@ -29,7 +29,7 @@ const Header = () => {
         </Link>
       </nav>
       <label className={styles.search_icon_outer}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </label>
 
       <Search />
