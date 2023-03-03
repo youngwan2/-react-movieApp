@@ -1,27 +1,33 @@
 /* Header.tsx */
-
-/* 사이트 로고 */
-.header_logo{
-  z-index: 20;
-}
-.header_logo:hover {
-  cursor: pointer;
-}
-
 .header {
   opacity: 0.8;
   position: fixed;
   transition: 1s;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: rgb(255, 255, 255);
   background: linear-gradient(#850514, rgb(41, 1, 1));
-  padding: 5px 20px 5px 20px;
+  padding: 10px 20px 10px 20px;
   left: 0;
   right: 0;
   z-index: 50;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.header_logo_menu_con {
+  display: flex;
+}
+
+/* 사이트 로고 */
+.header_logo {
+  z-index: 20;
+  padding-left: 1rem;
+}
+.header_logo:hover {
+  cursor: pointer;
 }
 
 .header:hover {
@@ -32,11 +38,11 @@
 .header .header_menu {
   text-align: center;
   align-self: center;
-  padding-left: 1rem;
-  z-index: -1;
+  padding-left: 2.5rem;
 }
 
 .header .header_menu .link {
+  z-index: 20;
   padding: 8px;
   text-decoration: none;
   font-size: 20px;
@@ -48,4 +54,11 @@
 
 .header .header_menu .link:hover {
   color: rgb(243, 196, 54);
+}
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 654px) {
+  .header .header_menu {
+    display: none;
+  }
 }

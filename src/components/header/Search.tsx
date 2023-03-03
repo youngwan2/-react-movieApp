@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import styles from "./Search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [appear, setAppear] = useState("");
+  const [display, setDisplay] = useState("");
   const [inputVal, setInputVal] = useState("");
   const navigate = useNavigate();
 
@@ -30,50 +30,40 @@ const Search = () => {
 
   // 검색창을 나타나게하거나 사라지게 하는 함수
   const inputAppearFunc = () => {
-    appear === "" ? setAppear(styles.appear) : setAppear("");
+    display === "" ? setDisplay(styles.display) : setDisplay("");
+  };
+
+  // 사용자가 엔터 입력 시 실행되는 함수
+  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    const keyCode = e.key;
+    if (inputVal !== "" && keyCode === "Enter") {
+      getSearchMovieDate(inputVal);
+      navigate("/movies");
+    }
   };
 
   return (
-    <article className={`${styles.search} ${appear}`}>
+    <article className={styles.search}>
+      {/* 돋보기 이모티콘 */}
+      <span className={`${styles.search_icon_outer} ${display}`}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
+      </span>
 
-      <div className={styles.search_input_container}>
-        {/* 돋보기 이모티콘 */}
-        <label className={styles.search_icon_inner}>
+      {/* 검색창 */}
+      <div className={`${styles.search_input_container}`}>
+        <span className={styles.search_icon_inner}>
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
-        </label>
-        {/* 검색창 */}
+        </span>
         <input
+          placeholder=""
           className={styles.search_user_input}
           type={"text"}
           onChange={(event) => {
             setInputVal(event.target.value);
           }}
+          onKeyDown={onKeyDown}
         ></input>
-        {/* 검색 버튼 */}
-        <div className={styles.search_btn_container}>
-          <button
-            className={styles.search_btn}
-            onClick={() => {
-              if (inputVal !== "") {
-                getSearchMovieDate(inputVal);
-                navigate("/movies");
-              }
-            }}
-          >
-            🔍︎
-          </button>
-          <button
-            className={styles.search_btn}
-            onClick={() => {
-              if (inputVal !== "") {
-                getSearchMovieDate(inputVal);
-                navigate("/movies");
-              }
-            }}
-          >
-            ●
-          </button>
-        </div>
+        <span className={styles.recode_btn}></span>
       </div>
     </article>
   );

@@ -1,74 +1,72 @@
-/* 검색창 컨테이너 (외부) */
 .search {
+  position: relative;
+}
+
+.search_icon_inner{
   position: absolute;
-  top: 3rem;
-  width: 100vw;
-  height: 55px;
-  left: 0;
-  background-color: rgba(160, 24, 44, 0.445);
-}
-
-
-
-/* 검색창 컨테이너(내부) */
-.search_input_container {
-  text-align: center;
-  width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  z-index: 150;
-  min-width: 150px;
-  margin-top: 0.5rem;
-}
-
-/* 유저 input */
-.search_user_input {
-  border: none;
-  padding: 11px;
-  width: 100%;
-  max-width: 300px ;
-  min-width: 150px;
-  margin: 0 3px 0 8px;
+  color:rgb(255, 255, 255);
+  padding: 0px 5px 0px 5px;
   border-radius: 3px;
+  line-height: 30px;
+  height: 100%;
+  box-shadow: 1px 1px 8px black;
+  background-color: rgb(169, 138, 13);
+  cursor: pointer;
 }
 
-/* 검색 버튼 */
-.search_btn_container {
-  display: inline-block;
-  width: 100px;
-  height: 40px;
+.search_icon_outer{
+ display: none;   
+ cursor: pointer;
 }
-.search_btn{
+
+.search_icon_outer:hover{
+  color:rgb(216, 216, 51)
+}
+
+.search_user_input{
   transition: 1s;
-  background-color: rgba(0, 0, 0, 0.616);
-  box-shadow:0 0 0 0, 1px 1px 3px 1px rgb(5, 30, 50) inset;
-  margin: 0 3px 0 2px;
-  font-size: 16px;
-  border-radius: 50%;
-  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 280px;
   border: none;
+  box-shadow: 2px 1px 5px black inset;
 }
 
-.search_btn:nth-of-type(1){
-  margin:0;
-  padding:6px 10.3px 10px 10.3px;
+.search_user_input::placeholder{
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
-.search_btn:nth-of-type(2){
-  margin-left:5px;
-  color:red;
-  padding:9px 13.5px 10px 13.5px;
+.search_user_input:focus{
+  outline: none;
+  box-shadow: 2px 50px 5px rgb(246, 206, 28) inset;
 }
 
-.search_btn:hover{
-  color:blue;
-  box-shadow:1px 1px 5px  black, 1px 50px 3px 1px rgb(238, 209, 93) inset;
+.recode_btn{
+  position: absolute;
+  right: 5px;
+  color: black;
+  margin-top: 5px;
 }
 
-@media screen and (max-width:469px) {
-  .search_user_input {
-    width: 150px;
-    min-width:150px;
+/* 미디어 쿼리 */
+@media screen and (max-width: 530px) {
+  .search_input_container {
+    display: none;
   }
-  
+  .search_icon_outer{
+    display: block;
+  }
+
+  .search_user_input{
+    width: 250px;
+  }
+
+  .search_icon_outer.display{
+    display: none;
+  }
+  .search_icon_outer.display + div {
+    display: block;
+  }
 }

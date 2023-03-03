@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Banner.module.css";
 import { useSelector } from "react-redux";
 
@@ -7,15 +7,32 @@ const Banner = () => {
     return state.movies.data;
   });
 
+  // 스크롤 값 저장
+  const [scrollY, setScrollY] = useState(100);
+
+  // 스크롤 이벤트 실행 시 scrollY 저장 후 전달하는 함수
+  const scrollEventFunc = () => {
+    const scrollY =  (-window.scrollY) / 10 + 90;
+    const copy =Number(scrollY.toFixed())
+    if (scrollY <= 0) {
+      return;
+    } else setScrollY(copy);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollEventFunc);
+  });
+
   return (
-    <section className={styles.banner}>
+    <section style={{ opacity: `${scrollY}%` }} className={styles.banner}>
       {popularMovie && (
-        <article id={styles.main_outer_con} className={styles.img_con}>
+        <article id={styles.banner_main_outer_con} className={styles.img_con}>
           {/* 젤 좌측 배너 */}
           <div
             className={styles.banner_img}
             style={{
-              transform: "scale(0.97)",
+              zIndex: "2",
+              transform: "scale(0.98)",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[1].poster_path})`,
@@ -26,7 +43,8 @@ const Banner = () => {
             <div
               className={styles.banner_img}
               style={{
-                transform: "scale(1.0)",
+                zIndex: "3",
+                transform: "scale(1.03)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[4].poster_path})`,
@@ -38,7 +56,7 @@ const Banner = () => {
             <div
               className={styles.banner_img}
               style={{
-                transform: "scale(1.01)",
+                transform: "scale(1.06)",
                 backgroundSize: "cover",
                 width: "600px",
                 zIndex: "20",
@@ -46,6 +64,7 @@ const Banner = () => {
                 backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[0].poster_path}`,
               }}
             ></div>
+
             <h1 className={styles.banner_title}>
               {popularMovie.results[0].title}
             </h1>
@@ -58,7 +77,8 @@ const Banner = () => {
             <div
               className={styles.banner_img}
               style={{
-                transform: "scale(1.0)",
+                zIndex: "3",
+                transform: "scale(1.03)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[2].poster_path})`,
@@ -70,7 +90,8 @@ const Banner = () => {
             <div
               className={styles.banner_img}
               style={{
-                transform: "scale(0.97)",
+                zIndex: "2",
+                transform: "scale(0.98)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[3].poster_path})`,

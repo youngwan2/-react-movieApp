@@ -15,7 +15,7 @@ interface CastType {
 }
 const Cast = ({ apiData }: CastType) => {
   const imageOnErrorHandler = (event: SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = "/not-profile.png";
+    event.currentTarget.src = process.env.PUBLIC_URL +"/not-profile.png";
   };
   return (
     <div className={styles.cast}>
