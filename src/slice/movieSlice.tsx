@@ -2,16 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_KEY } from "../pages/Home";
 
-//axios 기본 설정
+//axios 기본 설정(이 설정을 통해 아래에 설정된 부분을 단축하여 표현할 수 있다.)
 export const baseSet = axios.create({
   baseURL: "https://api.themoviedb.org",
   headers: { "content-type": "application/json;charset=utf-8" },
 });
 
-//액션 크리에이터 생성
-// interface getMovieDataType{
-//     [key:string] : object[]
-// }
 
 const getMovieData = createAsyncThunk("GET/movieData", async () => {
   //  인기영화
@@ -23,7 +19,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       return res.data;
     })
     .catch((error) => {
-      console.log("popular:", error);
+      console.error("popular:", error);
     });
 
   // 평점 높은 영화
@@ -33,7 +29,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       return res.data;
     })
     .catch((error) => {
-      console.log("topRate:", error);
+      console.error("topRate:", error);
     });
 
   // 최신 영화
@@ -43,7 +39,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       return res.data;
     })
     .catch((error) => {
-      console.log("last:", error);
+      console.error("last:", error);
     });
 
   // 개봉 예정 영화
@@ -53,7 +49,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       return res.data;
     })
     .catch((error) => {
-      console.log("isComing:", error);
+      console.error("isComing:", error);
     });
 
   // 장르 리스트 정보
@@ -63,23 +59,26 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
       return res.data;
     })
     .catch((error) => {
-      console.log("genreData:", error);
+      console.error("genreData:", error);
     });
 
-  let [popularMovie, topRateMovie, isComingMovie, genreInfo, latestMovie] =
+  const [popularMovie, topRateMovie, isComingMovie, genreInfo, latestMovie] =
     await Promise.all([popular, topRate, isComing, genreData, latest]);
   return { popularMovie, topRateMovie, isComingMovie, genreInfo, latestMovie };
 });
 
-// 영화 정보를 저장한다. 
+// 영화 정보를 저장한다.
 const movieSlice = createSlice({
   name: "movieData",
   initialState: {
     data: "",
     status: "WelCome",
   },
+  // reducers 는 동기적으로 실행되는 레듀서 처리
   reducers: {},
 
+  // extraReducers 는 비동기적으로 실행되는 레듀서 처리
+  // 기본적으로 보류, 이행, 거부 로 나눠서 각 단계의 이행 여부에 따라 각 상황에 맞는 명령을 실행한다.
   extraReducers(builder) {
     builder.addCase(getMovieData.pending, (state) => {
       state.status = "Loading..";

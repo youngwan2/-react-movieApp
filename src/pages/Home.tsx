@@ -5,7 +5,6 @@ import { getMovieData } from "../slice/MovieSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "../components/home/Banner";
 import MovieSlide from "../components/home/MovieSlide";
-
 import Spinner from "../components/spinner/Spinner";
 
 export const API_KEY = process.env.REACT_APP_API_KEY;

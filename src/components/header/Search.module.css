@@ -2,28 +2,36 @@
   position: relative;
 }
 
-.search_icon_inner{
+/* 검색 아이콘 이너 컨테이너 */
+.search_icon_inner {
   position: absolute;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   padding: 0px 5px 0px 5px;
   border-radius: 3px;
   line-height: 30px;
   height: 100%;
   box-shadow: 1px 1px 8px black;
-  background-color: rgb(169, 138, 13);
+  background-color: rgb(209, 170, 14);
   cursor: pointer;
 }
 
-.search_icon_outer{
- display: none;   
- cursor: pointer;
+/* 검색 아이콘 아우터 컨테이너 */
+.search_icon_outer {
+  display: none;
+  cursor: pointer;
 }
 
-.search_icon_outer:hover{
-  color:rgb(216, 216, 51)
+.search_icon_outer:hover {
+  color: rgb(250, 250, 95);
 }
 
-.search_user_input{
+.search_icon {
+  margin-top: 4px;
+  height: 24px;
+}
+
+/* 유저 검색창  */
+.search_user_input {
   transition: 1s;
   text-align: center;
   padding: 10px;
@@ -33,17 +41,18 @@
   box-shadow: 2px 1px 5px black inset;
 }
 
-.search_user_input::placeholder{
+.search_user_input::placeholder {
   font-size: 16px;
   letter-spacing: 2px;
 }
 
-.search_user_input:focus{
+.search_user_input:focus {
   outline: none;
   box-shadow: 2px 50px 5px rgb(246, 206, 28) inset;
 }
 
-.recode_btn{
+/* 녹음 버튼 */
+.recode_btn {
   position: absolute;
   right: 5px;
   color: black;
@@ -51,22 +60,30 @@
 }
 
 /* 미디어 쿼리 */
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 654px) {
+  /* 검색창 */
   .search_input_container {
     display: none;
   }
-  .search_icon_outer{
+  .search_icon_outer {
     display: block;
   }
 
-  .search_user_input{
+  .search_user_input {
     width: 250px;
   }
 
-  .search_icon_outer.display{
+  .search_icon_outer.display {
     display: none;
   }
   .search_icon_outer.display + div {
     display: block;
+  }
+}
+
+@media screen and (max-width:501px) {
+  .search_user_input {
+    width: 200px;
+    
   }
 }

@@ -39,14 +39,16 @@ const Search = () => {
     if (inputVal !== "" && keyCode === "Enter") {
       getSearchMovieDate(inputVal);
       navigate("/movies");
+      e.currentTarget.value =''
     }
+   
   };
 
   return (
     <article className={styles.search}>
       {/* 돋보기 이모티콘 */}
       <span className={`${styles.search_icon_outer} ${display}`}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
+        <FontAwesomeIcon className={styles.search_icon} icon={faMagnifyingGlass} onClick={inputAppearFunc} />
       </span>
 
       {/* 검색창 */}

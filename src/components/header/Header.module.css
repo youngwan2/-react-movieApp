@@ -56,9 +56,39 @@
   color: rgb(243, 196, 54);
 }
 
+/* ---display_on 클래스 추가 시 메뉴보이게 함. */
+.header .header_menu.display_on {
+  display: block;
+  position: absolute;
+  left: 6rem;
+}
+
+/* 헤더의 아이콘들 */
+.header_icon_box {
+  display: flex;
+  height: 34px;
+}
+
+.menu {
+  display: none;
+  height: 27px;
+  padding: 3px;
+  margin-left: 15px;
+  margin-right: 0.4rem;
+  cursor: pointer;
+}
+
+.menu:hover {
+  color: rgb(212, 212, 7);
+}
+
 /* 미디어 쿼리 */
 @media screen and (max-width: 654px) {
   .header .header_menu {
     display: none;
+  }
+/*---------- 메뉴아이콘 */
+  .menu {
+    display: block;
   }
 }

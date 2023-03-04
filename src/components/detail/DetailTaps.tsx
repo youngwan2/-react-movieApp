@@ -78,6 +78,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
                 selectMenu[menuCount] === count
                   ? {
                       color: "white",
+                      fontSize:" 18px",
                       backgroundColor: "rgb(229, 171, 12)",
                       boxShadow:
                         " #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0)",

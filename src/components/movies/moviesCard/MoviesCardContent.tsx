@@ -22,7 +22,7 @@ const MoviesCardContent = ({ data }: MoviesCardContentType) => {
         return setGenre(res.data.genres);
       })
       .catch((error) => {
-        console.log("genreData:", error);
+        console.error("genreData:", error);
       });
   };
 

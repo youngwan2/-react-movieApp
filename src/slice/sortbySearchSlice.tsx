@@ -9,8 +9,9 @@ export const sortBySearchSlice = createSlice({
   reducers: {
     sortBySearchData(state, action) {
       state.data = action.payload;
+      console.log(action.payload)
     },
   },
 });
 
-export let { sortBySearchData } = sortBySearchSlice.actions;
+export const { sortBySearchData } = sortBySearchSlice.actions;

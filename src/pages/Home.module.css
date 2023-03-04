@@ -2,6 +2,9 @@
     min-height: 960px;
   }
   
+  .main_container{
+    height: 175vh;
+  }
   .main_container .slide_title:nth-of-type(1){
     margin-top: 5rem;
   }

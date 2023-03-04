@@ -8,9 +8,10 @@
 /* 탭 버튼 */
 .tap_btn {
   font-size: 16px;
+  height: 40px;
   font-weight: bolder;
   padding: 10px 25px 10px 25px;
-  color: rgb(216, 164, 164);
+  color: rgb(235, 196, 196);
   width: 200px;
   padding: auto;
   margin: 5px;
@@ -25,12 +26,4 @@
   box-shadow: 200px 200px 15px goldenrod inset, #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
     red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   cursor: pointer;
-}
-.tap_btn:focus {
-  background-color: rgb(229, 171, 12);
-  padding: 11px 25px 11px 25px;
-  font-size: 18px;
-  border: none;
-  color: white;
-
 }

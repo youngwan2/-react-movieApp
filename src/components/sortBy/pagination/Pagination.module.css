@@ -26,16 +26,16 @@
 .pagination_nav .pagination_ul li {
   cursor: pointer;
   transition: 0.5s;
+  text-align: center;
   display: inline-block;
-  margin: 0 5px 0 5px;
+  margin: 0 3px 0 3px;
   margin-top: 0.25rem;
   color: white;
   list-style: none;
-  padding: 10px 15px 10px 15px;
+  padding: 8px 10px 8px 10px;
   border-radius: 50%;
   background: linear-gradient(rgba(251, 245, 245, 0.374), transparent);
   border: none;
-  box-shadow: -1px 1px 1px 1px rgb(254, 253, 255);
 }
 
 .pagination_nav .pagination_ul li:hover {
@@ -48,14 +48,13 @@
   transition: 0.5s;
   cursor: pointer;
   display: inline-block;
-  padding: 10px 15px 10px 15px;
+  padding: 8px 8px 8px 8px;
+  background-color: transparent;
   border-radius: 50%;
-  background-color: rgb(176, 14, 76);
   color: white;
   text-align: center;
   border: none;
-  margin: 0.25rem 2px 0 2px;
-  box-shadow: 1px 1px 5px 2px black;
+  margin: 0.2rem 1px 0 1px;
 }
 .pagination button:hover {
   color: black;
