@@ -16,16 +16,15 @@ const Search = () => {
 
   // 검색된 영화를 가져오는 API
   const getSearchMovieDate = async (inputVal: string) => {
-    return await baseSet
-      .get(
+    try {
+      const response = await baseSet.get(
         `/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputVal}`
-      )
-      .then((response) => {
-        dispatch(sortBySearchData(response.data));
-      })
-      .catch((error) => {
-        console.error("검색실패:", error);
-      });
+      );
+      const copy = response.data;
+      dispatch(sortBySearchData(copy));
+    } catch (error) {
+      console.error("검색실패:", error);
+    }
   };
 
   // 검색창을 나타나게하거나 사라지게 하는 함수
@@ -37,31 +36,41 @@ const Search = () => {
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     const keyCode = e.key;
     if (inputVal !== "" && keyCode === "Enter") {
-      getSearchMovieDate(inputVal);
       navigate("/movies");
-      e.currentTarget.value =''
+      const copy = inputVal;
+      getSearchMovieDate(copy);
+      e.currentTarget.value = "";
     }
-   
   };
 
   return (
     <article className={styles.search}>
       {/* 돋보기 이모티콘 */}
-      <span className={`${styles.search_icon_outer} ${display}`}>
-        <FontAwesomeIcon className={styles.search_icon} icon={faMagnifyingGlass} onClick={inputAppearFunc} />
-      </span>
+      <label
+        htmlFor="search"
+        className={`${styles.search_icon_outer} ${display}`}
+      >
+        <FontAwesomeIcon
+          className={styles.search_icon}
+          icon={faMagnifyingGlass}
+          onClick={inputAppearFunc}
+        />
+      </label>
 
       {/* 검색창 */}
       <div className={`${styles.search_input_container}`}>
-        <span className={styles.search_icon_inner}>
+        <label htmlFor="search" className={styles.search_icon_inner}>
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
-        </span>
+        </label>
         <input
+          id="search"
           placeholder=""
           className={styles.search_user_input}
           type={"text"}
           onChange={(event) => {
-            setInputVal(event.target.value);
+            const copy = event.target.value;
+            setInputVal(copy);
+            navigate('/movies')
           }}
           onKeyDown={onKeyDown}
         ></input>

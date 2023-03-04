@@ -14,6 +14,13 @@ body {
 .App {
   min-height: 1200px;
   width: 100%;
+  animation: appear 1s 1 ease-in-out;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  
 }
 
 /* ---------------------------컴포넌트------------------ */

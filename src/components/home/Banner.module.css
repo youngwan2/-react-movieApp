@@ -10,6 +10,12 @@
   border-radius: 5%;
   width: 100%;
   box-shadow: 1px 50px 30px black;
+  animation: appear 1s 1 ease-in-out;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 

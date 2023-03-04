@@ -6,7 +6,14 @@
     overflow: auto hidden;
     margin-bottom: 2rem;
     border-radius: 5px;
+    animation: appear 1s 1 ease-in-out;
   }
+  
+  @keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
   /* 가로 스크롤바 */
   .cast::-webkit-scrollbar {
     margin-top: 20px;

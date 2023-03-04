@@ -9,6 +9,19 @@
   }
 }
 
+.movies {
+  animation: appear 1s 1 ease-in-out;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .movies_disappear_box {
   z-index: 10;
   margin-top: 5rem;
@@ -23,7 +36,7 @@
   opacity: 1;
 }
 .box_content {
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   width: 100%;
   letter-spacing: 2px;
   padding: 30px;
@@ -34,5 +47,5 @@
   background-color: #6e0630cb;
   opacity: 1;
   color: #ffffff;
-  box-shadow: 1px 1px 15px seashell ;
+  box-shadow: 1px 1px 15px seashell;
 }

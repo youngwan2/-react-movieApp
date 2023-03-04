@@ -86,32 +86,45 @@
 
 /* 경고창 */
 .alert{
-  position: absolute;
-  text-shadow: 3px 3px 15px rgba(213, 206, 206, 0.745);
+  position: fixed;
+  text-shadow: 1px 5px 2px rgba(238, 223, 223, 0.745);
   text-align: center;
   font-weight: bold;
   top: 50%;
   font-size: 2rem;
-  color:black;
-  transform: translate(-50%,-40%);
+  color:rgb(179, 27, 83);
+  transform: translate(-50%,-50%);
   left: 50%;
-  height: 80%;
+  height: 80vw;
+  min-height: 600px;
+  max-height: 600px;
   background-attachment: fixed;
   box-shadow: 1px 1px 5px 2px black inset;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('/public/apologize.jpg');
-  width: 100%;
+  width: 85%;
+  animation: appear 1s ease-in 1;
 }
 
 .alert span{
   display: inline-block;
-  padding: 1px;
-  padding-top: 14rem;
-  width: 100%;
+  padding: 5px;
+  font-size:2rem ;
+  padding-top: 10rem;
+  width: 80%;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   height: 40px;
+  animation: appear 1s ease-in 1;
 }
+
+@keyframes appear {
+  from {opacity: 0; }
+  to {opacity: 1; }
+}
+
+
 
 /* 미디어 쿼리 */
 @media all and (max-width: 430px) {

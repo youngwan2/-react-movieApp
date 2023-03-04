@@ -9,7 +9,6 @@ export const sortBySearchSlice = createSlice({
   reducers: {
     sortBySearchData(state, action) {
       state.data = action.payload;
-      console.log(action.payload)
     },
   },
 });

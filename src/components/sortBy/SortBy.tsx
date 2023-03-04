@@ -26,6 +26,7 @@ const SortBy = ({
             pageAppear(true);
             setPage(1);
             setCurrentSort(e.target.value);
+        
           }}
           className={styles.sort_by_select}
         >

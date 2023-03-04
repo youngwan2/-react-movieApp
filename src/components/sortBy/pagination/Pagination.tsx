@@ -7,21 +7,7 @@ interface PaginationType {
   currentPageNum: number;
 }
 
-// type SortByDataType = {
-//   sortBySearch: {
-//     data: {
-//       page: number;
-//       total_pages: number;
-//       total_results: number;
-//     };
-//   };
-// };
-
 const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
-  // const sortByDataInfo = useSelector<SortByDataType>((state) => {
-  //   return state.sortBySearch.data;
-  // }) as any;
-
   const [totalPages, setTotalPages] = useState(0);
   const [renderPage] = useState(5);
   const [pageGroup, setPageGroup] = useState(1);
@@ -35,12 +21,7 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
     setPageGroup(Math.ceil(currentPageNum / renderPage));
     setLastPage(pageGroup * renderPage);
     setFirstPage(lastPage - (renderPage - 1));
-  }, [
-    currentPageNum,
-    lastPage,
-    pageGroup,
-    renderPage,
-  ]);
+  }, [currentPageNum, lastPage, pageGroup, renderPage]);
 
   // 페이지네이션 그리는 함수
   const paginationFunc = useCallback(() => {
@@ -81,12 +62,30 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
   return (
     <article className={styles.pagination}>
       <nav className={styles.pagination_nav}>
-        <button onClick={()=>{
-          setPage(1)
-        }} className={styles.prev_btn}>
+        {/* 제일 처음 페이지 이동 */}
+        <button
+          onClick={() => {
+            setPage(1);
+          }}
+          style={
+            currentPageNum === 1
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          className={styles.prev_btn}
+        >
           ◀◀
         </button>
-        <button onClick={prevPageFunc} className={styles.prev_btn}>
+        {/* 이전 페이지 이동 */}
+        <button
+          onClick={prevPageFunc}
+          style={
+            currentPageNum === 1
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          className={styles.prev_btn}
+        >
           ◀
         </button>
         <ul className={styles.pagination_ul}>
@@ -111,12 +110,30 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
             );
           })}
         </ul>
-        <button onClick={nextPageFunc} className={styles.next_btn}>
+        {/* 다음 페이지 이동 */}
+        <button
+          onClick={nextPageFunc}
+          style={
+            currentPageNum === totalPages
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          className={styles.next_btn}
+        >
           ▶
         </button>
-        <button onClick={()=>{
-          setPage(totalPages)
-        }} className={styles.prev_btn}>
+        {/* 마지막 페이지로 이동 */}
+        <button
+          onClick={() => {
+            setPage(totalPages);
+          }}
+          style={
+            currentPageNum === totalPages
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          className={styles.prev_btn}
+        >
           ▶▶
         </button>
       </nav>

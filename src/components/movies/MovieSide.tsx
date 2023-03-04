@@ -57,9 +57,9 @@ const MoviesSide = () => {
   //분류 기준에 따라 다른 영화 리스트를 가져오는 API
   //useCallback 함수를 통해 dispatch  될 때 api 호출
   const getMovieSortBy = useCallback(
-    (selectVal: string) => {
-      if (selectVal === "") selectVal = "popularity.desc"; //아무 선택이 없을 때 기본 값
-      baseSet
+    async (selectVal: string) => {
+      if (!selectVal) selectVal = "popularity.desc"; //아무 선택이 없을 때 기본 값
+      await baseSet
         .get(
           `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${selectVal}&include_adult=false&include_video=false&page=${pageNumber}&with_watch_monetization_types=flatrate`
         )
@@ -80,7 +80,7 @@ const MoviesSide = () => {
   }, [currentSort, getMovieSortBy]);
 
   return (
-    <div className={styles.movie_side}>
+    <article className={styles.movie_side}>
       <div className={`${styles.movie_side_inner} ${display}`}>
         {/* side tap 닫는 버튼 */}
         <button
@@ -109,10 +109,11 @@ const MoviesSide = () => {
         ▶
       </button>
 
+      {/* 페이지네이션 표시 영역 */}
       {paginationAppear ? (
         <Pagination setPage={setPageNumber} currentPageNum={pageNumber} />
       ) : null}
-    </div>
+    </article>
   );
 };
 

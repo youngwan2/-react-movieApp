@@ -21,6 +21,9 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
   const dispatch = useDispatch();
   const [genre, setGenre] = useState<any>("");
 
+  
+  
+  //장르 카테고리 목록을 가져온다.
   const genreInfo = async () => {
     await baseSet
       .get(`/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
@@ -30,11 +33,11 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
       .catch((result) => console.log(result));
   };
 
-  //장르 정보 가져온다.
   useEffect(() => {
     genreInfo();
   }, []);
 
+  // 장르별 영화 목록을 가져온다.
   const getMovieSortByGenre = async (selectGenre: number) => {
     await baseSet
       .get(
@@ -44,11 +47,10 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
         dispatch(sortBySearchData(response.data));
       })
       .catch((error) => {
-        console.log("sortByGenreError:", error);
+        console.error("sortByGenreError:", error);
       });
   };
 
-  //장르유형에 따른 영화정보를 가져온다.
 
   return (
     <div className={styles.sortByGenre}>
