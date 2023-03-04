@@ -4,6 +4,7 @@
 <p>- https://www.themoviedb.org/ (TMDB) 사이트의 API를 사용하여 만든 타입스크립트, 리액트 기반 영화앱</p>
 
 <h2>도메인 사이트</h2>
+* 기존에 Netlify 사이트를 통해 배포 했으나 알 수 없는 에러 문제(원인 불명)로 깃허브에 배포.
 https://youngwan2.github.io/movieapp/
 
 
