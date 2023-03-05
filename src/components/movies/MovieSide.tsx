@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MovieSide.module.css";
 import { useState, useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_KEY } from "../../pages/Home";
 import { baseSet } from "../../slice/MovieSlice";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
@@ -10,8 +10,15 @@ import SortByData from "../sortBy/SortByDate";
 import SortByGenre from "../sortBy/SortByGenre";
 import Pagination from "../sortBy/pagination/Pagination";
 
+type paginationDisplayType = {
+  isDisplayed: boolean;
+};
+
 const MoviesSide = () => {
   const dispatch = useDispatch();
+  const paginationDisplay = useSelector<paginationDisplayType>((state) => {
+    return state.isDisplayed;
+  }) as any;
 
   //  Movies 페이지 접속 시 기본은 sortBy의 인기순을 값으로 한다.
   // 그 외 filter나 genre 별 검색 시에 페이지네이션 영역은 일반적으로 보이지 않도록 설정
@@ -19,30 +26,6 @@ const MoviesSide = () => {
   const [paginationAppear, setPaginationAppear] = useState(true);
   const [barHiddenState, setBarHiddenState] = useState(true);
   const [pageNumber, setPageNumber] = useState<number>(1);
-
-  //sort by 의 select
-  const [optionText] = useState([
-    "Selection",
-    "Popular",
-    "Unpopular",
-    "Recent",
-    "Old",
-    "High profit",
-    "Low profit",
-    "High rating",
-    "Low rating",
-  ]);
-  const [optionVal] = useState([
-    null,
-    "popularity.desc",
-    "popularity.asc",
-    "release_date.desc",
-    "release_date.asc",
-    "revenue.desc",
-    "revenue.asc",
-    "vote_average.desc",
-    "vote_average.asc",
-  ]);
 
   // 분류별 영화 정보 저장
   const [currentSort, setCurrentSort] = useState("");
@@ -74,10 +57,16 @@ const MoviesSide = () => {
   );
 
   //selectVal이나 현재 페이지 숫자가 바뀔 때만 API 내 함수 실행
-
   useEffect(() => {
     getMovieSortBy(currentSort);
   }, [currentSort, getMovieSortBy]);
+
+  // 리덕스 스토어에서 가져온 boolean 값을
+  // 페이지네이션을 온/오프 하는 setState 함수의 인자로 전달
+  // 검색창을 통해 영화 검색 시 불필요한 페이지네이션 영역을 숨긴다.
+  useEffect(() => {
+    setPaginationAppear(paginationDisplay);
+  }, [paginationDisplay]);
 
   return (
     <article className={styles.movie_side}>
@@ -93,15 +82,13 @@ const MoviesSide = () => {
         {/*side tap 콘텐츠 중 sort by 영역  */}
         <SortBy
           setCurrentSort={setCurrentSort}
-          optionText={optionText}
-          optionVal={optionVal}
           setPage={setPageNumber}
-          pageAppear={setPaginationAppear}
+          isDisplayVal={paginationDisplay}
         />
         {/* 연도별 영화 정보 가져옴 */}
-        <SortByData setPage={setPageNumber} pageAppear={setPaginationAppear} />
+        <SortByData setPage={setPageNumber} />
         {/* 장르별로 영화 정보 가져옴 */}
-        <SortByGenre setPage={setPageNumber} pageAppear={setPaginationAppear} />
+        <SortByGenre setPage={setPageNumber} />
       </div>
 
       {/* 좌측의 sort tap 여는 버튼 */}

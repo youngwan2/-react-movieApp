@@ -7,6 +7,7 @@ import { baseSet } from "../../slice/MovieSlice";
 import { useNavigate } from "react-router-dom";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
 import { useDispatch } from "react-redux";
+import { isDisplay } from "../../slice/SortBySearchSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -37,8 +38,8 @@ const Search = () => {
     const keyCode = e.key;
     if (inputVal !== "" && keyCode === "Enter") {
       navigate("/movies");
-      const copy = inputVal;
-      getSearchMovieDate(copy);
+      getSearchMovieDate(inputVal);
+      dispatch(isDisplay(false))
       e.currentTarget.value = "";
     }
   };

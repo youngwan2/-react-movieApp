@@ -13,7 +13,7 @@ import Player from "../components/detail/Player";
 
 const Detail = () => {
   const imageOnErrorHandler = (e: SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = "/not_find_img.png";
+    e.currentTarget.src = process.env.PUBLIC_URL + "/not_find_img.png";
   };
 
   const { id }: any = useParams();
@@ -38,7 +38,7 @@ const Detail = () => {
   return (
     <div>
       {detailInfo === 404 ? (
-        <h1>자료가 존재하지 않습니다.</h1>
+        <h1 className={styles.errorMessage}>자료가 존재하지 않습니다.</h1>
       ) : (
         // 영화 커버 이미지
         <div

@@ -5,6 +5,7 @@ import { API_KEY } from "../../pages/Home";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
+import { isDisplay } from "../../slice/SortBySearchSlice";
 
 //장르정보를 가져오는 API 로 전달할 인자의 타입이다.
 type genreType = {
@@ -14,15 +15,12 @@ type genreType = {
 
 interface SortByGenreType {
   setPage: Function;
-  pageAppear: Function;
 }
 
-const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
+const SortByGenre = ({ setPage }: SortByGenreType) => {
   const dispatch = useDispatch();
   const [genre, setGenre] = useState<any>("");
 
-  
-  
   //장르 카테고리 목록을 가져온다.
   const genreInfo = async () => {
     await baseSet
@@ -51,7 +49,6 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
       });
   };
 
-
   return (
     <div className={styles.sortByGenre}>
       <h3 className={styles.sortByGenre_title}>Genre</h3>
@@ -63,7 +60,7 @@ const SortByGenre = ({ setPage, pageAppear }: SortByGenreType) => {
               key={i}
               onClick={() => {
                 setPage(1);
-                pageAppear(false);
+                dispatch(isDisplay(false));
                 getMovieSortByGenre(genreEl.id);
               }}
             >

@@ -6,12 +6,11 @@ import { baseSet } from "../../slice/MovieSlice";
 import { API_KEY } from "../../pages/Home";
 import { useDispatch } from "react-redux";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
-
+import { isDisplay } from "../../slice/SortBySearchSlice";
 interface SortByDataType {
   setPage: Function;
-  pageAppear: Function;
 }
-const SortByData = ({ setPage, pageAppear }: SortByDataType) => {
+const SortByData = ({ setPage}: SortByDataType) => {
   const dispatch = useDispatch();
 
   // 연도 데이터 저장
@@ -59,12 +58,12 @@ const SortByData = ({ setPage, pageAppear }: SortByDataType) => {
         step={"1"}
         onClick={() => {
           setPage(1);
-          pageAppear(false);
+          dispatch(isDisplay(false));
         }}
         onChange={userRangeInput}
       ></input>
       <div className={styles.sortByDate_rangeVal}>
-        {rangeVal === "" ? "2000 ~ 2023" : rangeVal}
+        {rangeVal === "" ? "2000 ~ 2030" : rangeVal}
       </div>
     </div>
   );

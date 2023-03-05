@@ -13,4 +13,17 @@ export const sortBySearchSlice = createSlice({
   },
 });
 
+export const paginationDisplaySlice = createSlice({
+  name: "paginationDisplay",
+  initialState: true,
+  reducers: {
+    isDisplay(state, action) {
+      console.log(action.payload)
+      return state = action.payload;
+      
+    },
+  },
+});
+
 export const { sortBySearchData } = sortBySearchSlice.actions;
+export const { isDisplay } = paginationDisplaySlice.actions;

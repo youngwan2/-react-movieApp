@@ -24,7 +24,6 @@
 /* 사이트 로고 */
 .header_logo {
   z-index: 20;
-  padding-left: 1rem;
 }
 .header_logo:hover {
   cursor: pointer;
@@ -38,12 +37,12 @@
 .header .header_menu {
   text-align: center;
   align-self: center;
-  padding-left: 2.5rem;
+  padding-left: 1.5rem;
 }
 
 .header .header_menu .link {
   z-index: 20;
-  padding: 8px;
+  padding: 5px;
   text-decoration: none;
   font-size: 20px;
   font-weight: 600;

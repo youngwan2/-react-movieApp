@@ -8,7 +8,7 @@ import {
   SimilarType,
 } from "../../type/Similar";
 
-// Similar 컴포넌트 
+// Similar 컴포넌트
 const Similar = ({ apiData }: SimilarType) => {
   const navigate = useNavigate();
 
@@ -16,20 +16,32 @@ const Similar = ({ apiData }: SimilarType) => {
     <section className={styles.similar}>
       {apiData.results && apiData.results[0] !== undefined ? (
         apiData.results.map((movieList: SimilarMovieListType, i) => {
-          const { title, release_date, adult, vote_average, vote_count } = movieList;
+          const { title, release_date, adult, vote_average, vote_count } =
+            movieList;
 
           return (
             <section
               className={styles.similar_card}
               key={i}
-              style={{
-                backgroundImage:
-                  "url(" +
-                  `https://image.tmdb.org/t/p/w500${movieList.poster_path}` +
-                  ")",
-              }}
+              style={
+                movieList.poster_path
+                  ? {
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                      backgroundImage: `url(
+                        https://image.tmdb.org/t/p/w500${movieList.poster_path})`,
+                    }
+                  : {
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                      backgroundImage: `url(${
+                        process.env.PUBLIC_URL + "/noimage.png"
+                      })`,
+                    }
+              }
               onClick={() => {
                 navigate(`/detail/${movieList.id}`);
+                console.log(movieList.poster_path);
               }}
             >
               <SimilarContent
