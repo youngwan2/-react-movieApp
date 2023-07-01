@@ -25,14 +25,14 @@ const Movies = () => {
   }, []);
 
   return (
-    <article className={styles.movies}>
+    <section className={styles.movies}>
       {display === true ? (
-        <div className={styles.movies_disappear_box}>
+        <article className={styles.movies_disappear_box}>
           <div className={styles.box_content}>
             {" "}
             Thank you for visiting. Hope you have a good time!.
           </div>
-        </div>
+        </article>
       ) : null}
 
       <div className={styles.movies_container}>
@@ -40,7 +40,7 @@ const Movies = () => {
         <MoviesCard />
         {scrollY > 50 ? <TopShift /> : null}
       </div>
-    </article>
+    </section>
   );
 };
 

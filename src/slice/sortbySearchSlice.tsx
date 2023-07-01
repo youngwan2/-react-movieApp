@@ -25,5 +25,6 @@ export const paginationDisplaySlice = createSlice({
   },
 });
 
+
 export const { sortBySearchData } = sortBySearchSlice.actions;
 export const { isDisplay } = paginationDisplaySlice.actions;

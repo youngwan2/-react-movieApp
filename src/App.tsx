@@ -5,6 +5,7 @@ import Detail from "./pages/Detail";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/Header";
+import NotPath from "./components/error/NotPath";
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -32,6 +33,7 @@ function App() {
       {scrollY > 0 ? null : <Header />}
 
       <Routes>
+        <Route path="*" element={<NotPath/>}/> 
         <Route path="/" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
         <Route path="/search" element={<Movies />}></Route>

@@ -12,6 +12,7 @@ import { faVideoCamera } from "@fortawesome/free-solid-svg-icons";
 import Player from "../components/detail/Player";
 
 const Detail = () => {
+  // 포스터 이미지가 존재하지 않는 경우 해당 에러를 대체하는 이미지를 타겟의 src 주소로 설정
   const imageOnErrorHandler = (e: SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = process.env.PUBLIC_URL + "/not_find_img.png";
   };
@@ -77,16 +78,18 @@ const Detail = () => {
             </div>
 
             {detailInfo.genres !== undefined
-              ? detailInfo.genres.map((data: any, i: number) => {
-                  return (
-                    <span
-                      key={Math.random() * 10000 * i}
-                      className={styles.detail_genres}
-                    >
-                      {data.name}
-                    </span>
-                  );
-                })
+              ? detailInfo.genres.map(
+                  (data: { id: number; name: string }, i: number) => {
+                    return (
+                      <span
+                        key={Math.random() * 10000 * i}
+                        className={styles.detail_genres}
+                      >
+                        {data.name}
+                      </span>
+                    );
+                  }
+                )
               : null}
             {/* 런타임 */}
             <div className={styles.detail_runtime}>
@@ -100,11 +103,15 @@ const Detail = () => {
             <div className={styles.detail_vote_average}>
               <FontAwesomeIcon className="point" icon={faP}></FontAwesomeIcon>
               {Math.ceil(detailInfo.vote_average * 10)} points
-              {/* 중거리 */}
+              {/* 줄거리 */}
             </div>
             <div className={styles.detail_overview}>{detailInfo.overview}</div>
           </section>
-          {videoAppear ? <Player id={id} setAppear ={setVideoAppear} appear={videoAppear}> </Player> : null}
+          {videoAppear ? (
+            <Player id={id} setAppear={setVideoAppear} appear={videoAppear}>
+              {" "}
+            </Player>
+          ) : null}
         </div>
       )}
 

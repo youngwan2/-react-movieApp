@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const detailTapsSlice = createSlice({
+const detailTapsSlice = createSlice({
   name: "detailTapsData",
   initialState: { data: "" },
   reducers: {},
 });
+
+
+
+export default detailTapsSlice.reducer

@@ -90,5 +90,5 @@ const movieSlice = createSlice({
   },
 });
 
-export default movieSlice;
+export default movieSlice.reducer;
 export { getMovieData };

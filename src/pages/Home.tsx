@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
+import type {RootState} from '../store';
 import { useEffect, useState } from "react";
 import { getMovieData } from "../slice/MovieSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +19,8 @@ const Home = () => {
       return state.movies.data;
     }
   );
+
+  console.log(popularMovie)
 
   useEffect(() => {
     // 영화 데이터를 요청한다.
