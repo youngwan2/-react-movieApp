@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./MoviesCard.module.css";
 import { baseSet } from "../../../slice/MovieSlice";
 import { API_KEY } from "../../../pages/Home";

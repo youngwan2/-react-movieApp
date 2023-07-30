@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./Player.module.css";
 import { API_KEY } from "../../pages/Home";
 import { baseSet } from "../../slice/MovieSlice";

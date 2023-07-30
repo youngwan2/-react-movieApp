@@ -20,7 +20,7 @@ type genreArrayType = {
   find: Function;
 };
 
-const SlideCard: React.FC<SlideCardType> = ({ movieList }) => {
+const SlideCard = ({ movieList }: SlideCardType) => {
   const navigate = useNavigate();
 
   const genre = useSelector<genreReduxType>((state) => {
@@ -30,7 +30,8 @@ const SlideCard: React.FC<SlideCardType> = ({ movieList }) => {
   return (
     <section
       onClick={() => {
-        navigate(`/detail/${movieList.id}`);
+        window.scrollTo({ top: 0 });
+        navigate(`/movieapp/detail/${movieList.id}`);
       }}
       className={styles.slide_card}
     >
@@ -47,9 +48,9 @@ const SlideCard: React.FC<SlideCardType> = ({ movieList }) => {
         {/* 영화 정보 */}
         <div className={styles.slide_card_contents}>
           <h2 className={styles.title}>{movieList.title}</h2>
-          {movieList.genre_ids.map((ids: number,i) => {
+          {movieList.genre_ids.map((ids: number) => {
             return (
-              <span className={styles.genre} key={Math.random() * 10000 * i}>
+              <span className={styles.genre} key={ids}>
                 {genre.find((g: genreArrayType) => g.id === ids).name}
               </span>
             );

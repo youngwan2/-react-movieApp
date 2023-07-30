@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./Pagination.module.css";
-// import { useSelector } from "react-redux";
 
 interface PaginationType {
-  setPage: Function;
+  setPage: (result: number) => void;
   currentPageNum: number;
 }
 

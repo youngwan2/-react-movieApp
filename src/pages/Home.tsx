@@ -1,26 +1,23 @@
-import React from "react";
 import styles from "./Home.module.css";
-import type {RootState} from '../store';
+import { memo} from "react";
 import { useEffect, useState } from "react";
 import { getMovieData } from "../slice/MovieSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import Banner from "../components/home/Banner";
 import MovieSlide from "../components/home/MovieSlide";
 import Spinner from "../components/spinner/Spinner";
 
 export const API_KEY = process.env.REACT_APP_API_KEY;
 
-const Home = () => {
-  const dispatch = useDispatch<any>();
+const Home = memo(() => {
+  const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
 
-  const { popularMovie, topRateMovie, isComingMovie } = useSelector(
+  const { popularMovie, topRateMovie, isComingMovie } = useAppSelector(
     (state: any) => {
-      return state.movies.data;
+       return state.movies.data;
     }
   );
-
-  console.log(popularMovie)
 
   useEffect(() => {
     // 영화 데이터를 요청한다.
@@ -45,6 +42,6 @@ const Home = () => {
       )}
     </div>
   );
-};
+});
 
 export default Home;

@@ -18,30 +18,29 @@ const Similar = ({ apiData }: SimilarType) => {
         apiData.results.map((movieList: SimilarMovieListType, i) => {
           const { title, release_date, adult, vote_average, vote_count } =
             movieList;
-
           return (
             <section
               className={styles.similar_card}
-              key={i}
+              key={movieList.id}
               style={
                 movieList.poster_path
                   ? {
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
                       backgroundImage: `url(
                         https://image.tmdb.org/t/p/w500${movieList.poster_path})`,
                     }
                   : {
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
                       backgroundImage: `url(${
                         process.env.PUBLIC_URL + "/noimage.png"
                       })`,
                     }
               }
               onClick={() => {
-                navigate(`/detail/${movieList.id}`);
-                console.log(movieList.poster_path);
+                window.scrollTo({ top: 0 });
+                navigate(`/movieapp/detail/${movieList.id}`);
               }}
             >
               <SimilarContent

@@ -20,9 +20,9 @@ const Cast = ({ apiData }: CastType) => {
   return (
     <div className={styles.cast}>
       {apiData.cast && apiData.cast[0] !== undefined ? (
-        apiData.cast.map((cast: CastListType,i) => {
+        apiData.cast.map((cast: CastListType) => {
           return (
-            <section className={styles.cast_info} key={i}>
+            <section className={styles.cast_info} key={cast.name}>
               <img
                 className={styles.cast_img}
                 src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}

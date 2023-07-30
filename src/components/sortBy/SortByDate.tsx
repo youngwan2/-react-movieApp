@@ -1,17 +1,16 @@
-import React from "react";
 import styles from "./SortByDate.module.css";
 import { useEffect, useState, useCallback } from "react";
 import { ChangeEvent } from "react";
 import { baseSet } from "../../slice/MovieSlice";
 import { API_KEY } from "../../pages/Home";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../app/hooks";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
 import { isDisplay } from "../../slice/SortBySearchSlice";
 interface SortByDataType {
-  setPage: Function;
+  setPage: (result: number) => void;
 }
-const SortByData = ({ setPage}: SortByDataType) => {
-  const dispatch = useDispatch();
+const SortByData = ({ setPage }: SortByDataType) => {
+  const dispatch = useAppDispatch();
 
   // 연도 데이터 저장
   const [rangeVal, setRangeVal] = useState("");

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DetailTaps.module.css";
 import { useState, useEffect, useCallback } from "react";
 import Similar from "../detail/detailTaps/Similar";
@@ -86,7 +85,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
                   : { backgroundColor: "transparent" }
               }
               className={styles.tap_btn}
-              key={i}
+              key={count}
               onClick={() => {
                 let selectNum = [i];
                 let copy = [...selectNum];

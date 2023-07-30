@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./MoviesCard.module.css";
@@ -40,7 +40,8 @@ const MoviesCard = () => {
                 backgroundImage: `url(https://image.tmdb.org/t/p/w500${data.poster_path})`,
               }}
               onClick={() => {
-                navigate(`/detail/${data.id}`);
+                window.scrollTo({'top':0})
+                navigate(`/movieapp/detail/${data.id}`);
               }}
             >
               <MoviesCardContent data={data} />

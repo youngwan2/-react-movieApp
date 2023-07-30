@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, SyntheticEvent } from "react";
+import { useState, useEffect, useCallback, SyntheticEvent } from "react";
 import styles from "./Detail.module.css";
 import { API_KEY } from "./Home";
 import DetailTaps from "../components/detail/DetailTaps";
@@ -10,6 +10,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faP } from "@fortawesome/free-solid-svg-icons";
 import { faVideoCamera } from "@fortawesome/free-solid-svg-icons";
 import Player from "../components/detail/Player";
+import Header from "../components/header/Header";
 
 const Detail = () => {
   // 포스터 이미지가 존재하지 않는 경우 해당 에러를 대체하는 이미지를 타겟의 src 주소로 설정
@@ -37,7 +38,7 @@ const Detail = () => {
   }, [idSearchGetMoviesData]);
 
   return (
-    <div>
+    <section>
       {detailInfo === 404 ? (
         <h1 className={styles.errorMessage}>자료가 존재하지 않습니다.</h1>
       ) : (
@@ -78,18 +79,13 @@ const Detail = () => {
             </div>
 
             {detailInfo.genres !== undefined
-              ? detailInfo.genres.map(
-                  (data: { id: number; name: string }, i: number) => {
-                    return (
-                      <span
-                        key={Math.random() * 10000 * i}
-                        className={styles.detail_genres}
-                      >
-                        {data.name}
-                      </span>
-                    );
-                  }
-                )
+              ? detailInfo.genres.map((data: { id: number; name: string }) => {
+                  return (
+                    <span key={data.id} className={styles.detail_genres}>
+                      {data.name}
+                    </span>
+                  );
+                })
               : null}
             {/* 런타임 */}
             <div className={styles.detail_runtime}>
@@ -116,7 +112,7 @@ const Detail = () => {
       )}
 
       <DetailTaps id={id} />
-    </div>
+    </section>
   );
 };
 

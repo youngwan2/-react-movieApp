@@ -1,9 +1,9 @@
-import React from "react";
 import styles from "./Movies.module.css";
 import MoviesSide from "../components/movies/MovieSide";
 import MoviesCard from "../components/movies/moviesCard/MoviesCard";
 import TopShift from "../components/movies/TopShift";
 import { useEffect, useState } from "react";
+import Header from "../components/header/Header";
 
 const Movies = () => {
   const [display, setDisplay] = useState(true);
@@ -26,6 +26,7 @@ const Movies = () => {
 
   return (
     <section className={styles.movies}>
+      <Header/>
       {display === true ? (
         <article className={styles.movies_disappear_box}>
           <div className={styles.box_content}>

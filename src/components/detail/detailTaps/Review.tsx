@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Review.module.css";
 import NotFind from "./NotFind";
 
@@ -7,6 +6,7 @@ interface ReviewsInfoType {
   author: string;
   created_at: string;
   content: string;
+  id?: string;
 }
 interface reviewType {
   apiData: {
@@ -21,15 +21,14 @@ const Review = ({ apiData }: reviewType) => {
   return (
     <section className={styles.review}>
       {apiData.results && apiData.results[0] !== undefined ? (
-        apiData.results.map((result,i) => {
-          const { author, content, created_at} = result;
+        apiData.results.map((result) => {
+          const { author, content, created_at, id } = result;
           return (
             <ReviewsInfo
               author={author}
               content={content}
               created_at={created_at}
-              key={i}
-            
+              key={id}
             />
           );
         })

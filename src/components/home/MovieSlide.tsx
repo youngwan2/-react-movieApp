@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./MovieSlide.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -40,9 +39,9 @@ const MovieSlide = ({ movies }: MovieSlideType) => {
     <article className={styles.movieSlide}>
       <Carousel responsive={responsive} className={styles.carousel}>
         {movies && movies.results !== undefined ? (
-          movies.results.map((movieEl, i: number) => {
+          movies.results.map((movieEl:any) => {
             return (
-              <SlideCard key={i} movieList={movieEl} />
+              <SlideCard key={movieEl.id} movieList={movieEl} />
             );
           })
         ) : (

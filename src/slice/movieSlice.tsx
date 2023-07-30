@@ -1,13 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_KEY } from "../pages/Home";
+import { RootState } from "../store";
 
 //axios 기본 설정(이 설정을 통해 아래에 설정된 부분을 단축하여 표현할 수 있다.)
 export const baseSet = axios.create({
   baseURL: "https://api.themoviedb.org",
   headers: { "content-type": "application/json;charset=utf-8" },
 });
-
 
 const getMovieData = createAsyncThunk("GET/movieData", async () => {
   //  인기영화
@@ -67,7 +67,9 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
   return { popularMovie, topRateMovie, isComingMovie, genreInfo, latestMovie };
 });
 
-// 영화 정보를 저장한다.
+// ================================================================
+
+// 슬라이스를 생성한다.
 const movieSlice = createSlice({
   name: "movieData",
   initialState: {
@@ -83,10 +85,13 @@ const movieSlice = createSlice({
     builder.addCase(getMovieData.pending, (state) => {
       state.status = "Loading..";
     });
-    builder.addCase(getMovieData.fulfilled, (state, action: any) => {
-      state.data = action.payload;
-      state.status = "Complete!";
-    });
+    builder.addCase(
+      getMovieData.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.data = action.payload;
+        state.status = "Complete!";
+      }
+    );
   },
 });
 

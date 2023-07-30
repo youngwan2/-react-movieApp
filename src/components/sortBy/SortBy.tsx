@@ -62,7 +62,7 @@ const SortBy = ({ setCurrentSort, setPage, isDisplayVal }: SortByType) => {
         >
           {optionText.map((text, i) => {
             return (
-              <option key={Math.random() * 10000 * i} value={`${optionVal[i]}`}>
+              <option key={text} value={`${optionVal[i]}`}>
                 {text}
               </option>
             );

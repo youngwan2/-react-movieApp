@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import {useState} from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,14 +10,11 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
 
   const [menuDisplay, setMenuDisplay] = useState('')
-  console.log(menuDisplay)
-
 
   const displayFunc = () =>{
     if(menuDisplay === '') return  setMenuDisplay(styles.display_on)
     else setMenuDisplay('')
   }
-
   const navigate = useNavigate();
   return (
     <header className={styles.header}>
@@ -25,7 +22,7 @@ const Header = () => {
         <img
           className={styles.header_logo}
           onClick={() => {
-            navigate("/");
+            navigate("/movieapp");
           }}
           width={90}
           height={45}
@@ -34,10 +31,10 @@ const Header = () => {
         ></img>
 
         <nav className={`${styles.header_menu} ${menuDisplay}`}>
-          <Link className={styles.link} to={"/"}>
+          <Link className={styles.link} to={"/movieapp"}>
             Home
           </Link>
-          <Link className={styles.link} to={"/movies"}>
+          <Link className={styles.link} to={"/movieapp/movies"}>
             Movies
           </Link>
         </nav>

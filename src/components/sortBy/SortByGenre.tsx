@@ -1,9 +1,8 @@
-import React from "react";
 import styles from "./SortByGenre.module.css";
 import { baseSet } from "../../slice/MovieSlice";
 import { API_KEY } from "../../pages/Home";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../app/hooks";
 import { sortBySearchData } from "../../slice/SortBySearchSlice";
 import { isDisplay } from "../../slice/SortBySearchSlice";
 
@@ -14,12 +13,12 @@ type genreType = {
 };
 
 interface SortByGenreType {
-  setPage: Function;
+  setPage: (result:number)=>void;
 }
 
 const SortByGenre = ({ setPage }: SortByGenreType) => {
-  const dispatch = useDispatch();
-  const [genre, setGenre] = useState<any>("");
+  const dispatch = useAppDispatch();
+  const [genre, setGenre] = useState<genreType[]>();
 
   //장르 카테고리 목록을 가져온다.
   const genreInfo = async () => {
@@ -52,12 +51,12 @@ const SortByGenre = ({ setPage }: SortByGenreType) => {
   return (
     <div className={styles.sortByGenre}>
       <h3 className={styles.sortByGenre_title}>Genre</h3>
-      {genre !== "" ? (
-        genre.map((genreEl: genreType, i: number) => {
+      {genre ? (
+        genre.map((genreEl: genreType) => {
           return (
             <button
               className={styles.sortByGenre_keyword}
-              key={i}
+              key={genreEl.id}
               onClick={() => {
                 setPage(1);
                 dispatch(isDisplay(false));

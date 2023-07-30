@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Banner.module.css";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 
 const Banner = () => {
-  const { popularMovie } = useSelector((state: any) => {
+  const { popularMovie } = useAppSelector((state:any) => {
     return state.movies.data;
   });
 
