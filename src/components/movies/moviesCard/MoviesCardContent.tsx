@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./MoviesCard.module.css";
-import { baseSet } from "../../../slice/MovieSlice";
+import { baseSet } from "../../../slice/movieSlice";
 import { API_KEY } from "../../../pages/Home";
 import { GenreType } from "../../type/MoviesCard";
 import { SearchDateTypeMapFunc } from "../../type/MoviesCard";

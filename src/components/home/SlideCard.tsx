@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./SlideCard.module.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";

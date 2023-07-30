@@ -26,7 +26,6 @@ const Movies = () => {
 
   return (
     <section className={styles.movies}>
-      <Header/>
       {display === true ? (
         <article className={styles.movies_disappear_box}>
           <div className={styles.box_content}>

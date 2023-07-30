@@ -1,10 +1,10 @@
 import styles from "./SortByGenre.module.css";
-import { baseSet } from "../../slice/MovieSlice";
+import { baseSet } from "../../slice/movieSlice";
 import { API_KEY } from "../../pages/Home";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { sortBySearchData } from "../../slice/SortBySearchSlice";
-import { isDisplay } from "../../slice/SortBySearchSlice";
+import { sortBySearchData } from "../../slice/sortbySearchSlice";
+import { isDisplay } from "../../slice/sortbySearchSlice";
 
 //장르정보를 가져오는 API 로 전달할 인자의 타입이다.
 type genreType = {
@@ -13,7 +13,7 @@ type genreType = {
 };
 
 interface SortByGenreType {
-  setPage: (result:number)=>void;
+  setPage: (result: number) => void;
 }
 
 const SortByGenre = ({ setPage }: SortByGenreType) => {

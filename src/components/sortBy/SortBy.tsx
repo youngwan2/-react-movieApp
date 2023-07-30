@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./SortBy.module.css";
 import { useDispatch } from "react-redux";
-import { isDisplay } from "../../slice/SortBySearchSlice";
+import { isDisplay } from "../../slice/sortbySearchSlice";
 
 interface SortByType {
   setCurrentSort: Function;

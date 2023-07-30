@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import styles from "./Player.module.css";
 import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/MovieSlice";
+import { baseSet } from "../../slice/movieSlice";
 import ReactPlayer from "react-player";
 
 interface PlayerType {

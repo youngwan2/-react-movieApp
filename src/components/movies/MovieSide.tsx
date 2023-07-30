@@ -1,10 +1,9 @@
-import React from "react";
 import styles from "./MovieSide.module.css";
 import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/MovieSlice";
-import { sortBySearchData } from "../../slice/SortBySearchSlice";
+import { baseSet } from "../../slice/movieSlice";
+import { sortBySearchData } from "../../slice/sortbySearchSlice";
 import SortBy from "../sortBy/SortBy";
 import SortByData from "../sortBy/SortByDate";
 import SortByGenre from "../sortBy/SortByGenre";

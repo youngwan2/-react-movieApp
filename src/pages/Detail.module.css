@@ -234,6 +234,9 @@
 }
 
 @media all and (max-width: 466px) {
+  .detail{
+    padding-top: 10rem;
+  }
   .preview_videos {
     max-width: 380px;
   }
@@ -261,7 +264,7 @@
 
 @media all and (max-width: 430px) {
   .detail {
-    padding-top: 8rem;
+    padding-top: 10rem ;
     height: 1000px;
   }
   .detail_img {
@@ -286,6 +289,9 @@
 }
 
 @media screen and (max-width: 400px) {
+  .detail{
+    padding-top: 10rem !important;
+  }
   .detail_img {
     height: 340px;
   }
@@ -293,7 +299,7 @@
 
 @media all and (max-width: 360px) {
   .detail {
-    padding-top: 8rem;
+    padding-top: 10rem;
     padding-bottom: 5rem;
   }
   .detail_img {

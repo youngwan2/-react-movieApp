@@ -4,7 +4,7 @@ import Similar from "../detail/detailTaps/Similar";
 import Review from "../detail/detailTaps/Review";
 import Cast from "../detail/detailTaps/Cast";
 import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/MovieSlice";
+import { baseSet } from "../../slice/movieSlice";
 import TopShift from "../movies/TopShift";
 
 /** getApiData 가 각 자식 컴포넌트로 전달될 때 스크롤 시 

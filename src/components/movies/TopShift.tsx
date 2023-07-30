@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./TopShift.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";

@@ -3,14 +3,13 @@ import styles from "./Detail.module.css";
 import { API_KEY } from "./Home";
 import DetailTaps from "../components/detail/DetailTaps";
 import { useParams } from "react-router-dom";
-import { baseSet } from "../slice/MovieSlice";
+import { baseSet } from "../slice/movieSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faP } from "@fortawesome/free-solid-svg-icons";
 import { faVideoCamera } from "@fortawesome/free-solid-svg-icons";
 import Player from "../components/detail/Player";
-import Header from "../components/header/Header";
 
 const Detail = () => {
   // 포스터 이미지가 존재하지 않는 경우 해당 에러를 대체하는 이미지를 타겟의 src 주소로 설정

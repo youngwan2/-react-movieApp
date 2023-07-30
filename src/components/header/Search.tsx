@@ -1,13 +1,13 @@
-import React, { useState, KeyboardEvent } from "react";
+import { useState, KeyboardEvent } from "react";
 import styles from "./Search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/MovieSlice";
+import { baseSet } from "../../slice/movieSlice";
 import { useNavigate } from "react-router-dom";
-import { sortBySearchData } from "../../slice/SortBySearchSlice";
+import { sortBySearchData } from "../../slice/sortbySearchSlice";
 import { useDispatch } from "react-redux";
-import { isDisplay } from "../../slice/SortBySearchSlice";
+import { isDisplay } from "../../slice/sortbySearchSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -37,9 +37,9 @@ const Search = () => {
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     const keyCode = e.key;
     if (inputVal !== "" && keyCode === "Enter") {
-      navigate("/movies");
+      navigate("/movieapp/movies");
       getSearchMovieDate(inputVal);
-      dispatch(isDisplay(false))
+      dispatch(isDisplay(false));
       e.currentTarget.value = "";
     }
   };
@@ -71,7 +71,7 @@ const Search = () => {
           onChange={(event) => {
             const copy = event.target.value;
             setInputVal(copy);
-            navigate('/movies')
+            navigate("/movieapp/movies");
           }}
           onKeyDown={onKeyDown}
         ></input>

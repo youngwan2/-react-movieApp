@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_KEY } from "../pages/Home";
-import { RootState } from "../store";
 
 //axios 기본 설정(이 설정을 통해 아래에 설정된 부분을 단축하여 표현할 수 있다.)
 export const baseSet = axios.create({

@@ -1,11 +1,11 @@
 import styles from "./SortByDate.module.css";
 import { useEffect, useState, useCallback } from "react";
 import { ChangeEvent } from "react";
-import { baseSet } from "../../slice/MovieSlice";
+import { baseSet } from "../../slice/movieSlice";
 import { API_KEY } from "../../pages/Home";
 import { useAppDispatch } from "../../app/hooks";
-import { sortBySearchData } from "../../slice/SortBySearchSlice";
-import { isDisplay } from "../../slice/SortBySearchSlice";
+import { sortBySearchData } from "../../slice/sortbySearchSlice";
+import { isDisplay } from "../../slice/sortbySearchSlice";
 interface SortByDataType {
   setPage: (result: number) => void;
 }

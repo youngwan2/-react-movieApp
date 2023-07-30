@@ -1,7 +1,7 @@
 import styles from "./Home.module.css";
-import { memo} from "react";
+import { memo } from "react";
 import { useEffect, useState } from "react";
-import { getMovieData } from "../slice/MovieSlice";
+import { getMovieData } from "../slice/movieSlice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import Banner from "../components/home/Banner";
 import MovieSlide from "../components/home/MovieSlide";
@@ -15,7 +15,7 @@ const Home = memo(() => {
 
   const { popularMovie, topRateMovie, isComingMovie } = useAppSelector(
     (state: any) => {
-       return state.movies.data;
+      return state.movies.data;
     }
   );
 
