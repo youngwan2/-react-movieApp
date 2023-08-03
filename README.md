@@ -10,8 +10,8 @@
 
 <h2>기술 스택</h2>
 <ul>
-<li></li>
-<li></li>
+<li> ![react_logo](https://github.com/youngwan2/movieapp/assets/107159871/caac501c-44bd-4bcb-b4dc-22d4718f99db) </li>
+<li> ![image](https://github.com/youngwan2/movieapp/assets/107159871/b25bcdf5-d6cb-4ed0-bd6b-544eb392ab9a) </li>
 <li></li>
 <li></li>
   
