@@ -10,10 +10,10 @@
 
 <h2>기술 스택</h2>
 <ul>
-<li> ![react_logo](https://github.com/youngwan2/movieapp/assets/107159871/caac501c-44bd-4bcb-b4dc-22d4718f99db) </li>
-<li> ![image](https://github.com/youngwan2/movieapp/assets/107159871/b25bcdf5-d6cb-4ed0-bd6b-544eb392ab9a) </li>
-<li></li>
-<li></li>
+<li><img width="70" height="43" src="https://github.com/youngwan2/movieapp/assets/107159871/caac501c-44bd-4bcb-b4dc-22d4718f99db"></img></li>
+<li><img width="70" height="43" src="https://github.com/youngwan2/movieapp/assets/107159871/b25bcdf5-d6cb-4ed0-bd6b-544eb392ab9a"></img></li>
+<li><img width="70" height="43" src="https://github.com/youngwan2/movieapp/assets/107159871/0fc70766-9f62-473a-a4f0-70f9c3f33098"></img></li>
+<li><img width="70" height="43" src="https://github.com/youngwan2/movieapp/assets/107159871/402cead2-90a6-4b83-a948-347530742807"></img></li>
   
 </ul>
 
