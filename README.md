@@ -18,11 +18,10 @@
 <h2>배포</h2>
 https://youngwan2.github.io/movieapp/
 
-<h2>License</h2>
-<h2>Contact</h2>
 
 <h2>현황</h2>
 <p>- 23/07/30 :: react-router-dom 6.4 이상으로 수정, 리덕스 툴킷 타입 수정</p>
+
 
 <h2>개선할 점</h2>
 <23/4/3 기준>
