@@ -4,11 +4,13 @@ import { API_KEY } from "./Home";
 import DetailTaps from "../components/detail/DetailTaps";
 import { useParams } from "react-router-dom";
 import { baseSet } from "../slice/movieSlice";
+/* 아이콘 */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faP } from "@fortawesome/free-solid-svg-icons";
 import { faVideoCamera } from "@fortawesome/free-solid-svg-icons";
+/* 영상(예고편) 플레이어 */
 import Player from "../components/detail/Player";
 
 const Detail = () => {
@@ -16,8 +18,10 @@ const Detail = () => {
   const imageOnErrorHandler = (e: SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = process.env.PUBLIC_URL + "/not_find_img.png";
   };
-
-  const { id }: any = useParams();
+  type ParamsType = {
+    id: string
+  }
+  const { id }: any = useParams<ParamsType>();
 
   //api movie 데이터 state 저장
   const [detailInfo, setDetailInfo] = useState<any>("");
@@ -79,12 +83,12 @@ const Detail = () => {
 
             {detailInfo.genres !== undefined
               ? detailInfo.genres.map((data: { id: number; name: string }) => {
-                  return (
-                    <span key={data.id} className={styles.detail_genres}>
-                      {data.name}
-                    </span>
-                  );
-                })
+                return (
+                  <span key={data.id} className={styles.detail_genres}>
+                    {data.name}
+                  </span>
+                );
+              })
               : null}
             {/* 런타임 */}
             <div className={styles.detail_runtime}>

@@ -4,7 +4,7 @@ import {
   sortBySearchSlice,
   paginationDisplaySlice,
 } from "./slice/sortbySearchSlice";
-import detailTapsSlice from "./slice/DetailTapsSlice";
+import detailTapsSlice from "./slice/detailTapsSlice"
 
 export const store = configureStore({
   reducer: {
