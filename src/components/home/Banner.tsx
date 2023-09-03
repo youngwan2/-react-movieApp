@@ -35,7 +35,7 @@ const Banner = () => {
               transform: "scale(0.98)",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[1].poster_path})`,
+              backgroundImage: `url(https://image.tmdb.org/t/p/w200/${popularMovie.results[1].poster_path})`,
             }}
           ></div>
           {/* 2번째 배너 */}
@@ -47,7 +47,7 @@ const Banner = () => {
                 transform: "scale(1.03)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[4].poster_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w300/${popularMovie.results[4].poster_path})`,
               }}
             ></div>
           </div>
@@ -81,7 +81,7 @@ const Banner = () => {
                 transform: "scale(1.03)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[2].poster_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w300/${popularMovie.results[2].poster_path})`,
               }}
             ></div>
           </div>
@@ -94,7 +94,7 @@ const Banner = () => {
                 transform: "scale(0.98)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundImage: `url(https://image.tmdb.org/t/p/w500/${popularMovie.results[3].poster_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w200/${popularMovie.results[3].poster_path})`,
               }}
             ></div>
           </div>

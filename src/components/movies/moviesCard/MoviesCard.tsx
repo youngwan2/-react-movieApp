@@ -37,7 +37,7 @@ const MoviesCard = () => {
                 //이미지 빈 배경일 시 대체 이미지 처리해야 함.
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundImage: `url(https://image.tmdb.org/t/p/w500${data.poster_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w300${data.poster_path})`,
               }}
               onClick={() => {
                 window.scrollTo({'top':0})

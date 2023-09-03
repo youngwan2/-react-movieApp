@@ -36,6 +36,7 @@ const SortByGenre = ({ setPage }: SortByGenreType) => {
 
   // 장르별 영화 목록을 가져온다.
   const getMovieSortByGenre = async (selectGenre: number) => {
+    console.log(selectGenre)
     await baseSet
       .get(
         `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=${selectGenre}&with_watch_monetization_types=flatrate`

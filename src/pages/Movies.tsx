@@ -3,7 +3,6 @@ import MoviesSide from "../components/movies/MovieSide";
 import MoviesCard from "../components/movies/moviesCard/MoviesCard";
 import TopShift from "../components/movies/TopShift";
 import { useEffect, useState } from "react";
-import Header from "../components/header/Header";
 
 const Movies = () => {
   const [display, setDisplay] = useState(true);
@@ -21,8 +20,10 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", onScrollFunc);
-  }, []);
+    scrollY > 50
+      ? window.removeEventListener("scroll", onScrollFunc)
+      : window.addEventListener("scroll", onScrollFunc);
+  }, [scrollY]);
 
   return (
     <section className={styles.movies}>

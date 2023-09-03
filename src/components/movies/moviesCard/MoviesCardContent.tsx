@@ -39,7 +39,7 @@ const MoviesCardContent = ({ data }: MoviesCardContentType) => {
             return (
               <span
                 className={styles.movies_card_genre}
-                key={Math.random() * 10000 * i}
+                key={i}
               >
                 {
                   genre.find(

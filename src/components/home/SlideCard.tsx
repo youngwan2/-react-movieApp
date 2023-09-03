@@ -19,6 +19,7 @@ type genreArrayType = {
   find: Function;
 };
 
+/* 메인 화면에서 하단에 슬라이드로 보여지는 이미지와 콘텐츠 */
 const SlideCard = ({ movieList }: SlideCardType) => {
   const navigate = useNavigate();
 
@@ -41,7 +42,7 @@ const SlideCard = ({ movieList }: SlideCardType) => {
           borderRadius: "5px",
           backgroundSize: "cover",
           backgroundPosition: "50% 50%",
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500${movieList.poster_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieList.poster_path})`,
         }}
       >
         {/* 영화 정보 */}

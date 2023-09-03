@@ -47,7 +47,7 @@ const Detail = () => {
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500${detailInfo.backdrop_path})`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/w300${detailInfo.backdrop_path})`,
           }}
         >
           {/*영화 포스터(이미지) */}
@@ -57,7 +57,7 @@ const Detail = () => {
               alt="영화이미지"
               width={400}
               height={500}
-              src={`https://image.tmdb.org/t/p/w500${detailInfo.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w300${detailInfo.poster_path}`}
               onError={imageOnErrorHandler}
             ></img>
           </div>

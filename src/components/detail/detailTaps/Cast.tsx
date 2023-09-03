@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import { SyntheticEvent } from "react";
 import styles from "./Cast.module.css";
 import NotFind from "./NotFind";
 
@@ -14,18 +14,20 @@ interface CastType {
   };
 }
 const Cast = ({ apiData }: CastType) => {
+
+  // 이미지 로드가 실패한 경우 보여줄 대체 이미지를 설정한다.
   const imageOnErrorHandler = (event: SyntheticEvent<HTMLImageElement>) => {
     event.currentTarget.src = process.env.PUBLIC_URL +"/not-profile.png";
   };
   return (
-    <div className={styles.cast}>
+    <section className={styles.cast}>
       {apiData.cast && apiData.cast[0] !== undefined ? (
         apiData.cast.map((cast: CastListType) => {
           return (
             <section className={styles.cast_info} key={cast.name}>
               <img
                 className={styles.cast_img}
-                src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
+                src={`https://image.tmdb.org/t/p/w200${cast.profile_path}`}
                 alt="profile_img"
                 onError={imageOnErrorHandler}
               ></img>
@@ -37,7 +39,7 @@ const Cast = ({ apiData }: CastType) => {
       ) : (
         <NotFind />
       )}
-    </div>
+    </section>
   
   );
   

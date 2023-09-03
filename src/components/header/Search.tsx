@@ -16,13 +16,13 @@ const Search = () => {
   const navigate = useNavigate();
 
   // 검색된 영화를 가져오는 API
-  const getSearchMovieDate = async (inputVal: string) => {
+  const getSearchMovieData = async (inputVal: string) => {
     try {
       const response = await baseSet.get(
         `/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputVal}`
       );
-      const copy = response.data;
-      dispatch(sortBySearchData(copy));
+      const copy = response.data; // 서버에서 받아온 데이터
+      dispatch(sortBySearchData(copy)); // 데이터를 디스패치를 통해 스토어로 전달한다.
     } catch (error) {
       console.error("검색실패:", error);
     }
@@ -38,7 +38,7 @@ const Search = () => {
     const keyCode = e.key;
     if (inputVal !== "" && keyCode === "Enter") {
       navigate("/movieapp/movies");
-      getSearchMovieDate(inputVal);
+      getSearchMovieData(inputVal);
       dispatch(isDisplay(false));
       e.currentTarget.value = "";
     }
@@ -47,8 +47,7 @@ const Search = () => {
   return (
     <article className={styles.search}>
       {/* 돋보기 이모티콘 */}
-      <label
-        htmlFor="search"
+      <span
         className={`${styles.search_icon_outer} ${display}`}
       >
         <FontAwesomeIcon
@@ -56,7 +55,7 @@ const Search = () => {
           icon={faMagnifyingGlass}
           onClick={inputAppearFunc}
         />
-      </label>
+      </span>
 
       {/* 검색창 */}
       <div className={`${styles.search_input_container}`}>

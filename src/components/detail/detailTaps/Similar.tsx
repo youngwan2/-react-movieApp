@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Similar.module.css";
 import NotFind from "./NotFind";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,7 @@ const Similar = ({ apiData }: SimilarType) => {
   return (
     <section className={styles.similar}>
       {apiData.results && apiData.results[0] !== undefined ? (
-        apiData.results.map((movieList: SimilarMovieListType, i) => {
+        apiData.results.map((movieList: SimilarMovieListType) => {
           const { title, release_date, adult, vote_average, vote_count } =
             movieList;
           return (
@@ -28,8 +27,9 @@ const Similar = ({ apiData }: SimilarType) => {
                       backgroundSize: "contain",
                       backgroundPosition: "center",
                       backgroundImage: `url(
-                        https://image.tmdb.org/t/p/w500${movieList.poster_path})`,
+                        https://image.tmdb.org/t/p/w200${movieList.poster_path})`,
                     }
+                    // 이미지가 존재하지 않을 경우 대체 이미지를 로드 한다.
                   : {
                       backgroundSize: "contain",
                       backgroundPosition: "center",
@@ -61,6 +61,7 @@ const Similar = ({ apiData }: SimilarType) => {
 };
 
 // SimilarContent 컴포넌트
+// 유사한 영화에 대한 세부 정보를 표시하는 컴포넌트
 const SimilarContent = ({
   title,
   release_date,
