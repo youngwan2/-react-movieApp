@@ -19,7 +19,7 @@ const Search = () => {
   const getSearchMovieData = async (inputVal: string) => {
     try {
       const response = await baseSet.get(
-        `/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputVal}`
+        `/3/search/movie?api_key=${API_KEY}&language=ko-KR&page=1&include_adult=false&query=${inputVal}`
       );
       const copy = response.data; // 서버에서 받아온 데이터
       dispatch(sortBySearchData(copy)); // 데이터를 디스패치를 통해 스토어로 전달한다.

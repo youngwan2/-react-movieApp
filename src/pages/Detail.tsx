@@ -29,7 +29,7 @@ const Detail = () => {
 
   // movie api 호출
   const idSearchGetMoviesData = useCallback(() => {
-    baseSet(`/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+    baseSet(`/3/movie/${id}?api_key=${API_KEY}&language=ko-KR`)
       .then((res) => setDetailInfo(res.data))
       .catch((error) => {
         setDetailInfo(error.response.status);

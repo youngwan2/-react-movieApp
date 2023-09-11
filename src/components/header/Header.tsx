@@ -32,10 +32,10 @@ const Header = () => {
 
         <nav className={`${styles.header_menu} ${menuDisplay}`}>
           <Link className={styles.link} to={"/movieapp"}>
-            Home
+            홈으로
           </Link>
           <Link className={styles.link} to={"/movieapp/movies"}>
-            Movies
+            영화정보
           </Link>
         </nav>
       </div>

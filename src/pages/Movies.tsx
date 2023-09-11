@@ -31,7 +31,18 @@ const Movies = () => {
         <article className={styles.movies_disappear_box}>
           <div className={styles.box_content}>
             {" "}
-            Thank you for visiting. Hope you have a good time!.
+            방문 해주셔서 감사합니다! 좌측 상단의{" "}
+            <mark
+              style={{
+                borderRadius: "20px",
+                padding: "0px 8px 0px 10px",
+                textAlign: "center",
+              }}
+            >
+              ▶
+            </mark>{" "}
+            을 클릭하면 카테고리 메뉴를 보실 수 있습니다. 그럼 좋은 하루
+            되세요!.
           </div>
         </article>
       ) : null}

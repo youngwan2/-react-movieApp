@@ -18,7 +18,7 @@ const Player = ({ id, appear, setAppear }: PlayerType) => {
   // 예고편 영상을 읽어온다.
   const getPreviewMovie = useCallback(() => {
     baseSet
-      .get(`/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+      .get(`/3/movie/${id}/videos?api_key=${API_KEY}&language=ko-KR`)
       .then((res) => {
         return setPreviewMovie(res.data.results[0].key);
       })

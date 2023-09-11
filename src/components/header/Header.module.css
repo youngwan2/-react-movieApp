@@ -36,6 +36,7 @@
 /* 헤더 메뉴 */
 .header .header_menu {
   text-align: center;
+  margin-left: 1rem;
   align-self: center;
   padding-left: 1.5rem;
 }
@@ -44,7 +45,7 @@
   z-index: 20;
   padding: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   list-style: none;
   color: #ffffff;

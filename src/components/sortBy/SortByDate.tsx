@@ -23,7 +23,7 @@ const SortByData = ({ setPage }: SortByDataType) => {
     (year: string) => {
       baseSet
         .get(
-          `/3/discover/movie?api_key=${API_KEY}&language=en-US&include_adult=false&include_video=false&year=${year}&with_watch_monetization_types=flatrate`
+          `/3/discover/movie?api_key=${API_KEY}&language=ko-KR&include_adult=false&include_video=false&year=${year}&with_watch_monetization_types=flatrate`
         )
         .then((response) => {
           dispatch(sortBySearchData(response.data));
@@ -46,7 +46,7 @@ const SortByData = ({ setPage }: SortByDataType) => {
           className={styles.range_input_label}
           htmlFor="sortDate_range_input"
         >
-          Filter
+          연도별
         </label>
       </div>
       <input

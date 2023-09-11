@@ -23,7 +23,7 @@ const SortByGenre = ({ setPage }: SortByGenreType) => {
   //장르 카테고리 목록을 가져온다.
   const genreInfo = async () => {
     await baseSet
-      .get(`/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+      .get(`/3/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
       .then((response) => {
         return setGenre(response.data.genres);
       })
@@ -39,7 +39,7 @@ const SortByGenre = ({ setPage }: SortByGenreType) => {
     console.log(selectGenre)
     await baseSet
       .get(
-        `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=${selectGenre}&with_watch_monetization_types=flatrate`
+        `/3/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=${selectGenre}&with_watch_monetization_types=flatrate`
       )
       .then((response) => {
         dispatch(sortBySearchData(response.data));
@@ -51,7 +51,7 @@ const SortByGenre = ({ setPage }: SortByGenreType) => {
 
   return (
     <div className={styles.sortByGenre}>
-      <h3 className={styles.sortByGenre_title}>Genre</h3>
+      <h3 className={styles.sortByGenre_title}>장르</h3>
       {genre ? (
         genre.map((genreEl: genreType) => {
           return (

@@ -19,15 +19,15 @@ const SortBy = ({ setCurrentSort, setPage, isDisplayVal }: SortByType) => {
 
   //sort by 의 select
   const [optionText] = useState([
-    "Selection",
-    "Popular",
-    "Unpopular",
-    "Recent",
-    "Old",
-    "High profit",
-    "Low profit",
-    "High rating",
-    "Low rating",
+    "==선택==",
+    "인기있는",
+    "인기없는",
+    "최근의",
+    "오래된",
+    "높은 수익",
+    "낮은 수익",
+    "높은 평점",
+    "낮은 평점",
   ]);
   const [optionVal] = useState([
     null,
@@ -45,7 +45,7 @@ const SortBy = ({ setCurrentSort, setPage, isDisplayVal }: SortByType) => {
     <article className={styles.sort_by}>
       <div className={styles.sort_by_inner_con}>
         {" "}
-        <h3 className={styles.sort_by_title}>sort by</h3>
+        <h3 className={styles.sort_by_title}>정렬</h3>
         {/* select 옵션 선택 시 실행 */}
         <select
           onChange={(e) => {

@@ -17,12 +17,13 @@
   margin-top: 1.5rem;
 }
 
+/* 연도별 제목 */
 .range_input_label_con .range_input_label {
   padding: 5px;
   margin-bottom: 1px;
   color: rgb(255, 255, 255);
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   width: 100%;
   text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
 }

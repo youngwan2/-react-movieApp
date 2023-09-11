@@ -32,11 +32,11 @@ const Home = memo(() => {
       ) : (
         <article className={styles.main_container}>
           <Banner />
-          <h1 className={styles.slide_title}>Popular</h1>
+          <h1 className={styles.slide_title}>인기 있는 영화</h1>
           <MovieSlide movies={popularMovie} />
-          <h1 className={styles.slide_title}>High rating</h1>
+          <h1 className={styles.slide_title}>평점 높은 영화</h1>
           <MovieSlide movies={topRateMovie} />
-          <h1 className={styles.slide_title}>Latest</h1>
+          <h1 className={styles.slide_title}>최근에 나온 영화</h1>
           <MovieSlide movies={isComingMovie} />
         </article>
       )}

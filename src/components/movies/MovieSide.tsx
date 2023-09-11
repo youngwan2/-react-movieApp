@@ -43,7 +43,7 @@ const MoviesSide = () => {
       if (!selectVal) selectVal = "popularity.desc"; //아무 선택이 없을 때 기본 값
       await baseSet
         .get(
-          `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${selectVal}&include_adult=false&include_video=false&page=${pageNumber}&with_watch_monetization_types=flatrate`
+          `/3/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=${selectVal}&include_adult=false&include_video=false&page=${pageNumber}&with_watch_monetization_types=flatrate`
         )
         .then((response) => dispatch(sortBySearchData(response.data)))
         .catch((error) => {

@@ -12,7 +12,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
   //  인기영화
   const popular = baseSet
     .get(
-      `/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
+      `/3/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
     )
     .then((res) => {
       return res.data;
@@ -23,7 +23,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
 
   // 평점 높은 영화
   const topRate = baseSet
-    .get(`/3/movie/top_rated?api_key=${API_KEY}&language=kr-US&page=1`)
+    .get(`/3/movie/top_rated?api_key=${API_KEY}&language=ko-KR&page=1`)
     .then((res) => {
       return res.data;
     })
@@ -33,7 +33,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
 
   // 최신 영화
   const latest = baseSet
-    .get(`/3/movie/latest?api_key=${API_KEY}&language=kr-US&page=1`)
+    .get(`/3/movie/latest?api_key=${API_KEY}&language=ko-KR&page=1`)
     .then((res) => {
       return res.data;
     })
@@ -43,7 +43,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
 
   // 개봉 예정 영화
   const isComing = baseSet
-    .get(`/3/movie/upcoming?api_key=${API_KEY}&language=kr-US&page=1`)
+    .get(`/3/movie/upcoming?api_key=${API_KEY}&language=ko-KR&page=1`)
     .then((res) => {
       return res.data;
     })
@@ -53,7 +53,7 @@ const getMovieData = createAsyncThunk("GET/movieData", async () => {
 
   // 장르 리스트 정보
   const genreData = baseSet
-    .get(`/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+    .get(`/3/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
     .then((res) => {
       return res.data;
     })
