@@ -6,6 +6,8 @@
 <h2>개요</h2>
 <p>- https://www.themoviedb.org/ (TMDB) 사이트의 API를 사용하여 만든 타입스크립트, 리액트 기반 영화 소개 앱입니다. TMDB는 거의 완성에 가까운 API를 무료로 제공해주는 사이트로서 REST API에 대한 학습과 다양한 프론트엔드 기술을 획득하고 연습해볼 수 있는 기회가 될 것 같기에 이를 기반으로 사이트를 제작하게 되었습니다. </p>
 
+<h2>개발 기간</h2>
+<p>- </p>
 
 <h2>배포 URL</h2>
 https://youngwan2.github.io/movieapp/
