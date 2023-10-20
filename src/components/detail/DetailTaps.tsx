@@ -65,7 +65,8 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
   // 각  tap 에 해당하는 API 데이터를 가져온다.
   useEffect(() => {
     if (changeTapsData !== undefined) {
-      if (changeTapsData === "reviews") getDetailTapsData("reviews", "eu-US");
+      console.log(changeTapsData)
+      if (changeTapsData === "reviews") getDetailTapsData("reviews", "en-US");
       else {
         getDetailTapsData(changeTapsData, "ko-KR");
       }
@@ -93,7 +94,7 @@ const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
               className={styles.tap_btn}
               key={count}
               onClick={() => {
-                let selectNum = [i];
+                const selectNum = [i];
                 let copy = [...selectNum];
                 return setMenuCount(copy[0]);
               }}
