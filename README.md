@@ -19,6 +19,7 @@
 - <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white">
 - <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
 - <img src="https://img.shields.io/badge/Redux toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white">
+- <img src="https://img.shields.io/badge/TanStack Query-764ABC?style=for-the-badge&logo=react-query&logoColor=white">
 
 ### 백엔드
 - <img src="https://img.shields.io/badge/The Movie Database(TMDB)-764ABC?style=for-the-badge&logo=&logoColor=white">
@@ -38,11 +39,6 @@
 ### 그 외 기능
 - 페이지네이션 기능 : 일반적인 형태로서 페이지 번호로 구분한 페이지네이션 기능을 바닐라 자바스크립트로 구현하였습니다.
 - 디테일 페이지 : 영화정보에 대한 세부 정보 및 영화 미리보기, 유사한 영화 정보, 게스트, 리뷰 정보 등을 확인할 수 있도록 페이지를 구현하였습니다.
-
-
-
-
-
-## 향후 계획
-<p>- 즐겨찾기 기능 구현을 통해 사용자가 자신이 원하는 영화 정보를 보관할 수 있도록 추가할 예정입니다.</p>
-<p>- 그 외 필요한 기능이 있거나, 좋은 아이디어가 떠오른다면 기능을 확장하거나 개선해 나갈 예정입니다.</p>
+---
+## [참고] 개선사항
+- (로직 개선) 영화 세부정보 페이지에서 탭 메뉴 선택 시 중복으로 데이터 요청되는 문제 발견 및 개선(기존 useCallback 으로 캐싱처리한 부분을 tanstack query 로 변경) (23.11.02) 
