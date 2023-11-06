@@ -51,14 +51,6 @@
   box-shadow: 2px 50px 5px rgb(246, 206, 28) inset;
 }
 
-/* 녹음 버튼 */
-.recode_btn {
-  position: absolute;
-  right: 5px;
-  color: black;
-  margin-top: 5px;
-}
-
 /* 미디어 쿼리 */
 @media screen and (max-width: 654px) {
   /* 검색창 */
@@ -76,7 +68,7 @@
   .search_icon_outer.display {
     display: none;
   }
-  .search_icon_outer.display + div {
+  .search_icon_outer.display + form {
     display: block;
   }
 }

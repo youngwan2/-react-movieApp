@@ -7,7 +7,6 @@
     justify-content: center;
     min-width: 300px;
     min-height: 100vh;
-    max-height: 1000px;
     align-items: center;
     align-content: center;
     opacity: 100%;
@@ -108,9 +107,7 @@
     background: linear-gradient(rgb(156, 15, 60), black);
     color: #f1e1e1;
     font-weight: 600;
-    margin-left: 2.1rem;
-    margin-top: 33.7rem;
-    width: 800px;
+    margin: 0 0 0 2.1rem;
     -webkit-box-shadow:
       5px 5px 5px 0px #000000,
       inset 4px 4px 15px 0px #000000,
@@ -119,9 +116,10 @@
       5px 5px 5px 0px #000000,
       inset 4px 4px 15px 0px #000000,
       5px 5px 15px 5px rgba(0, 0, 0, 0);
-    margin-top: 0;
-    width: 500px;
-    height: 501.97px;
+    max-width: 500px;
+    width: 100%;
+    min-width: 300px;
+    min-height: 500.97px;
     padding: 20px;
     transform: translateY(-4px);
     animation: upDown 3s ease-in-out infinite;

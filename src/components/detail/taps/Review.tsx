@@ -1,25 +1,11 @@
 /* eslint-disable multiline-ternary */
 import styles from './Review.module.css'
 import NotFind from './NotFind'
+import { type ReviewType, type ReviewsInfoType } from './Review.types'
 import { type ReactElement } from 'react'
 
-// 각 컴포넌트 타입 지정
-interface ReviewsInfoType {
-  author: string
-  createdAt: string
-  content: string
-  id?: string
-}
-interface reviewType {
-  apiData: {
-    id: number
-    page: number
-    results: ReviewsInfoType[]
-  }
-}
-
 // Review
-const Review = ({ apiData }: reviewType): ReactElement => {
+const Review = ({ apiData }: ReviewType): ReactElement => {
   return (
     <section className={styles.review}>
       {apiData.results[0] !== undefined ? (
@@ -45,7 +31,7 @@ const Review = ({ apiData }: reviewType): ReactElement => {
 const ReviewsInfo = ({
   author,
   createdAt,
-  content,
+  content
 }: ReviewsInfoType): ReactElement => {
   return (
     <section className={styles.review_info}>

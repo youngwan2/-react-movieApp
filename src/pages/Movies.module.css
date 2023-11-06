@@ -2,6 +2,10 @@
   display: flex;
 }
 
+ul li {
+  list-style: none;
+}
+
 /* Movies 페이지 접속 시 상단에 나타났다 사라지는 메시지 박스 */
 @keyframes hide {
   0% {

@@ -18,7 +18,7 @@ const Search = (): ReactElement => {
   const navigate = useNavigate()
 
   // 검색된 영화를 가져오는 API
-  const getSearchMovieData = async (inputVal: string): Promise<any> => {
+  const getSearchMovieData = async (inputVal: string): Promise<void> => {
     try {
       const response = await baseSet.get(
         `/3/search/movie?api_key=${API_KEY}&language=ko-KR&page=1&include_adult=false&query=${inputVal}`
@@ -49,16 +49,18 @@ const Search = (): ReactElement => {
   return (
     <article className={styles.search}>
       {/* 돋보기 이모티콘 */}
-      <span className={`${styles.search_icon_outer} ${display}`}>
+      <span onClick={inputAppearFunc} role='button' aria-label='검색창 아이콘' className={`${styles.search_icon_outer} ${display}`}>
         <FontAwesomeIcon
           className={styles.search_icon}
           icon={faMagnifyingGlass}
-          onClick={inputAppearFunc}
+
         />
       </span>
 
       {/* 검색창 */}
-      <div className={`${styles.search_input_container}`}>
+      <form onSubmit={(e) => {
+        e.preventDefault()
+      }} className={`${styles.search_input_container}`}>
         <label htmlFor="search" className={styles.search_icon_inner}>
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={inputAppearFunc} />
         </label>
@@ -66,7 +68,7 @@ const Search = (): ReactElement => {
           id="search"
           placeholder=""
           className={styles.search_user_input}
-          type={'text'}
+          type={'search'}
           onChange={(event) => {
             const copy = event.target.value
             setInputVal(copy)
@@ -74,8 +76,7 @@ const Search = (): ReactElement => {
           }}
           onKeyDown={onKeyDown}
         ></input>
-        <span className={styles.recode_btn}></span>
-      </div>
+      </form>
     </article>
   )
 }

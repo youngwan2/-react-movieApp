@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState, useRef } from 'react'
 import styles from './Banner.module.css'
 import { useAppSelector } from '../../app/hooks'
 
@@ -9,6 +9,8 @@ const Banner = (): ReactElement => {
 
   // 스크롤 값 저장
   const [scrollY, setScrollY] = useState(100)
+
+  const figureRef = useRef<HTMLImageElement>(null)
 
   // 스크롤 이벤트 실행 시 scrollY 저장 후 전달하는 함수
   const scrollEventFunc = (): any => {
@@ -33,6 +35,7 @@ const Banner = (): ReactElement => {
         <article id={styles.banner_main_outer_con} className={styles.img_con}>
           {/* 젤 좌측 배너 */}
           <figure
+            ref={ figureRef}
             className={styles.banner_img}
             style={{
               zIndex: '2',
@@ -76,7 +79,7 @@ const Banner = (): ReactElement => {
               {popularMovie.results[0].overview}
             </p>
           </figure>
-          {/* 4넌째 영화 */}
+          {/* 4번째 영화 */}
           <figure className={styles.img_con}>
             <div
               className={styles.banner_img}

@@ -25,4 +25,4 @@ interface SimilarType {
   }
 }
 
-export { SimilarMovieListType, SimilarContentType, SimilarType }
+export { type SimilarMovieListType, type SimilarContentType, type SimilarType }

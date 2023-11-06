@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPersonRunning, faCalendar, faP, faVideoCamera } from '@fortawesome/free-solid-svg-icons'
 
 import Player from './Player'
+import { type DetailInfoType } from './DetailContents.types'
 
 interface PropsType {
-  detailInfo: any
+  detailInfo: DetailInfoType
   id?: string
 }
 
@@ -15,8 +16,7 @@ const DetailContents = ({ detailInfo, id }: PropsType): ReactElement => {
   const imageOnErrorHandler = (e: SyntheticEvent<HTMLImageElement>): void => {
     e.currentTarget.src = process.env.PUBLIC_URL + '/not_find_img.png'
   }
-
-  const [videoAppear, setVideoAppear] = useState(false)
+  const [videoDisplayState, setVideoDisplayState] = useState(false)
   return (
     <article
           className={styles.detail}
@@ -36,61 +36,76 @@ const DetailContents = ({ detailInfo, id }: PropsType): ReactElement => {
               onError={imageOnErrorHandler}
             ></img>
           </figure>
-          <section className={styles.detail_contents}>
-            <h2 className={styles.detail_title}>{detailInfo.title}</h2>
-            <button
-              onClick={() => {
-                setVideoAppear(true)
-              }}
-              className={styles.video_icon}
-            >
-              <FontAwesomeIcon icon={faVideoCamera}></FontAwesomeIcon>
-            </button>
-            <p>
-              <FontAwesomeIcon className="calendar" icon={faCalendar} />{' '}
-              {detailInfo.release_date}
-            </p>
-            {/* 장르 */}
-            {detailInfo.genres !== undefined
-              ? detailInfo.genres.map(
-                (data: { id: number, name: string }) => {
-                  return (
-                      <span key={data.id} className={styles.detail_genres}>
-                        {data.name}
-                      </span>
-                  )
-                }
-              )
-              : null}
-            {/* 상영 시간 */}
-            <p className={styles.detail_runtime}>
-              <FontAwesomeIcon
-                className={'person_running'}
-                icon={faPersonRunning}
-              />
-              {detailInfo.runtime} min
-            </p>
-            {/* 관객 평점 */}
-            <p className={styles.detail_vote_average}>
-              <FontAwesomeIcon className="point" icon={faP}></FontAwesomeIcon>
-              {Math.ceil(detailInfo.vote_average * 10)} points
-            </p>
-            <p className={styles.detail_overview}>
-              {detailInfo.overview !== undefined ? detailInfo.overview : 1 }
-            </p>
-          </section>
-          {videoAppear
+          <Contents detailInfo = {detailInfo} setVideoDisplayState = {setVideoDisplayState}/>
+          {videoDisplayState
             ? (
             <Player
               id={Number(id)}
-              setAppear={setVideoAppear}
-              appear={videoAppear}
+              setAppear={setVideoDisplayState}
+              appear={videoDisplayState}
             >
               {' '}
             </Player>
               )
             : null}
         </article>
+  )
+}
+
+interface PropsContentsType {
+  detailInfo: DetailInfoType
+  setVideoDisplayState: (p: boolean) => void
+}
+
+/* 콘텐츠 내용 */
+const Contents = ({ detailInfo, setVideoDisplayState }: PropsContentsType): ReactElement => {
+  return (
+    <section className={styles.detail_contents}>
+      <h2 className={styles.detail_title}>{detailInfo.title}</h2>
+      {/* 예고편 버튼 */}
+      <button
+        aria-label='예고편 보기'
+        onClick={() => {
+          setVideoDisplayState(true)
+        }}
+        className={styles.video_icon}
+      >
+        <FontAwesomeIcon icon={faVideoCamera}></FontAwesomeIcon>
+      </button>
+      {/* 개봉 날짜 */}
+      <p>
+        <FontAwesomeIcon className="calendar" icon={faCalendar} />{' '}
+        {detailInfo.release_date}
+      </p>
+      {/* 장르 */}
+      {detailInfo.genres !== undefined
+        ? detailInfo.genres.map(
+          (data: { id: number, name: string }) => {
+            return (
+                <span key={data.id} className={styles.detail_genres}>
+                  {data.name}
+                </span>
+            )
+          }
+        )
+        : null}
+      {/* 상영 시간 */}
+      <p className={styles.detail_runtime}>
+        <FontAwesomeIcon
+          className={'person_running'}
+          icon={faPersonRunning}
+        />
+        {detailInfo.runtime} min
+      </p>
+      {/* 관객 평점 */}
+      <p className={styles.detail_vote_average}>
+        <FontAwesomeIcon className="point" icon={faP}></FontAwesomeIcon>
+        {Math.ceil(detailInfo.vote_average * 10)} points
+      </p>
+      <p className={styles.detail_overview}>
+        {detailInfo.overview !== '' ? detailInfo.overview : '영화 줄거리 정보가 존재하지 않습니다.' }
+      </p>
+  </section>
   )
 }
 export default DetailContents

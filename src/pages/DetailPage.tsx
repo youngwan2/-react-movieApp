@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react'
+import { type ReactElement, Suspense } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { API_KEY } from './HomePage'
 import DetailTaps from '../components/detail/DetailTaps'
@@ -33,7 +33,9 @@ const Detail = (): ReactElement => {
         ? <Spinner />
         : <DetailContents detailInfo ={ getDetailInfo } id = { id }/>
       }
+      <Suspense fallback={<Spinner/>}>
       <DetailTaps id={Number(id)} />
+      </Suspense>
     </section>
   )
 }

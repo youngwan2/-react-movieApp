@@ -17,16 +17,17 @@ const Header = (): ReactElement => {
   return (
     <header className={styles.header}>
       <div className={styles.header_logo_menu_con}>
-        <img
-          className={styles.header_logo}
-          onClick={() => {
-            navigate('/movieapp')
-          }}
-          width={90}
-          height={45}
-          src={process.env.PUBLIC_URL + '/title2.png'}
-          alt="site_name"
-        ></img>
+        <h1 className={styles.header_logo}>
+          <img
+            onClick={() => {
+              navigate('/movieapp')
+            }}
+            width={90}
+            height={45}
+            src={process.env.PUBLIC_URL + '/title2.png'}
+            alt="site_name"
+          />
+        </h1>
 
         <nav className={`${styles.header_menu} ${menuDisplay}`}>
           <Link className={styles.link} to={'/movieapp'}>

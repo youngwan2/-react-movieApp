@@ -1,24 +1,22 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable multiline-ternary */
 import styles from './Similar.module.css'
+import { type ReactElement, Suspense } from 'react'
 import NotFind from './NotFind'
 import { useNavigate } from 'react-router-dom'
 import {
   type SimilarContentType,
   type SimilarMovieListType,
   type SimilarType
-} from '../../../util/type/Similar'
-import { type ReactElement, Suspense } from 'react'
+} from './Similar.types'
+import Spinner from '../../spinner/Spinner'
 
 // Similar 컴포넌트
 const Similar = ({ apiData }: SimilarType): ReactElement => {
-  console.log(apiData)
   const navigate = useNavigate()
-
   return (
     <section className={styles.similar}>
-      {apiData.results[0] !== undefined ? (
-        apiData.results.map((movieList: SimilarMovieListType) => {
+      {apiData.results[0] !== undefined
+        ? apiData.results.map((movieList: SimilarMovieListType) => {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           const { title, release_date, adult, vote_average, vote_count } =
             movieList
@@ -48,7 +46,7 @@ const Similar = ({ apiData }: SimilarType): ReactElement => {
                 navigate(`/movieapp/detail/${movieList.id}`)
               }}
             >
-              <Suspense fallback={<h3>로딩중입니다..</h3>}>
+              <Suspense fallback={<Spinner/>}>
               <SimilarContent
                 title={title}
                 release_date={release_date}
@@ -60,9 +58,7 @@ const Similar = ({ apiData }: SimilarType): ReactElement => {
             </section>
           )
         })
-      ) : (
-        <NotFind />
-      )}
+        : <NotFind /> }
     </section>
   )
 }
