@@ -81,9 +81,8 @@
   }
 }
 
-@media screen and (max-width:501px) {
+@media screen and (max-width: 501px) {
   .search_user_input {
     width: 200px;
-    
   }
 }

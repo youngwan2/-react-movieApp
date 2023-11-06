@@ -12,9 +12,12 @@
   left: 0;
   right: 0;
   z-index: 50;
-  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+  -webkit-box-shadow:
+    0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow:
+    0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .header_logo_menu_con {
@@ -87,7 +90,7 @@
   .header .header_menu {
     display: none;
   }
-/*---------- 메뉴아이콘 */
+  /*---------- 메뉴아이콘 */
   .menu {
     display: block;
   }

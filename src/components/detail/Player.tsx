@@ -1,35 +1,35 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
-import { useEffect, useState, useCallback } from "react";
-import styles from "./Player.module.css";
-import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/movieSlice";
-import ReactPlayer from "react-player";
+import { useEffect, useState, useCallback, type ReactElement } from 'react'
+import styles from './Player.module.css'
+import { API_KEY } from '../../pages/HomePage'
+import { baseSet } from '../../store/slice/movieSlice'
+import ReactPlayer from 'react-player'
 
 interface PlayerType {
-  id: number;
-  children: string;
-  appear: boolean;
-  setAppear: Function;
+  id: number
+  children: string
+  appear: boolean
+  setAppear: (p: boolean) => void
 }
 
-const Player = ({ id, appear, setAppear }: PlayerType) => {
-  const [previewMovie, setPreviewMovie] = useState();
+const Player = ({ id, appear, setAppear }: PlayerType): ReactElement => {
+  const [previewMovie, setPreviewMovie] = useState<any>()
 
   // 예고편 영상을 읽어온다.
   const getPreviewMovie = useCallback(() => {
     baseSet
       .get(`/3/movie/${id}/videos?api_key=${API_KEY}&language=ko-KR`)
       .then((res) => {
-        return setPreviewMovie(res.data.results[0].key);
+        console.log(res)
+        setPreviewMovie(res.data.results[0].key)
       })
-      .catch(console.error);
-  }, [id]);
+      .catch(console.error)
+  }, [id])
 
   useEffect(() => {
     if (appear) {
-      return getPreviewMovie();
+      getPreviewMovie()
     }
-  }, [appear, getPreviewMovie]);
+  }, [appear, getPreviewMovie])
 
   return (
     <article className={styles.Player}>
@@ -41,12 +41,12 @@ const Player = ({ id, appear, setAppear }: PlayerType) => {
       ></ReactPlayer>
       <div
         onClick={() => {
-          setAppear(false);
+          setAppear(false)
         }}
         className={styles.layout}
       ></div>
     </article>
-  );
-};
+  )
+}
 
-export default Player;
+export default Player

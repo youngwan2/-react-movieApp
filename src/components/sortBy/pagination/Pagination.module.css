@@ -7,7 +7,10 @@
   background-color: rgba(104, 10, 57, 0.763);
 }
 .pagination:hover {
-  box-shadow: 0 0 0 0, 1000px 1px 15px black inset, -1000px 1px 15px black inset;
+  box-shadow:
+    0 0 0 0,
+    1000px 1px 15px black inset,
+    -1000px 1px 15px black inset;
 }
 
 /* 페이지 이동 버튼 */
@@ -40,7 +43,9 @@
 
 .pagination_nav .pagination_ul li:hover {
   color: black;
-  box-shadow: 0 0 0 0, 25px 25px rgb(224, 171, 64) inset;
+  box-shadow:
+    0 0 0 0,
+    25px 25px rgb(224, 171, 64) inset;
 }
 
 /* 이전/이후 페이지 이동 버튼 */

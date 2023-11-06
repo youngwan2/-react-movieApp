@@ -7,7 +7,9 @@
 .sortByGenre_title {
   font-size: 22px;
   text-align: center;
-  text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
+  text-shadow:
+    1px 1px 10px yellow,
+    1px 1px 15px red;
   color: white;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
@@ -25,13 +27,16 @@
   color: white;
   line-height: 15px;
   box-shadow: 1px 1px 5px 1px rgb(158, 151, 151);
-  background:linear-gradient(30deg, rgb(221, 187, 17), rgb(174, 16, 84));
+  background: linear-gradient(30deg, rgb(221, 187, 17), rgb(174, 16, 84));
   margin: 8px 6px 8px 6px;
 }
 
 .sortByGenre_keyword:hover {
   cursor: pointer;
   color: rgb(230, 255, 5);
-  box-shadow: 0 0 0 0, 1px 1px 15px rgb(255, 255, 255), 0 -50px rgb(166, 10, 62) inset;
+  box-shadow:
+    0 0 0 0,
+    1px 1px 15px rgb(255, 255, 255),
+    0 -50px rgb(166, 10, 62) inset;
   font-weight: 400;
 }

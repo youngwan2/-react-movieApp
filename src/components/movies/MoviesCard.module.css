@@ -26,15 +26,21 @@
   border: 1px solid black;
   margin: 15px;
   opacity: 99%;
-  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+  -webkit-box-shadow:
+    #fff 0 -1px 4px,
+    #ff0 0 -2px 10px,
+    #ff8000 0 -10px 20px,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+  box-shadow:
+    #fff 0 -1px 4px,
+    #ff0 0 -2px 10px,
+    #ff8000 0 -10px 20px,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 /* 카드 내용 */
 .movies_card_content {
-  font-family: "Saira Semi Condensed", sans-serif;
+  font-family: 'Saira Semi Condensed', sans-serif;
   letter-spacing: 2px;
   opacity: 0;
   scale: 0.8;
@@ -65,7 +71,8 @@
   border-radius: 10px;
   height: 241px;
 
-  box-shadow: 1px 1px 10px 1px rgba(7, 34, 60, 0.191) inset,
+  box-shadow:
+    1px 1px 10px 1px rgba(7, 34, 60, 0.191) inset,
     1px 1px 8px 9px rgba(21, 21, 21, 0.492) inset;
   background: linear-gradient(70deg, rgb(231, 97, 44), rgb(6, 6, 103));
 }
@@ -83,17 +90,16 @@
   line-height: 35px;
 }
 
-
 /* 경고창 */
-.alert{
+.alert {
   position: fixed;
   text-shadow: 1px 5px 2px rgba(238, 223, 223, 0.745);
   text-align: center;
   font-weight: bold;
   top: 50%;
   font-size: 2rem;
-  color:rgb(179, 27, 83);
-  transform: translate(-50%,-50%);
+  color: rgb(179, 27, 83);
+  transform: translate(-50%, -50%);
   left: 50%;
   height: 80vw;
   min-height: 600px;
@@ -108,23 +114,25 @@
   animation: appear 1s ease-in 1;
 }
 
-.alert span{
+.alert span {
   display: inline-block;
   padding: 5px;
-  font-size:2rem ;
+  font-size: 2rem;
   padding-top: 10rem;
   width: 80%;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   height: 40px;
   animation: appear 1s ease-in 1;
 }
 
 @keyframes appear {
-  from {opacity: 0; }
-  to {opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-
 
 /* 미디어 쿼리 */
 @media all and (max-width: 430px) {

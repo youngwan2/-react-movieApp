@@ -1,18 +1,17 @@
 /* 정보를 찾지 못함 메시지 */
-.not_find_message{
-    margin-top: 1rem;
-    font-weight: 700;
-    font-size: 3vw;
-    color: white;
-    text-shadow: 1px 5px 15px black ;
-    height: 35vh;
-    background-color: white;
-    line-height: 8rem;
-    box-shadow: 1px 1px 15px rgb(0, 0, 0) inset;
-    width: 100%;;
-    background-image: url('/public/apologize.jpg');
-    background-position: center 25%;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
+.not_find_message {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 3vw;
+  color: white;
+  text-shadow: 1px 5px 15px black;
+  height: 35vh;
+  background-color: white;
+  line-height: 8rem;
+  box-shadow: 1px 1px 15px rgb(0, 0, 0) inset;
+  width: 100%;
+  background-image: url('/public/apologize.jpg');
+  background-position: center 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

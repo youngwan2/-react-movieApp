@@ -1,62 +1,61 @@
-import { useEffect, useState, useCallback } from "react";
-import styles from "./Pagination.module.css";
+import { useEffect, useState, useCallback, type ReactElement } from 'react'
+import styles from './Pagination.module.css'
 
 interface PaginationType {
-  setPage: (result: number) => void;
-  currentPageNum: number;
+  setPage: (result: number) => void
+  currentPageNum: number
 }
 
-const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
-  const [totalPages, setTotalPages] = useState(0);
-  const [renderPage] = useState(5);
-  const [pageGroup, setPageGroup] = useState(1);
-  const [lastPage, setLastPage] = useState(0);
-  const [firstPage, setFirstPage] = useState(0);
-  const [renderPageNum, setRenderPageNum] = useState<number[]>([0]);
+const Pagination = ({ setPage, currentPageNum }: PaginationType): ReactElement => {
+  const [totalPages, setTotalPages] = useState(0)
+  const [renderPage] = useState(5)
+  const [pageGroup, setPageGroup] = useState(1)
+  const [lastPage, setLastPage] = useState(0)
+  const [firstPage, setFirstPage] = useState(0)
+  const [renderPageNum, setRenderPageNum] = useState<number[]>([0])
 
   // 페이지네이션 그릴 때 필요한 정보들
   const paginationInfo = useCallback(() => {
-    setTotalPages(500);
-    setPageGroup(Math.ceil(currentPageNum / renderPage));
-    setLastPage(pageGroup * renderPage);
-    setFirstPage(lastPage - (renderPage - 1));
-  }, [currentPageNum, lastPage, pageGroup, renderPage]);
+    setTotalPages(500)
+    setPageGroup(Math.ceil(currentPageNum / renderPage))
+    setLastPage(pageGroup * renderPage)
+    setFirstPage(lastPage - (renderPage - 1))
+  }, [currentPageNum, lastPage, pageGroup, renderPage])
 
   // 페이지네이션 그리는 함수
   const paginationFunc = useCallback(() => {
-    const pageNumberList = [];
+    const pageNumberList = []
     for (let i = firstPage; i <= lastPage; i++) {
-      pageNumberList.push(i);
+      pageNumberList.push(i)
     }
-    setRenderPageNum(pageNumberList);
-  }, [firstPage, lastPage]);
+    setRenderPageNum(pageNumberList)
+  }, [firstPage, lastPage])
 
   // 이전 페이지 이동
-  const prevPageFunc = () => {
-    let copy = currentPageNum;
-    if (currentPageNum > 1) copy--;
-    setPage(copy);
-  };
+  const prevPageFunc = (): void => {
+    let copy = currentPageNum
+    if (currentPageNum > 1) copy--
+    setPage(copy)
+  }
 
   // 다음 페이지 이동
-  const nextPageFunc = () => {
-    let copy = currentPageNum;
-    if (currentPageNum < totalPages) copy++;
-    setPage(copy);
-  };
-
-  //---------------useEffect 관리
-  useEffect(() => {
-    paginationInfo();
-  }, [paginationInfo]);
+  const nextPageFunc = (): void => {
+    let copy = currentPageNum
+    if (currentPageNum < totalPages) copy++
+    setPage(copy)
+  }
 
   useEffect(() => {
-    paginationFunc();
-  }, [paginationFunc]);
+    paginationInfo()
+  }, [paginationInfo])
 
-  const pageChangeFunc = (pageNum: number) => {
-    setPage(pageNum);
-  };
+  useEffect(() => {
+    paginationFunc()
+  }, [paginationFunc])
+
+  const pageChangeFunc = (pageNum: number): void => {
+    setPage(pageNum)
+  }
 
   return (
     <article className={styles.pagination}>
@@ -64,12 +63,12 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
         {/* 제일 처음 페이지 이동 */}
         <button
           onClick={() => {
-            setPage(1);
+            setPage(1)
           }}
           style={
             currentPageNum === 1
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
           }
           className={styles.prev_btn}
         >
@@ -80,8 +79,8 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
           onClick={prevPageFunc}
           style={
             currentPageNum === 1
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
           }
           className={styles.prev_btn}
         >
@@ -93,20 +92,20 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
               <li
                 style={
                   pageNum === currentPageNum
-                    ? { background: "tomato" }
+                    ? { background: 'tomato' }
                     : {
                         background:
-                          "linear-gradient(rgba(251, 245, 245, 0.374),transparent)",
+                          'linear-gradient(rgba(251, 245, 245, 0.374),transparent)'
                       }
                 }
                 onClick={() => {
-                  pageChangeFunc(pageNum);
+                  pageChangeFunc(pageNum)
                 }}
                 key={Math.random() * 10000 * i}
               >
                 {pageNum}
               </li>
-            );
+            )
           })}
         </ul>
         {/* 다음 페이지 이동 */}
@@ -114,8 +113,8 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
           onClick={nextPageFunc}
           style={
             currentPageNum === totalPages
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
           }
           className={styles.next_btn}
         >
@@ -124,12 +123,12 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
         {/* 마지막 페이지로 이동 */}
         <button
           onClick={() => {
-            setPage(totalPages);
+            setPage(totalPages)
           }}
           style={
             currentPageNum === totalPages
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
           }
           className={styles.prev_btn}
         >
@@ -137,7 +136,7 @@ const Pagination = ({ setPage, currentPageNum }: PaginationType) => {
         </button>
       </nav>
     </article>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

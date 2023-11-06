@@ -1,117 +1,113 @@
-import styles from "./DetailTaps.module.css";
-import { useState, useEffect, useCallback } from "react";
-import Similar from "../detail/detailTaps/Similar";
-import Review from "../detail/detailTaps/Review";
-import Cast from "../detail/detailTaps/Cast";
-import { API_KEY } from "../../pages/Home";
-import { baseSet } from "../../slice/movieSlice";
-import TopShift from "../movies/TopShift";
+import styles from './DetailTaps.module.css'
+import { type ReactElement, useState } from 'react'
+import Similar from '../detail/detailTaps/Similar'
+import Review from '../detail/detailTaps/Review'
+import Cast from '../detail/detailTaps/Cast'
+import { API_KEY } from '../../pages/HomePage'
+import { baseSet } from '../../store/slice/movieSlice'
+import TopShift from '../movies/TopShift'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 
 /** getApiData 가 각 자식 컴포넌트로 전달될 때 스크롤 시
  * 반복적으로 호출되는 문제가 있음. 원인을 찾아서 해결해야 함.
  */
 interface TapsTypes {
-  id: number;
+  id: number
 }
 
-const DetailTaps: React.FC<TapsTypes> = ({ id }) => {
+const DetailTaps = ({ id }: TapsTypes): ReactElement => {
   // 유사한 영화, 캐스트정보, 리뷰정보가 분기되어 getApiData에 할당됨.
-  const [getApiData, setGetApiData] = useState<any>("");
-  const [changeTapsData, setChangeTapsData] = useState("");
-  const [selectMenu] = useState(["비슷한 영화", "캐스트", "리뷰"]);
-  const [menuCount, setMenuCount] = useState(0);
+  const [changeTapsData, setChangeTapsData] = useState('similar')
+  const [selectIndex, setSelectIndex] = useState(0)
+  const [selectMenu] = useState(['similar', 'cast', 'reviews'])
 
-  //하단 탭스 클릭 시 해당 value를 api에 전달해주는 함수
-  const RespondToTabsChanges = useCallback(() => {
-    switch (menuCount) {
+  const switchTaps = (tapIndex: number): void => {
+    switch (tapIndex) {
       case 0: {
-        setChangeTapsData("similar");
-        break;
+        setChangeTapsData('similar')
+        return
       }
       case 1: {
-        setChangeTapsData("credits");
-        break;
+        setChangeTapsData('credits')
+        return
       }
       case 2: {
-        setChangeTapsData("reviews");
-        break;
+        setChangeTapsData('reviews')
       }
     }
-  }, [menuCount]);
+  }
+  const queryClient = useQueryClient()
+  const { data: getInfoByTaps, isLoading } = useQuery({
+    queryKey: ['taps', id, changeTapsData],
+    queryFn: async () => await getDetailTapsData(id, changeTapsData)
+  })
 
-  useEffect(() => {
-    RespondToTabsChanges();
-  }, [RespondToTabsChanges]);
+  const reRequestFromTmDb = (): void => {
+    queryClient
+      .invalidateQueries({ queryKey: ['taps', id, changeTapsData] })
+      .catch(console.error)
+  }
 
-  //세부적인 영화 정보에 대한 GET API 호출
-  const getDetailTapsData = useCallback(
-    async (value: string, language: string) => {
-      if (value !== "")
-        await baseSet
-          .get(
-            `/3/movie/${id}/${value}?api_key=${API_KEY}&language=${language}&page=1`
-          )
-          .then((response) => {
-            const getData = response.data;
-            return setGetApiData(getData);
-          })
-          .catch((error) => {
-            console.error("tapsError:", error);
-          });
-    },
-    [id]
-  );
-
-  // 각  tap 에 해당하는 API 데이터를 가져온다.
-  useEffect(() => {
-    if (changeTapsData !== undefined) {
-      console.log(changeTapsData)
-      if (changeTapsData === "reviews") getDetailTapsData("reviews", "en-US");
-      else {
-        getDetailTapsData(changeTapsData, "ko-KR");
-      }
+  const getDetailTapsData = async (
+    id: number,
+    value: string = 'similar'
+  ): Promise<any> => {
+    if (value !== '') {
+      const response = await baseSet.get(
+        `/3/movie/${id}/${value}?api_key=${API_KEY}&language=ko-KR&page=1`
+      )
+      return response.data
     }
-  }, [getDetailTapsData, changeTapsData]);
+  }
 
   return (
     <article className={styles.detail_taps}>
       <div className={styles.tap_menu}>
-        {selectMenu.map((count, i) => {
+        {selectMenu.map((menu, i) => {
           return (
             // 각 tap 버튼
             <button
               style={
-                selectMenu[menuCount] === count
+                selectMenu[selectIndex] === menu
                   ? {
-                      color: "white",
-                      fontSize: " 18px",
-                      backgroundColor: "rgb(229, 171, 12)",
+                      color: 'white',
+                      fontSize: ' 18px',
+                      backgroundColor: 'rgb(229, 171, 12)',
                       boxShadow:
-                        " #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0)",
+                        ' #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0)'
                     }
-                  : { backgroundColor: "transparent" }
+                  : { backgroundColor: 'transparent' }
               }
               className={styles.tap_btn}
-              key={count}
+              key={menu}
               onClick={() => {
-                const selectNum = [i];
-                let copy = [...selectNum];
-                return setMenuCount(copy[0]);
+                const selectIndex = i
+                setSelectIndex(i)
+                switchTaps(selectIndex)
+                setTimeout(() => {
+                  reRequestFromTmDb()
+                }, 100)
               }}
             >
-              {count}
+              {menu}
             </button>
-          );
+          )
         })}
       </div>
 
       {/* 디테일 페이지 화면 하단의 tap 영역 */}
-      {changeTapsData === "similar" ? <Similar apiData={getApiData} /> : null}
-      {changeTapsData === "credits" ? <Cast apiData={getApiData} /> : null}
-      {changeTapsData === "reviews" ? <Review apiData={getApiData} /> : null}
+      { !isLoading && changeTapsData === 'similar'
+        ? <Similar apiData={getInfoByTaps} />
+        : null}
+      { !isLoading && changeTapsData === 'credits'
+        ? <Cast apiData={getInfoByTaps} />
+        : null}
+      { !isLoading && changeTapsData === 'reviews'
+        ? <Review apiData={getInfoByTaps} />
+        : null}
       {/* 상단 이동 버튼 */}
       <TopShift />
     </article>
-  );
-};
-export default DetailTaps;
+  )
+}
+export default DetailTaps

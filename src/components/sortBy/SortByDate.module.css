@@ -25,7 +25,9 @@
   font-weight: bold;
   font-size: 22px;
   width: 100%;
-  text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
+  text-shadow:
+    1px 1px 10px yellow,
+    1px 1px 15px red;
 }
 
 #sortByDate_range_input {
@@ -38,7 +40,9 @@
 #sortByDate_range_input::-webkit-slider-runnable-track {
   background-color: rgb(238, 203, 89);
   border-radius: 5px;
-  box-shadow: 0 1px 5px yellow, 0 0 10px rgb(238, 61, 61);
+  box-shadow:
+    0 1px 5px yellow,
+    0 0 10px rgb(238, 61, 61);
 }
 
 #sortByDate_range_input::-webkit-slider-thumb {

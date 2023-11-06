@@ -29,13 +29,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 @keyframes appear {
-  from {opacity: 0;}
-  to {opacity: 1;}
-  
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ---------------------------컴포넌트------------------ */
-
 
 /* Pagination.tsx */
 .pagination {
@@ -76,10 +78,18 @@ body::-webkit-scrollbar-thumb {
   background-color: goldenrod;
   border: none;
   padding: 5px 11px 5px 11px;
-  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  -webkit-box-shadow:
+    #fff 0 -1px 4px,
+    #ff0 0 -2px 10px,
+    #ff8000 0 -10px 20px,
+    red 0 -18px 40px,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow:
+    #fff 0 -1px 4px,
+    #ff0 0 -2px 10px,
+    #ff8000 0 -10px 20px,
+    red 0 -18px 40px,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 /* -------------------외부 패키지 컴포넌트 --------------
@@ -104,14 +114,12 @@ body::-webkit-scrollbar-thumb {
   margin-right: 10px;
 }
 
-
 /*--------------------- media query 영역 -------------*/
 
 @media all and (max-width: 450px) {
   .slide_title {
     padding-bottom: 3px;
   }
- 
 }
 
 @media all and (max-width: 360px) {

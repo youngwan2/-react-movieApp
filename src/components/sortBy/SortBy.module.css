@@ -15,7 +15,9 @@
   color: white;
   padding-bottom: 0.3rem;
   font-size: 22px;
-  text-shadow: 1px 1px 10px yellow,1px 1px 15px red;
+  text-shadow:
+    1px 1px 10px yellow,
+    1px 1px 15px red;
 }
 
 .sort_by_select {
@@ -32,6 +34,8 @@
 }
 
 .sort_by_select:hover {
-  box-shadow: 0 0 0 0, 200px 0px 0px black inset;
+  box-shadow:
+    0 0 0 0,
+    200px 0px 0px black inset;
   color: rgb(255, 0, 64);
 }
